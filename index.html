@@ -6,7 +6,7 @@
 <title>EquiNutrición — Nutrición del Caballo Chileno</title>
 <meta name="description" content="Sabe exactamente cuánto darle de comer a tu caballo. App instalable, planes desde gratis.">
 <link rel="canonical" href="https://equinutricion.cl/">
-<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="app-logo.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://equinutricion.cl/">
 <meta property="og:title" content="EquiNutrición — Nutrición del Caballo Chileno">
@@ -67,11 +67,10 @@
   nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:60px; }
   .brand{ display:flex; align-items:center; gap:8px; font-family:'Bitter',serif; font-weight:700; font-size:17px; }
   .brand-mark{
-    width:24px; height:24px; border-radius:50%;
-    background:var(--sage-deep);
+    width:26px; height:26px; border-radius:8px; overflow:hidden; flex-shrink:0;
     display:flex; align-items:center; justify-content:center;
-    color:#fff; font-size:11px; font-family:'IBM Plex Mono',monospace; font-weight:600;
   }
+  .brand-mark img{ width:100%; height:100%; object-fit:cover; display:block; }
   .navlinks{ display:flex; gap:26px; font-size:14px; font-weight:500; }
   .navlinks a{ text-decoration:none; opacity:0.75; transition:opacity .15s; }
   .navlinks a:hover{ opacity:1; }
@@ -306,7 +305,7 @@
 
 <nav>
   <div class="wrap">
-    <div class="brand"><span class="brand-mark">EN</span>EquiNutrición</div>
+    <div class="brand"><span class="brand-mark"><img src="app-logo.png" alt="EquiNutrición"></span>EquiNutrición</div>
     <div class="navlinks">
       <a href="#motor">Cómo funciona</a>
       <a href="#planes">Planes</a>
@@ -508,7 +507,7 @@
 
 <footer>
   <div class="wrap">
-    <div class="brand"><span class="brand-mark">EN</span>EquiNutrición</div>
+    <div class="brand"><span class="brand-mark"><img src="app-logo.png" alt="EquiNutrición"></span>EquiNutrición</div>
     <span>Nutrición del Caballo Chileno</span>
     <div class="footer-social">
       <a href="https://www.facebook.com/equinutricion.cl" target="_blank" rel="noopener" aria-label="EquiNutrición en Facebook">
