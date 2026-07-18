@@ -7,6 +7,7 @@
 <meta name="description" content="Sabe exactamente cuánto darle de comer a tu caballo. App instalable, planes desde gratis.">
 <link rel="canonical" href="https://equinutricion.cl/">
 <link rel="icon" type="image/png" href="app-logo.png">
+<link rel="apple-touch-icon" href="app-logo.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://equinutricion.cl/">
 <meta property="og:title" content="EquiNutrición — Nutrición del Caballo Chileno">
@@ -145,6 +146,12 @@
   }
   .cc-demo h3{ font-size:19px; margin-bottom:4px; }
   .cc-demo p{ font-size:14px; color:var(--ink-soft); margin-bottom:20px; }
+  .cc-field{ margin-bottom:14px; }
+  .cc-field label{
+    display:flex; justify-content:space-between; font-size:13px; font-weight:600; color:var(--ink);
+  }
+  .cc-field label span{ font-family:'IBM Plex Mono',monospace; font-weight:600; color:var(--sage-deep); }
+  .cc-field input[type=range]{ margin:8px 0 0; }
   .cc-readout{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px; }
   .cc-readout .num{ font-family:'IBM Plex Mono',monospace; font-size:34px; font-weight:600; color:var(--sage-deep); }
   .cc-readout .label{ font-size:13px; text-align:right; color:var(--ink-soft); }
@@ -218,6 +225,23 @@
   }
   .feat h3{ font-size:16.5px; margin-bottom:6px; }
   .feat p{ font-size:14px; color:var(--ink-soft); }
+
+  /* ===== TUTORIAL ===== */
+  .tutorial{ background:var(--bg); }
+  .tut-grid{ display:grid; grid-template-columns:1fr; gap:16px; }
+  @media (min-width:560px){ .tut-grid{ grid-template-columns:1fr 1fr; } }
+  @media (min-width:900px){ .tut-grid{ grid-template-columns:repeat(4,1fr); } }
+  .tut-step{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:22px 20px; }
+  .tut-num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:30px; height:30px; border-radius:50%;
+    background:var(--sage-deep); color:#fff;
+    font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:14px;
+    margin-bottom:14px;
+  }
+  .tut-step h3{ font-size:16.5px; margin-bottom:6px; }
+  .tut-step p{ font-size:14px; color:var(--ink-soft); }
+  .tut-cta{ text-align:center; margin-top:32px; }
 
   /* ===== HOW IT WORKS ===== */
   .engine .wrap{ display:grid; grid-template-columns:1fr; gap:32px; }
@@ -300,6 +324,67 @@
   .reveal{ opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease; }
   .reveal.in{ opacity:1; transform:none; }
 </style>
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VNEW99D2ND"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VNEW99D2ND');
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EquiNutrición",
+  "url": "https://equinutricion.cl/",
+  "logo": "https://equinutricion.cl/app-logo.png",
+  "sameAs": [
+    "https://www.facebook.com/equinutricion.cl",
+    "https://www.instagram.com/equinutricion.cl"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+56-9-3267-3835",
+    "contactType": "customer service",
+    "areaServed": "CL",
+    "availableLanguage": "Spanish"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "EquiNutrición",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web, Android, iOS",
+  "url": "https://equinutricion.cl/",
+  "description": "App instalable que calcula la ración diaria de tu caballo según peso, trabajo y condición corporal.",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Plan Gratis",
+      "price": "0",
+      "priceCurrency": "CLP"
+    },
+    {
+      "@type": "Offer",
+      "name": "Premium mensual",
+      "price": "4000",
+      "priceCurrency": "CLP"
+    },
+    {
+      "@type": "Offer",
+      "name": "Premium anual",
+      "price": "35000",
+      "priceCurrency": "CLP"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -307,24 +392,26 @@
   <div class="wrap">
     <div class="brand"><span class="brand-mark"><img src="app-logo.png" alt="EquiNutrición"></span>EquiNutrición</div>
     <div class="navlinks">
+      <a href="#tutorial">Tutorial</a>
       <a href="#motor">Cómo funciona</a>
       <a href="#planes">Planes</a>
       <a href="#servicio">Servicio experto</a>
       <a href="#contacto">Contacto</a>
     </div>
     <div class="nav-actions">
-      <a class="nav-cta" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener">Abrir la app</a>
+      <a class="nav-cta" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="nav">Abrir la app</a>
       <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
     </div>
   </div>
   <div class="mobile-menu" id="mobileMenu">
+    <a href="#tutorial">Tutorial</a>
     <a href="#motor">Cómo funciona</a>
     <a href="#planes">Planes</a>
     <a href="#servicio">Servicio experto</a>
     <a href="#contacto">Contacto</a>
-    <a href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener">Abrir la app</a>
+    <a href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="mobile_menu">Abrir la app</a>
   </div>
 </nav>
 
@@ -335,30 +422,44 @@
       <h1>Sabe exactamente <em>cuánto</em> darle de comer a tu caballo.</h1>
       <p class="lede">Le cuentas el peso, cuánto trabaja y cómo se ve tu caballo — la app te arma la ración del día, sin cálculos a ojo ni reglas heredadas.</p>
       <div class="hero-ctas">
-        <a class="btn-primary" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener">Abrir la app gratis</a>
-        <a class="btn-secondary" href="#planes">Ver planes</a>
+        <a class="btn-primary" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="hero">Abrir la app gratis</a>
+        <a class="btn-secondary" href="#planes" data-track="ver_planes" data-track-loc="hero">Ver planes</a>
       </div>
       <div class="hero-note">Sin registro, sin tarjeta ni App Store. Instala directo desde tu navegador.</div>
     </div>
 
     <div class="cc-demo">
-      <h3>¿Cómo se ve tu caballo hoy?</h3>
-      <p>Mueve el control y mira cómo cambia la ración de un caballo de 400 kg.</p>
+      <h3>Arma la ración de tu caballo</h3>
+      <p>Ingresa sus datos y mira cómo cambia la ración estimada, en vivo.</p>
+
+      <div class="cc-field">
+        <label for="ccWeight">Peso <span id="ccWeightVal">400 kg</span></label>
+        <input type="range" min="250" max="600" step="10" value="400" id="ccWeight" aria-label="Peso del caballo en kilos">
+      </div>
+      <div class="cc-field">
+        <label for="ccWork">Días de trabajo por semana <span id="ccWorkVal">3</span></label>
+        <input type="range" min="0" max="7" step="1" value="3" id="ccWork" aria-label="Días de trabajo a la semana">
+      </div>
+
       <div class="mockup">
         <div class="mockup-header"><span></span><span></span><span></span></div>
         <div class="mockup-title">Resumen de ración</div>
         <div class="mockup-item"><span>Heno de alfalfa</span><strong id="mHeno">4.2 kg</strong></div>
         <div class="mockup-item"><span>Avena</span><strong id="mAvena">1.0 kg</strong></div>
         <div class="mockup-item"><span>Suplemento</span><strong>120 g</strong></div>
-        <div class="mockup-footer">2 comidas · ajuste dinámico</div>
+        <div class="mockup-footer"><span id="mComidas">2 comidas</span> · ajuste dinámico</div>
       </div>
       <div class="cc-readout">
         <span class="num" id="ccPct">+0%</span>
         <span class="label">sobre<br><b id="ccLabelBig">su ración normal</b></span>
       </div>
-      <input type="range" min="1" max="9" value="5" id="ccSlider" aria-label="Qué tan delgado o pasado de peso está el caballo, de 1 a 9">
+      <div class="cc-field">
+        <label for="ccSlider">Condición corporal</label>
+        <input type="range" min="1" max="9" value="5" id="ccSlider" aria-label="Qué tan delgado o pasado de peso está el caballo, de 1 a 9">
+      </div>
       <div class="cc-scale"><span>flaco</span><span></span><span></span><span></span><span>ideal</span><span></span><span></span><span></span><span>pasado</span></div>
       <span class="cc-tag" id="ccTag">En su peso — ración normal</span>
+      <p style="font-size:11.5px; color:var(--ink-soft); opacity:0.75; margin-top:12px; margin-bottom:0;">Estimación referencial. La app calcula el detalle completo con más factores.</p>
     </div>
   </div>
 </header>
@@ -377,6 +478,41 @@
       <div class="feat"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 20.2L3.8 13.7a4.6 4.6 0 116.5-6.5l6.5 6.5a4.6 4.6 0 01-6.5 6.5z"/><line x1="8" y1="8.3" x2="15.7" y2="16"/></svg></div><h3>Suplementos</h3><p>Nombre, marca, dosis y cuándo dárselos — todo anotado en un solo lugar.</p></div>
       <div class="feat"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9.5" width="4" height="5" rx="1.2"/><rect x="18" y="9.5" width="4" height="5" rx="1.2"/><path d="M6 12h2M16 12h2"/><rect x="8" y="10.5" width="8" height="3" rx="1"/></svg></div><h3>Peso</h3><p>Historial con gráfico, medición con huincha y recordatorio cada 30 días.</p></div>
       <div class="feat"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V4.5"/><path d="M12 6.5l-3-2M12 6.5l3-2M12 9.5l-3-2M12 9.5l3-2M12 12.5l-3-2M12 12.5l3-2M12 15.5l-3-2M12 15.5l3-2"/></svg></div><h3>Alimentos</h3><p>Lista editable de alimentos — agrega los tuyos si no están.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="tutorial" id="tutorial">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tagline">Tutorial</span>
+      <h2>Así se usa, de principio a fin.</h2>
+      <p>Cuatro pasos y ya tienes la ración de tu caballo lista para hoy.</p>
+    </div>
+    <div class="tut-grid">
+      <div class="tut-step">
+        <span class="tut-num">1</span>
+        <h3>Agrega tu caballo</h3>
+        <p>Nombre, foto y datos básicos. Un caballo o toda la caballeriza.</p>
+      </div>
+      <div class="tut-step">
+        <span class="tut-num">2</span>
+        <h3>Ingresa peso y trabajo</h3>
+        <p>Cuánto pesa y cuántos días a la semana lo ensillas.</p>
+      </div>
+      <div class="tut-step">
+        <span class="tut-num">3</span>
+        <h3>Marca su condición corporal</h3>
+        <p>Flaco, ideal o pasado de peso — con la escala visual de 1 a 9.</p>
+      </div>
+      <div class="tut-step">
+        <span class="tut-num">4</span>
+        <h3>Recibe la ración del día</h3>
+        <p>Heno, concentrado y suplementos, ya divididos en las comidas que configures.</p>
+      </div>
+    </div>
+    <div class="tut-cta">
+      <a class="btn-primary" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="tutorial">Probar los 4 pasos ahora</a>
     </div>
   </div>
 </section>
@@ -412,7 +548,7 @@
       <h2 style="margin-bottom:18px;">No es una calculadora genérica.</h2>
       <p>La app junta tres cosas para armar la ración: <strong>cuánto pesa</strong> tu caballo, <strong>cuánto trabaja</strong> (días ensillado por semana) y si está <strong>preñada o en lactancia</strong>, si corresponde.</p>
       <p>Después mira cómo está de condición corporal y ajusta solo: si está flaco, le sube la ración hasta un 20%; si está pasado de peso, se la baja hasta un 20% y le restringe el concentrado a la mitad. Todo automático, cada vez que le tomas el peso.</p>
-      <a class="btn-secondary" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener">Probar con tu caballo</a>
+      <a class="btn-secondary" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="motor">Probar con tu caballo</a>
     </div>
     <div class="ledger reveal">
       <div class="ledger-head">Ejemplo — caballo de 420 kg, trabaja 3 días a la semana</div>
@@ -443,7 +579,7 @@
           <li>Suplementos y exportación PDF/PNG</li>
           <li>Funciona offline después de instalarse</li>
         </ul>
-        <a class="plan-cta" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener">Empezar gratis</a>
+        <a class="plan-cta" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="plan_gratis">Empezar gratis</a>
       </div>
       <div class="plan">
         <h3>Premium mensual</h3>
@@ -455,7 +591,7 @@
           <li>Activación por código vía WhatsApp</li>
           <li>Soporte directo y rápido</li>
         </ul>
-        <a class="plan-cta" href="https://wa.me/56932673835?text=Hola%2C%20quiero%20activar%20Premium%20mensual%20en%20EquiNutrici%C3%B3n" target="_blank" rel="noopener">Activar por WhatsApp</a>
+        <a class="plan-cta" href="https://wa.me/56932673835?text=Hola%2C%20quiero%20activar%20Premium%20mensual%20en%20EquiNutrici%C3%B3n" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="plan_mensual">Activar por WhatsApp</a>
       </div>
       <div class="plan featured">
         <h3>Premium anual</h3>
@@ -467,7 +603,7 @@
           <li>Activación por código vía WhatsApp</li>
           <li>Mejor costo por caballo</li>
         </ul>
-        <a class="plan-cta" href="https://wa.me/56932673835?text=Hola%2C%20quiero%20activar%20Premium%20anual%20en%20EquiNutrici%C3%B3n" target="_blank" rel="noopener">Activar por WhatsApp</a>
+        <a class="plan-cta" href="https://wa.me/56932673835?text=Hola%2C%20quiero%20activar%20Premium%20anual%20en%20EquiNutrici%C3%B3n" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="plan_anual">Activar por WhatsApp</a>
       </div>
     </div>
   </div>
@@ -479,7 +615,7 @@
       <span class="badge">Servicio experto</span>
       <h3>Si prefieres que lo vea directamente el experto</h3>
       <p>Mínimo 1 collera. Trabajo contigo directo, no solo a través de la app.</p>
-      <a class="btn-primary" href="https://wa.me/56932673835?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20del%20servicio%20experto" target="_blank" rel="noopener">Conversemos por WhatsApp</a>
+      <a class="btn-primary" href="https://wa.me/56932673835?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20del%20servicio%20experto" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="servicio_experto">Conversemos por WhatsApp</a>
     </div>
     <div>
       <div class="fs-steps">
@@ -501,7 +637,7 @@
   <div class="wrap">
     <h2>¿Con cuántos caballos partimos?</h2>
     <p>Escríbeme directo por WhatsApp — activo tu Premium o conversamos del servicio experto el mismo día.</p>
-    <a class="btn-primary" href="https://wa.me/56932673835" target="_blank" rel="noopener">Escribir al +56 9 3267 3835</a>
+    <a class="btn-primary" href="https://wa.me/56932673835" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="cta_final">Escribir al +56 9 3267 3835</a>
   </div>
 </section>
 
@@ -532,15 +668,34 @@
     navToggle.setAttribute('aria-expanded', 'false');
   }));
 
+  document.querySelectorAll('[data-track]').forEach(el => {
+    el.addEventListener('click', () => {
+      if (typeof gtag === 'function') {
+        gtag('event', el.dataset.track, { event_category: 'cta', event_label: el.dataset.trackLoc || '' });
+      }
+    });
+  });
+
   const slider = document.getElementById('ccSlider');
+  const weightSlider = document.getElementById('ccWeight');
+  const workSlider = document.getElementById('ccWork');
   const pct = document.getElementById('ccPct');
   const tag = document.getElementById('ccTag');
   const big = document.getElementById('ccLabelBig');
   const mHeno = document.getElementById('mHeno');
   const mAvena = document.getElementById('mAvena');
-  const BASE_HENO = 4.2, BASE_AVENA = 1.0;
+  const mComidas = document.getElementById('mComidas');
+  const weightVal = document.getElementById('ccWeightVal');
+  const workVal = document.getElementById('ccWorkVal');
+
   function update(){
+    const weight = parseInt(weightSlider.value,10);
+    const workDays = parseInt(workSlider.value,10);
     const v = parseInt(slider.value,10);
+
+    weightVal.textContent = weight + ' kg';
+    workVal.textContent = workDays;
+
     let adj = 0, desc = 'En su peso — ración normal';
     if(v<=3){ adj = 20 - (v-1)*5; desc = 'Flaco — se le sube la ración'; }
     else if(v>=7){ adj = -(10 + (v-7)*5); desc = 'Pasado de peso — menos concentrado'; }
@@ -549,12 +704,21 @@
     pct.style.color = adj>0 ? 'var(--clay-deep)' : (adj<0 ? 'var(--sage-deep)' : 'var(--ink)');
     tag.textContent = desc;
     big.textContent = adj===0 ? 'su ración normal' : (adj>0 ? 'más ración' : 'menos ración');
-    const heno = BASE_HENO * (1 + adj/100);
-    const avena = adj < 0 ? BASE_AVENA * 0.5 : BASE_AVENA * (1 + adj/100);
+
+    const workPct = workDays * 3;
+    const henoBase = weight * 0.015;
+    const avenaBase = weight * 0.0025 + weight * 0.0015 * (workDays / 7);
+
+    const heno = henoBase * (1 + adj/100);
+    const avena = adj < 0 ? avenaBase * 0.5 : avenaBase * (1 + (adj + workPct)/100);
+
     mHeno.textContent = heno.toFixed(1) + ' kg';
     mAvena.textContent = avena.toFixed(1) + ' kg';
+    mComidas.textContent = (workDays >= 5 ? 4 : (v <= 3 ? 3 : 2)) + ' comidas';
   }
   slider.addEventListener('input', update);
+  weightSlider.addEventListener('input', update);
+  workSlider.addEventListener('input', update);
   update();
 
   const obs = new IntersectionObserver((entries)=>{
