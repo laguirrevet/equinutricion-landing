@@ -211,16 +211,46 @@
 
   /* ===== WEIGHT CALCULATOR ===== */
   .weight-calc{ background:var(--bg); }
-  .wc-grid{ display:grid; grid-template-columns:1fr; gap:24px; }
-  @media (min-width:900px){ .wc-grid{ grid-template-columns:0.9fr 1.1fr; gap:48px; align-items:start; } }
   .wc-card{
-    background:var(--sage-tint);
-    border:1px solid rgba(113,144,106,0.25);
-    border-radius:16px;
-    padding:26px 22px 24px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:28px 24px 26px;
+    max-width:600px;
+    margin:0 auto;
   }
-  .wc-steps{ display:grid; gap:14px; }
-  .wc-steps .fs-step h4{ display:flex; align-items:center; gap:8px; }
+  .wc-warning{
+    display:flex; gap:12px; align-items:flex-start;
+    background:var(--bg-alt); border-left:3px solid var(--sage-deep);
+    border-radius:10px; padding:14px 16px; margin-bottom:24px;
+  }
+  .wc-warning svg{ flex-shrink:0; width:20px; height:20px; margin-top:2px; color:var(--sage-deep); }
+  .wc-warning strong{ display:block; font-size:13.5px; margin-bottom:2px; color:var(--ink); }
+  .wc-warning p{ font-size:13px; color:var(--ink-soft); line-height:1.5; }
+  .wc-field{ margin-bottom:20px; }
+  .wc-field label{ display:block; font-size:14px; font-weight:600; color:var(--ink); margin-bottom:4px; }
+  .wc-help{ font-size:12.5px; color:var(--ink-soft); line-height:1.5; margin-bottom:8px; }
+  .wc-field input[type=number]{
+    width:100%; padding:13px 14px; border:1.5px solid var(--line); border-radius:10px;
+    font-family:'IBM Plex Mono',monospace; font-size:19px; font-weight:600; color:var(--ink);
+    background:#fff; transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  .wc-field input[type=number]:focus{
+    outline:none; border-color:var(--sage-deep); box-shadow:0 0 0 3px rgba(37,196,144,0.15);
+  }
+  .wc-result{
+    background:linear-gradient(135deg, var(--sage-deep), var(--sage));
+    border-radius:16px; padding:24px 20px; text-align:center; color:#fff;
+    margin:24px 0 20px;
+    transition:transform .18s ease;
+  }
+  .wc-result.pulse{ transform:scale(1.035); }
+  .wc-result-label{
+    display:block; font-size:12.5px; font-weight:600; letter-spacing:0.05em;
+    text-transform:uppercase; opacity:0.88; margin-bottom:6px;
+  }
+  .wc-result-num{ display:block; font-family:'IBM Plex Mono',monospace; font-size:46px; font-weight:700; line-height:1.1; }
+  .wc-result-note{ display:block; font-size:12px; opacity:0.85; margin-top:8px; }
 
   /* ===== FEATURES ===== */
   .features{ background:var(--bg-alt); }
@@ -483,37 +513,33 @@
       <h2>Calcula el peso de tu caballo con una huincha</h2>
       <p>Sin balanza ni báscula de camión. Con dos medidas y 30 segundos tienes una estimación confiable — la misma fórmula que usan las cintas de peso ("weight tapes") de uso veterinario.</p>
     </div>
-    <div class="wc-grid">
-      <div class="wc-card">
-        <div class="cc-field">
-          <label for="wcGirth">Perímetro torácico <span id="wcGirthVal">180 cm</span></label>
-          <input type="range" min="120" max="220" step="1" value="180" id="wcGirth" aria-label="Perímetro torácico en centímetros">
-        </div>
-        <div class="cc-field">
-          <label for="wcLength">Largo corporal <span id="wcLengthVal">150 cm</span></label>
-          <input type="range" min="90" max="190" step="1" value="150" id="wcLength" aria-label="Largo corporal en centímetros">
-        </div>
-        <div class="cc-readout">
-          <span class="num" id="wcWeight">408 kg</span>
-          <span class="label">peso<br><b>estimado</b></span>
-        </div>
-        <a class="btn-primary" style="width:100%; margin-top:6px;" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="calculadora_peso">Usar este peso en la app</a>
-        <p style="font-size:11.5px; color:var(--ink-soft); opacity:0.75; margin-top:14px; margin-bottom:0;">Estimación referencial (±10%). No reemplaza una pesa real, pero sirve perfecto para armar la ración.</p>
-      </div>
-      <div class="wc-steps">
-        <div class="fs-step">
-          <h4>1. Perímetro torácico</h4>
-          <p>Rodea el tórax con la huincha justo detrás de la cruz y las patas delanteras. Ajustada pero sin apretar, y con el caballo respirando normal (no justo después de inhalar).</p>
-        </div>
-        <div class="fs-step">
-          <h4>2. Largo corporal</h4>
-          <p>Mide en línea recta desde la punta del hombro (articulación escápulo-humeral) hasta el punto más atrás del anca (punta del isquion).</p>
-        </div>
-        <div class="fs-step">
-          <h4>3. Ojo con la postura</h4>
-          <p>El caballo debe estar parado derecho sobre terreno plano, con las cuatro patas apoyadas parejo y la cabeza relajada, no levantada.</p>
+    <div class="wc-card">
+      <div class="wc-warning">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 16.5h.01"/><path d="M10.3 3.9L2.7 17a1.8 1.8 0 001.55 2.7h15.5A1.8 1.8 0 0021.3 17L13.7 3.9a1.8 1.8 0 00-3.4 0z"/></svg>
+        <div>
+          <strong>Antes de medir</strong>
+          <p>El caballo debe estar parado derecho sobre terreno plano, con las cuatro patas apoyadas parejo y la cabeza relajada — no levantada.</p>
         </div>
       </div>
+
+      <div class="wc-field">
+        <label for="wcGirth">Perímetro torácico (cm)</label>
+        <p class="wc-help">Rodea el tórax con la huincha justo detrás de la cruz y las patas delanteras. Ajustada pero sin apretar, con el caballo respirando normal.</p>
+        <input type="number" inputmode="decimal" min="80" max="260" step="1" value="180" id="wcGirth" aria-label="Perímetro torácico en centímetros">
+      </div>
+      <div class="wc-field">
+        <label for="wcLength">Largo corporal (cm)</label>
+        <p class="wc-help">En línea recta, desde la punta del hombro (articulación escápulo-humeral) hasta la punta del anca (isquion).</p>
+        <input type="number" inputmode="decimal" min="60" max="220" step="1" value="150" id="wcLength" aria-label="Largo corporal en centímetros">
+      </div>
+
+      <div class="wc-result" id="wcResult">
+        <span class="wc-result-label">Peso estimado</span>
+        <span class="wc-result-num" id="wcWeight">408 kg</span>
+        <span class="wc-result-note">±10% de margen — no reemplaza una pesa real</span>
+      </div>
+
+      <a class="btn-primary" style="width:100%;" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="calculadora_peso">Usar este peso en la app</a>
     </div>
   </div>
 </section>
@@ -777,17 +803,22 @@
 
   const wcGirth = document.getElementById('wcGirth');
   const wcLength = document.getElementById('wcLength');
-  const wcGirthVal = document.getElementById('wcGirthVal');
-  const wcLengthVal = document.getElementById('wcLengthVal');
+  const wcResult = document.getElementById('wcResult');
   const wcWeight = document.getElementById('wcWeight');
+  let wcPulseTimeout;
 
   function updateWeightCalc(){
-    const girth = parseInt(wcGirth.value, 10);
-    const length = parseInt(wcLength.value, 10);
-    wcGirthVal.textContent = girth + ' cm';
-    wcLengthVal.textContent = length + ' cm';
+    const girth = parseFloat(wcGirth.value);
+    const length = parseFloat(wcLength.value);
+    if(!girth || !length || girth <= 0 || length <= 0){
+      wcWeight.textContent = '— kg';
+      return;
+    }
     const weight = (girth * girth * length) / 11900;
     wcWeight.textContent = Math.round(weight) + ' kg';
+    wcResult.classList.add('pulse');
+    clearTimeout(wcPulseTimeout);
+    wcPulseTimeout = setTimeout(() => wcResult.classList.remove('pulse'), 180);
   }
   wcGirth.addEventListener('input', updateWeightCalc);
   wcLength.addEventListener('input', updateWeightCalc);
