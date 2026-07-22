@@ -209,6 +209,19 @@
   .section-head h2{ font-size:clamp(24px,5vw,34px); line-height:1.18; letter-spacing:-0.02em; }
   .section-head p{ margin-top:12px; font-size:15.5px; color:var(--ink-soft); }
 
+  /* ===== WEIGHT CALCULATOR ===== */
+  .weight-calc{ background:var(--bg); }
+  .wc-grid{ display:grid; grid-template-columns:1fr; gap:24px; }
+  @media (min-width:900px){ .wc-grid{ grid-template-columns:0.9fr 1.1fr; gap:48px; align-items:start; } }
+  .wc-card{
+    background:var(--sage-tint);
+    border:1px solid rgba(113,144,106,0.25);
+    border-radius:16px;
+    padding:26px 22px 24px;
+  }
+  .wc-steps{ display:grid; gap:14px; }
+  .wc-steps .fs-step h4{ display:flex; align-items:center; gap:8px; }
+
   /* ===== FEATURES ===== */
   .features{ background:var(--bg-alt); }
   .feat-grid{ display:grid; grid-template-columns:1fr; gap:14px; }
@@ -389,6 +402,7 @@
   <div class="wrap">
     <div class="brand"><span class="brand-mark"><img src="app-logo.png" alt="EquiNutrición"></span>EquiNutrición</div>
     <div class="navlinks">
+      <a href="#peso">Calculadora de peso</a>
       <a href="#tutorial">Tutorial</a>
       <a href="#motor">Cómo funciona</a>
       <a href="#planes">Planes</a>
@@ -403,6 +417,7 @@
     </div>
   </div>
   <div class="mobile-menu" id="mobileMenu">
+    <a href="#peso">Calculadora de peso</a>
     <a href="#tutorial">Tutorial</a>
     <a href="#motor">Cómo funciona</a>
     <a href="#planes">Planes</a>
@@ -460,6 +475,48 @@
     </div>
   </div>
 </header>
+
+<section class="weight-calc" id="peso">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tagline">Gratis, sin instalar nada</span>
+      <h2>Calcula el peso de tu caballo con una huincha</h2>
+      <p>Sin balanza ni báscula de camión. Con dos medidas y 30 segundos tienes una estimación confiable — la misma fórmula que usan las cintas de peso ("weight tapes") de uso veterinario.</p>
+    </div>
+    <div class="wc-grid">
+      <div class="wc-card">
+        <div class="cc-field">
+          <label for="wcGirth">Perímetro torácico <span id="wcGirthVal">180 cm</span></label>
+          <input type="range" min="120" max="220" step="1" value="180" id="wcGirth" aria-label="Perímetro torácico en centímetros">
+        </div>
+        <div class="cc-field">
+          <label for="wcLength">Largo corporal <span id="wcLengthVal">150 cm</span></label>
+          <input type="range" min="90" max="190" step="1" value="150" id="wcLength" aria-label="Largo corporal en centímetros">
+        </div>
+        <div class="cc-readout">
+          <span class="num" id="wcWeight">408 kg</span>
+          <span class="label">peso<br><b>estimado</b></span>
+        </div>
+        <a class="btn-primary" style="width:100%; margin-top:6px;" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="calculadora_peso">Usar este peso en la app</a>
+        <p style="font-size:11.5px; color:var(--ink-soft); opacity:0.75; margin-top:14px; margin-bottom:0;">Estimación referencial (±10%). No reemplaza una pesa real, pero sirve perfecto para armar la ración.</p>
+      </div>
+      <div class="wc-steps">
+        <div class="fs-step">
+          <h4>1. Perímetro torácico</h4>
+          <p>Rodea el tórax con la huincha justo detrás de la cruz y las patas delanteras. Ajustada pero sin apretar, y con el caballo respirando normal (no justo después de inhalar).</p>
+        </div>
+        <div class="fs-step">
+          <h4>2. Largo corporal</h4>
+          <p>Mide en línea recta desde la punta del hombro (articulación escápulo-humeral) hasta el punto más atrás del anca (punta del isquion).</p>
+        </div>
+        <div class="fs-step">
+          <h4>3. Ojo con la postura</h4>
+          <p>El caballo debe estar parado derecho sobre terreno plano, con las cuatro patas apoyadas parejo y la cabeza relajada, no levantada.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="features">
   <div class="wrap">
@@ -717,6 +774,24 @@
   weightSlider.addEventListener('input', update);
   workSlider.addEventListener('input', update);
   update();
+
+  const wcGirth = document.getElementById('wcGirth');
+  const wcLength = document.getElementById('wcLength');
+  const wcGirthVal = document.getElementById('wcGirthVal');
+  const wcLengthVal = document.getElementById('wcLengthVal');
+  const wcWeight = document.getElementById('wcWeight');
+
+  function updateWeightCalc(){
+    const girth = parseInt(wcGirth.value, 10);
+    const length = parseInt(wcLength.value, 10);
+    wcGirthVal.textContent = girth + ' cm';
+    wcLengthVal.textContent = length + ' cm';
+    const weight = (girth * girth * length) / 11900;
+    wcWeight.textContent = Math.round(weight) + ' kg';
+  }
+  wcGirth.addEventListener('input', updateWeightCalc);
+  wcLength.addEventListener('input', updateWeightCalc);
+  updateWeightCalc();
 
   const obs = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
