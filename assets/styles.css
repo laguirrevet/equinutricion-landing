@@ -176,7 +176,7 @@ section{ padding:64px 0; }
 .hero-bg{ position:absolute; inset:0; z-index:0; }
 .hero-bg::before{
   content:""; position:absolute; inset:0;
-  background:url('images/hero-caballo.jpg') center 30%/cover no-repeat;
+  background:url('../images/hero-caballo.jpg') center 30%/cover no-repeat;
   transform:scale(1.04);
   animation:kenburns 26s ease-in-out infinite alternate;
 }
@@ -409,7 +409,7 @@ section{ padding:64px 0; }
 
 /* ===== CTA FINAL ===== */
 .cta-final{ position:relative; text-align:center; overflow:hidden; background:var(--dark); }
-.cta-final .cta-bg{ position:absolute; inset:0; z-index:0; background:url('images/cta-caballo.jpg') center 35%/cover no-repeat; }
+.cta-final .cta-bg{ position:absolute; inset:0; z-index:0; background:url('../images/cta-caballo.jpg') center 35%/cover no-repeat; }
 .cta-final::after{ content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(90deg, rgba(16,26,21,0.88), rgba(16,26,21,0.66)); }
 .cta-final .wrap{ position:relative; z-index:2; }
 .cta-final h2{ color:#fff; font-size:clamp(26px,5vw,38px); margin-bottom:14px; }
