@@ -3,24 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');</script>
 <title>EquiNutrición — Nutrición del Caballo Chileno</title>
-<meta name="description" content="Sabe exactamente cuánto darle de comer a tu caballo. App instalable, planes desde gratis.">
+<meta name="description" content="Tú pones el objetivo, la nutrición la ponemos nosotros. La app calcula la ración diaria exacta de tu caballo chileno para su salud y rendimiento. Gratis, instalable.">
 <link rel="canonical" href="https://equinutricion.cl/">
 <link rel="icon" type="image/png" href="app-logo.png">
 <link rel="apple-touch-icon" href="app-logo.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://equinutricion.cl/">
 <meta property="og:title" content="EquiNutrición — Nutrición del Caballo Chileno">
-<meta property="og:description" content="Sabe exactamente cuánto darle de comer a tu caballo. App instalable, planes desde gratis.">
+<meta property="og:description" content="Tú pones el objetivo, la nutrición la ponemos nosotros. Ración diaria exacta para la salud y el rendimiento de tu caballo chileno.">
 <meta property="og:image" content="https://equinutricion.cl/og-image.png">
 <meta property="og:locale" content="es_CL">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="EquiNutrición — Nutrición del Caballo Chileno">
-<meta name="twitter:description" content="Sabe exactamente cuánto darle de comer a tu caballo. App instalable, planes desde gratis.">
+<meta name="twitter:description" content="Tú pones el objetivo, la nutrición la ponemos nosotros. Ración diaria exacta para tu caballo chileno.">
 <meta name="twitter:image" content="https://equinutricion.cl/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#FAF7F0;
@@ -31,194 +32,180 @@
     --ink:#3C362C;
     --ink-soft:#736A58;
     --line: rgba(60,54,44,0.12);
-    --radius: 10px;
+    --wa:#25D366;
+    --wa-deep:#1EBE5B;
+    --dark:#101A15;
+    --radius: 12px;
+    --shadow-soft: 0 18px 44px rgba(60,70,50,0.10);
+    --shadow-card: 0 24px 60px rgba(40,55,42,0.16);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{
     background:var(--bg);
     color:var(--ink);
-    font-family:'Work Sans', sans-serif;
+    font-family:'Montserrat', system-ui, sans-serif;
     font-size:16px;
-    line-height:1.6;
+    line-height:1.62;
     -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
   }
-  h1,h2,h3{ font-family:'Bitter', serif; font-weight:700; letter-spacing:-0.01em; color:var(--ink);}
+  h1,h2,h3,h4{ font-family:'Montserrat', sans-serif; font-weight:800; letter-spacing:-0.02em; color:var(--ink); line-height:1.14; }
   .mono{ font-family:'IBM Plex Mono', monospace; }
   a{ color:inherit; }
   img{max-width:100%; display:block;}
-  .wrap{ max-width:1120px; margin:0 auto; padding:0 20px; }
+  .wrap{ max-width:1140px; margin:0 auto; padding:0 20px; }
   @media (min-width:640px){ .wrap{ padding:0 28px; } }
   ::selection{ background:var(--sage-tint); color:var(--ink); }
-  :focus-visible{ outline:2.5px solid var(--sage-deep); outline-offset:3px; }
+  :focus-visible{ outline:2.5px solid var(--sage-deep); outline-offset:3px; border-radius:4px; }
   @media (prefers-reduced-motion: reduce){
     *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
   }
 
+  /* ===== BUTTONS ===== */
+  .btn-primary, .btn-secondary, .btn-whatsapp{
+    display:inline-flex; align-items:center; justify-content:center; gap:9px;
+    font-family:inherit; font-weight:700; font-size:15px; text-decoration:none;
+    padding:15px 26px; border-radius:var(--radius); cursor:pointer;
+    transition:transform .16s ease, box-shadow .16s ease, background .16s ease;
+    line-height:1;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg, var(--sage-deep), var(--sage));
+    color:#fff; border:none;
+    box-shadow:0 10px 24px rgba(29,158,117,0.32);
+  }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 16px 32px rgba(29,158,117,0.40); }
+  .btn-primary:active{ transform:translateY(0); }
+  .btn-secondary{
+    background:rgba(255,255,255,0.06); color:var(--ink);
+    border:1.5px solid var(--ink);
+  }
+  .btn-secondary:hover{ background:var(--ink); color:#fff; transform:translateY(-2px); }
+  .btn-whatsapp{
+    background:linear-gradient(135deg, var(--wa-deep), var(--wa));
+    color:#fff; border:none;
+    box-shadow:0 10px 24px rgba(37,211,102,0.30);
+  }
+  .btn-whatsapp:hover{ transform:translateY(-2px); box-shadow:0 16px 32px rgba(37,211,102,0.42); }
+  .btn-whatsapp:active{ transform:translateY(0); }
+  .wa-ico{ width:19px; height:19px; flex-shrink:0; }
+  .btn-block{ width:100%; }
+
   /* ===== NAV ===== */
   nav{
-    position:sticky; top:0; z-index:50;
-    background:rgba(250,247,240,0.92);
-    backdrop-filter:blur(8px);
+    position:sticky; top:0; z-index:60;
+    background:rgba(250,247,240,0.90);
+    backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
-  nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:60px; }
-  .brand{ display:flex; align-items:center; gap:8px; font-family:'Bitter',serif; font-weight:700; font-size:17px; }
-  .brand-mark{
-    width:26px; height:26px; border-radius:8px; overflow:hidden; flex-shrink:0;
-    display:flex; align-items:center; justify-content:center;
-  }
+  nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .brand{ display:flex; align-items:center; gap:9px; font-family:'Montserrat',sans-serif; font-weight:800; font-size:18px; letter-spacing:-0.02em; }
+  .brand-mark{ width:30px; height:30px; border-radius:9px; overflow:hidden; flex-shrink:0; }
   .brand-mark img{ width:100%; height:100%; object-fit:cover; display:block; }
-  .navlinks{ display:flex; gap:26px; font-size:14px; font-weight:500; }
-  .navlinks a{ text-decoration:none; opacity:0.75; transition:opacity .15s; }
-  .navlinks a:hover{ opacity:1; }
+  .navlinks{ display:flex; gap:24px; font-size:14px; font-weight:600; }
+  .navlinks a{ text-decoration:none; opacity:0.72; transition:opacity .15s, color .15s; }
+  .navlinks a:hover{ opacity:1; color:var(--sage-deep); }
   .nav-cta{
     background:var(--sage-deep); color:#fff;
-    padding:9px 16px; border-radius:var(--radius);
-    font-size:13px; font-weight:600; text-decoration:none;
-    white-space:nowrap;
+    padding:10px 17px; border-radius:10px;
+    font-size:13.5px; font-weight:700; text-decoration:none; white-space:nowrap;
+    transition:background .15s, transform .15s;
   }
-  @media (max-width:760px){ .navlinks{display:none;} }
+  .nav-cta:hover{ background:var(--sage); transform:translateY(-1px); }
+  @media (max-width:900px){ .navlinks{display:none;} }
   @media (max-width:480px){ .nav-actions .nav-cta{display:none;} }
   .nav-actions{ display:flex; align-items:center; gap:10px; }
   .nav-toggle{
-    display:none; background:none; border:1.5px solid var(--line); border-radius:8px;
-    width:38px; height:38px; align-items:center; justify-content:center; color:var(--ink); cursor:pointer; padding:0;
+    display:none; background:none; border:1.5px solid var(--line); border-radius:9px;
+    width:40px; height:40px; align-items:center; justify-content:center; color:var(--ink); cursor:pointer; padding:0;
   }
   .nav-toggle svg{ width:20px; height:20px; }
-  @media (max-width:760px){ .nav-toggle{ display:flex; } }
+  @media (max-width:900px){ .nav-toggle{ display:flex; } }
   .mobile-menu{ display:none; flex-direction:column; background:var(--bg); border-bottom:1px solid var(--line); }
   .mobile-menu.open{ display:flex; }
   .mobile-menu a{
-    padding:14px 20px; text-decoration:none; color:var(--ink); font-size:15px; font-weight:500;
+    padding:15px 22px; text-decoration:none; color:var(--ink); font-size:15px; font-weight:600;
     border-top:1px solid var(--line);
   }
   .mobile-menu a:first-child{ border-top:none; }
-  @media (min-width:761px){ .mobile-menu{ display:none !important; } }
+  @media (min-width:901px){ .mobile-menu{ display:none !important; } }
 
-  /* ===== HERO ===== */
-  .hero{ padding:44px 0 36px; }
-  .hero-grid{ display:grid; grid-template-columns:1fr; gap:32px; }
-  @media (min-width:900px){ .hero-grid{ grid-template-columns:1.05fr 0.95fr; gap:52px; align-items:center; } }
+  /* ===== SHARED ===== */
+  section{ padding:64px 0; }
+  @media (min-width:768px){ section{ padding:88px 0; } }
   .tagline{
     display:inline-flex; align-items:center; gap:8px;
     background:var(--sage-tint); color:var(--sage-deep);
-    padding:8px 16px; border-radius:99px;
-    font-size:13.5px; font-weight:600;
-    margin-bottom:18px;
-  }
-  .hero h1{
-    font-size:clamp(30px,7vw,48px);
-    line-height:1.12;
+    padding:7px 15px; border-radius:99px;
+    font-size:13px; font-weight:700; letter-spacing:0.01em;
     margin-bottom:16px;
   }
-  .hero h1 em{ font-style:italic; color:var(--sage-deep); }
-  .hero p.lede{
-    font-size:16.5px; color:var(--ink-soft); max-width:46ch; margin-bottom:26px;
-  }
-  .hero-ctas{ display:flex; gap:12px; flex-wrap:wrap; }
-  .btn-primary{
-    background:linear-gradient(135deg, var(--sage-deep), var(--sage)); color:#fff;
-    padding:14px 24px; border-radius:var(--radius);
-    font-weight:600; font-size:15px; text-decoration:none;
-    display:inline-block; text-align:center;
-    transition:transform .12s ease, box-shadow .12s ease;
-  }
-  .btn-primary:hover{ transform:translateY(-1px); box-shadow:0 8px 20px rgba(29,158,117,0.28); }
-  .btn-secondary{
-    padding:13px 22px; border-radius:var(--radius);
-    font-weight:600; font-size:15px; text-decoration:none;
-    border:1.5px solid var(--ink); color:var(--ink);
-    display:inline-block; text-align:center;
-  }
-  .hero-note{ margin-top:14px; font-size:13px; color:var(--ink-soft); }
+  .section-head{ max-width:640px; margin-bottom:40px; }
+  @media (min-width:768px){ .section-head{ margin-bottom:52px; } }
+  .section-head h2{ font-size:clamp(26px,5vw,38px); }
+  .section-head p{ margin-top:14px; font-size:16px; color:var(--ink-soft); }
+  .eyebrow-num{ font-family:'IBM Plex Mono',monospace; }
 
-  /* --- signature: condition card, light pastel --- */
-  .cc-demo{
-    background:var(--sage-tint);
-    border:1px solid rgba(113,144,106,0.25);
-    border-radius:16px;
-    padding:26px 22px 24px;
-    color:var(--ink);
-  }
-  .cc-demo h3{ font-size:19px; margin-bottom:4px; }
-  .cc-demo p{ font-size:14px; color:var(--ink-soft); margin-bottom:20px; }
-  .cc-field{ margin-bottom:14px; }
-  .cc-field label{
-    display:flex; justify-content:space-between; font-size:13px; font-weight:600; color:var(--ink);
-  }
-  .cc-field label span{ font-family:'IBM Plex Mono',monospace; font-weight:600; color:var(--sage-deep); }
-  .cc-field input[type=range]{ margin:8px 0 0; }
-  .cc-readout{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px; }
-  .cc-readout .num{ font-family:'IBM Plex Mono',monospace; font-size:34px; font-weight:600; color:var(--sage-deep); }
-  .cc-readout .label{ font-size:13px; text-align:right; color:var(--ink-soft); }
-  .cc-readout .label b{ display:block; color:var(--ink); font-size:14.5px; font-family:'Work Sans'; }
-  input[type=range]{
-    -webkit-appearance:none; width:100%; height:8px; border-radius:99px;
-    background:linear-gradient(90deg, var(--sage-tint), var(--sage-deep));
-    margin:16px 0 6px; cursor:pointer;
-  }
-  input[type=range]::-webkit-slider-thumb{
-    -webkit-appearance:none; width:24px; height:24px; border-radius:50%;
-    background:#fff; border:3px solid var(--sage-deep);
-    box-shadow:0 2px 6px rgba(0,0,0,0.15);
-    cursor:grab;
-  }
-  input[type=range]::-moz-range-thumb{
-    width:24px; height:24px; border-radius:50%;
-    background:#fff; border:3px solid var(--sage-deep);
-    box-shadow:0 2px 6px rgba(0,0,0,0.15); cursor:grab;
-  }
-  .cc-scale{ display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); margin-bottom:18px; opacity:0.7; }
-  .cc-tag{
-    display:inline-block; font-size:13px;
-    background:#fff; color:var(--ink);
-    padding:8px 14px; border-radius:99px; border:1px solid rgba(113,144,106,0.3);
-  }
-  .mockup{
-    background:#fff;
-    border:1px solid rgba(113,144,106,0.18);
-    border-radius:22px;
-    padding:18px;
-    margin:18px 0 22px;
-    box-shadow:0 20px 50px rgba(120,130,110,0.09);
-  }
-  .mockup-header{display:flex; gap:8px; margin-bottom:14px;}
-  .mockup-header span{width:10px; height:10px; border-radius:50%; background:var(--sage-deep);}
-  .mockup-title{font-size:15px; font-weight:700; color:var(--ink); margin-bottom:14px;}
-  .mockup-item{display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-top:1px solid rgba(113,144,106,0.17);}
-  .mockup-item:first-of-type{border-top:none;}
-  .mockup-item span{font-size:14px; color:var(--ink-soft);}
-  .mockup-item strong{font-size:14px; color:var(--ink);}
-  .mockup-footer{margin-top:14px; font-size:13px; color:var(--ink-soft);}
-  .feat .icon{background:none;}
-  .feat h3{margin-top:0;}
-  .trust{ background:var(--bg-alt); }
-  .trust-grid{ display:grid; grid-template-columns:1fr; gap:16px; }
-  @media (min-width:700px){ .trust-grid{ grid-template-columns:repeat(3,1fr); } }
-  .trust-card{ background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; }
-  .trust-card h4{ font-size:16px; margin-bottom:10px; color:var(--ink); }
-  .trust-card p{ font-size:14px; color:var(--ink-soft); line-height:1.75; }
+  /* image utility + ken burns */
+  .media{ position:relative; border-radius:20px; overflow:hidden; box-shadow:var(--shadow-soft); background:var(--bg-alt); }
+  .media img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .media.kb img{ transform:scale(1.02); transition:transform 8s ease; }
+  .media.kb.in img{ transform:scale(1.1); }
 
-  /* ===== SECTION shared ===== */
-  section{ padding:56px 0; }
-  @media (min-width:768px){ section{ padding:80px 0; } }
-  .section-head{ max-width:620px; margin-bottom:36px; }
-  @media (min-width:768px){ .section-head{ margin-bottom:48px; } }
-  .section-head .tagline{ margin-bottom:14px; }
-  .section-head h2{ font-size:clamp(24px,5vw,34px); line-height:1.18; letter-spacing:-0.02em; }
-  .section-head p{ margin-top:12px; font-size:15.5px; color:var(--ink-soft); }
+  .split{ display:grid; grid-template-columns:1fr; gap:34px; align-items:center; }
+  @media (min-width:900px){ .split{ grid-template-columns:1fr 1fr; gap:56px; } .split.reverse .split-media{ order:2; } }
+  .split-copy p{ color:var(--ink-soft); font-size:16px; margin-bottom:16px; }
+  .split-copy p strong{ color:var(--ink); }
+  .split .media{ aspect-ratio:4/3; }
 
-  /* ===== WEIGHT CALCULATOR ===== */
-  .weight-calc{ background:var(--bg); }
+  .js .reveal{ opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease; }
+  .js .reveal.in{ opacity:1; transform:none; }
+
+  /* ===== HERO (cinematic) ===== */
+  .hero{ position:relative; padding:0; overflow:hidden; background:var(--dark); }
+  .hero-bg{ position:absolute; inset:0; z-index:0; }
+  .hero-bg::before{
+    content:""; position:absolute; inset:0;
+    background:url('images/hero-caballo.jpg') center 30%/cover no-repeat;
+    transform:scale(1.04);
+    animation:kenburns 26s ease-in-out infinite alternate;
+  }
+  @keyframes kenburns{ from{transform:scale(1.04);} to{transform:scale(1.15);} }
+  .hero-bg::after{
+    content:""; position:absolute; inset:0;
+    background:
+      linear-gradient(90deg, rgba(16,26,21,0.90) 0%, rgba(16,26,21,0.70) 42%, rgba(16,26,21,0.30) 75%, rgba(16,26,21,0.12) 100%),
+      linear-gradient(to bottom, rgba(16,26,21,0.25), rgba(16,26,21,0.55));
+  }
+  .hero-inner{ position:relative; z-index:2; padding:76px 0 150px; }
+  @media (min-width:768px){ .hero-inner{ padding:104px 0 200px; } }
+  .hero-content{ max-width:620px; }
+  .hero .tagline{ background:rgba(37,196,144,0.18); color:#8ff0cd; backdrop-filter:blur(4px); }
+  .hero h1{ color:#fff; font-size:clamp(32px,6.4vw,54px); margin-bottom:18px; }
+  .hero h1 em{ font-style:normal; color:#5fe0ac; }
+  .hero p.lede{ color:rgba(255,255,255,0.90); font-size:clamp(16px,2.2vw,18.5px); max-width:52ch; margin-bottom:30px; font-weight:500; }
+  .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; }
+  .hero .btn-secondary{ color:#fff; border-color:rgba(255,255,255,0.7); }
+  .hero .btn-secondary:hover{ background:#fff; color:var(--ink); border-color:#fff; }
+  .hero-note{ margin-top:18px; font-size:13.5px; color:rgba(255,255,255,0.78); display:flex; align-items:center; gap:8px; }
+  .hero-note svg{ width:16px; height:16px; flex-shrink:0; color:#5fe0ac; }
+
+  /* ===== WEIGHT CALCULATOR (floating, overlaps hero) ===== */
+  .calc-section{ background:var(--bg); position:relative; z-index:5; padding-top:0; }
   .wc-card{
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:20px;
-    padding:28px 24px 26px;
-    max-width:600px;
-    margin:0 auto;
+    background:#fff; border:1px solid var(--line); border-radius:22px;
+    padding:30px 26px 28px; max-width:660px; margin:-110px auto 0;
+    box-shadow:var(--shadow-card); position:relative;
   }
+  @media (min-width:768px){ .wc-card{ margin-top:-140px; padding:38px 40px 34px; } }
+  .wc-badge{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--sage-tint); color:var(--sage-deep);
+    padding:6px 14px; border-radius:99px; font-size:12.5px; font-weight:700; margin-bottom:14px;
+  }
+  .wc-card h2{ font-size:clamp(21px,3.4vw,27px); margin-bottom:8px; }
+  .wc-intro{ font-size:14.5px; color:var(--ink-soft); margin-bottom:22px; max-width:52ch; }
   .wc-warning{
     display:flex; gap:12px; align-items:flex-start;
     background:var(--bg-alt); border-left:3px solid var(--sage-deep);
@@ -227,12 +214,13 @@
   .wc-warning svg{ flex-shrink:0; width:20px; height:20px; margin-top:2px; color:var(--sage-deep); }
   .wc-warning strong{ display:block; font-size:13.5px; margin-bottom:2px; color:var(--ink); }
   .wc-warning p{ font-size:13px; color:var(--ink-soft); line-height:1.5; }
-  .wc-field{ margin-bottom:20px; }
-  .wc-field label{ display:block; font-size:14px; font-weight:600; color:var(--ink); margin-bottom:4px; }
-  .wc-help{ font-size:12.5px; color:var(--ink-soft); line-height:1.5; margin-bottom:8px; }
+  .wc-fields{ display:grid; grid-template-columns:1fr; gap:18px; }
+  @media (min-width:560px){ .wc-fields{ grid-template-columns:1fr 1fr; } }
+  .wc-field label{ display:block; font-size:14px; font-weight:700; color:var(--ink); margin-bottom:4px; }
+  .wc-help{ font-size:12px; color:var(--ink-soft); line-height:1.45; margin-bottom:9px; }
   .wc-field input[type=number]{
-    width:100%; padding:13px 14px; border:1.5px solid var(--line); border-radius:10px;
-    font-family:'IBM Plex Mono',monospace; font-size:19px; font-weight:600; color:var(--ink);
+    width:100%; padding:14px 15px; border:1.5px solid var(--line); border-radius:11px;
+    font-family:'IBM Plex Mono',monospace; font-size:20px; font-weight:600; color:var(--ink);
     background:#fff; transition:border-color .15s ease, box-shadow .15s ease;
   }
   .wc-field input[type=number]:focus{
@@ -240,129 +228,192 @@
   }
   .wc-result{
     background:linear-gradient(135deg, var(--sage-deep), var(--sage));
-    border-radius:16px; padding:24px 20px; text-align:center; color:#fff;
-    margin:24px 0 20px;
-    transition:transform .18s ease;
+    border-radius:16px; padding:22px 20px; text-align:center; color:#fff;
+    margin:22px 0 20px; transition:transform .18s ease; box-shadow:0 12px 28px rgba(29,158,117,0.28);
   }
-  .wc-result.pulse{ transform:scale(1.035); }
-  .wc-result-label{
-    display:block; font-size:12.5px; font-weight:600; letter-spacing:0.05em;
-    text-transform:uppercase; opacity:0.88; margin-bottom:6px;
-  }
-  .wc-result-num{ display:block; font-family:'IBM Plex Mono',monospace; font-size:46px; font-weight:700; line-height:1.1; }
-  .wc-result-note{ display:block; font-size:12px; opacity:0.85; margin-top:8px; }
+  .wc-result.pulse{ transform:scale(1.03); }
+  .wc-result-label{ display:block; font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; opacity:0.9; margin-bottom:4px; }
+  .wc-result-num{ display:block; font-family:'IBM Plex Mono',monospace; font-size:clamp(40px,7vw,50px); font-weight:700; line-height:1.05; }
+  .wc-result-note{ display:block; font-size:12px; opacity:0.88; margin-top:8px; }
 
-  /* ===== FEATURES ===== */
+  /* ===== FEATURES / LA APP ===== */
   .features{ background:var(--bg-alt); }
-  .feat-grid{ display:grid; grid-template-columns:1fr; gap:14px; }
+  .app-intro{ margin-bottom:48px; }
+  .app-intro .split-copy .lead{ font-size:18px; color:var(--ink); font-weight:600; margin-bottom:14px; letter-spacing:-0.01em; }
+  .feat-grid{ display:grid; grid-template-columns:1fr; gap:16px; }
   @media (min-width:560px){ .feat-grid{ grid-template-columns:1fr 1fr; } }
-  @media (min-width:900px){ .feat-grid{ grid-template-columns:repeat(3,1fr); } }
-  .feat{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:22px 20px; }
+  @media (min-width:920px){ .feat-grid{ grid-template-columns:repeat(3,1fr); } }
+  .feat{ background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px 22px; transition:transform .18s ease, box-shadow .18s ease; }
+  .feat:hover{ transform:translateY(-4px); box-shadow:var(--shadow-soft); }
   .feat .icon{
-    width:38px; height:38px; border-radius:10px; background:var(--sage-tint);
-    display:flex; align-items:center; justify-content:center; margin-bottom:12px; font-size:17px;
-    color:var(--sage-deep);
+    width:42px; height:42px; border-radius:12px; background:var(--sage-tint);
+    display:flex; align-items:center; justify-content:center; margin-bottom:14px; color:var(--sage-deep);
   }
-  .feat h3{ font-size:16.5px; margin-bottom:6px; }
+  .feat .icon svg{ width:22px; height:22px; }
+  .feat h3{ font-size:17px; margin-bottom:7px; font-weight:700; }
   .feat p{ font-size:14px; color:var(--ink-soft); }
+  .feat.highlight{ background:linear-gradient(150deg, var(--sage-deep), var(--sage)); border:none; }
+  .feat.highlight .icon{ background:rgba(255,255,255,0.18); color:#fff; }
+  .feat.highlight h3{ color:#fff; }
+  .feat.highlight p{ color:rgba(255,255,255,0.92); }
 
   /* ===== TUTORIAL ===== */
   .tutorial{ background:var(--bg); }
-  .tut-grid{ display:grid; grid-template-columns:1fr; gap:16px; }
+  .tut-grid{ display:grid; grid-template-columns:1fr; gap:22px; }
   @media (min-width:560px){ .tut-grid{ grid-template-columns:1fr 1fr; } }
-  @media (min-width:900px){ .tut-grid{ grid-template-columns:repeat(4,1fr); } }
-  .tut-step{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:22px 20px; }
+  @media (min-width:980px){ .tut-grid{ grid-template-columns:repeat(4,1fr); gap:18px; } }
+  .tut-step{ text-align:left; }
   .tut-num{
     display:inline-flex; align-items:center; justify-content:center;
-    width:30px; height:30px; border-radius:50%;
+    width:32px; height:32px; border-radius:50%;
     background:var(--sage-deep); color:#fff;
-    font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:14px;
-    margin-bottom:14px;
+    font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:14px; margin-bottom:14px;
   }
-  .tut-step h3{ font-size:16.5px; margin-bottom:6px; }
+  .tut-step h3{ font-size:17px; margin-bottom:6px; font-weight:700; }
   .tut-step p{ font-size:14px; color:var(--ink-soft); }
-  .tut-cta{ text-align:center; margin-top:32px; }
+  .tut-cta{ text-align:center; margin-top:44px; }
 
-  /* ===== HOW IT WORKS ===== */
-  .engine .wrap{ display:grid; grid-template-columns:1fr; gap:32px; }
-  @media (min-width:900px){ .engine .wrap{ grid-template-columns:0.95fr 1.05fr; gap:56px; align-items:center; } }
-  .ledger{ border:1px solid var(--line); border-radius:16px; overflow:hidden; background:#fff; }
-  .ledger-row{ display:grid; grid-template-columns:1fr auto; gap:14px; padding:15px 20px; border-bottom:1px solid var(--line); font-size:14px; }
-  .ledger-row:last-child{ border-bottom:none; }
-  .ledger-row .k{ color:var(--ink-soft); }
-  .ledger-row .v{ color:var(--sage-deep); font-weight:600; font-family:'IBM Plex Mono',monospace; }
-  .ledger-head{ background:var(--sage-tint); color:var(--sage-deep); padding:14px 20px; font-weight:600; font-size:14px; }
-  .engine-copy p{ color:var(--ink-soft); margin-bottom:15px; font-size:15.5px; }
-  .engine-copy strong{ color:var(--ink); }
+  /* phone mockup (recreation of real app screens, dark theme) */
+  .phone{
+    width:100%; max-width:224px; margin:0 auto 18px;
+    background:#0b120e; border-radius:30px; padding:9px;
+    border:1px solid rgba(255,255,255,0.09);
+    box-shadow:0 24px 50px rgba(30,45,32,0.28);
+  }
+  .phone-screen{
+    background:#0f1a15; border-radius:23px; padding:16px 14px 18px;
+    color:#e8f2ec; min-height:340px; position:relative; overflow:hidden;
+    font-size:12.5px;
+  }
+  .ps-top{ display:flex; align-items:center; justify-content:space-between; font-size:10px; color:rgba(255,255,255,0.55); margin-bottom:14px; }
+  .ps-top .dot{ width:44px; height:5px; border-radius:99px; background:rgba(255,255,255,0.18); }
+  .ps-title{ font-weight:700; font-size:14px; color:#fff; margin-bottom:3px; }
+  .ps-sub{ font-size:10.5px; color:rgba(255,255,255,0.5); margin-bottom:14px; }
+  .ps-photo{ width:52px; height:52px; border-radius:14px; background:linear-gradient(135deg,#25C490,#1D9E75); display:flex; align-items:center; justify-content:center; margin-bottom:12px; }
+  .ps-photo svg{ width:30px; height:30px; color:#fff; }
+  .ps-inpt{ background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.10); border-radius:9px; padding:8px 10px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; }
+  .ps-inpt .lbl{ color:rgba(255,255,255,0.55); font-size:10px; }
+  .ps-inpt .val{ font-family:'IBM Plex Mono',monospace; color:#fff; font-weight:600; font-size:13px; }
+  .ps-chip{ display:inline-block; background:rgba(37,196,144,0.18); color:#5fe0ac; border-radius:8px; padding:5px 9px; font-size:10px; font-weight:600; margin:0 4px 6px 0; }
+  .ps-chip.sel{ background:#25C490; color:#06110c; }
+  .ps-scale{ display:flex; gap:3px; margin:6px 0 4px; }
+  .ps-scale span{ flex:1; height:8px; border-radius:3px; background:rgba(255,255,255,0.12); }
+  .ps-scale span.on{ background:#25C490; }
+  .ps-row{ display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-top:1px solid rgba(255,255,255,0.08); }
+  .ps-row:first-of-type{ border-top:none; }
+  .ps-row .k{ color:rgba(255,255,255,0.7); }
+  .ps-row .v{ font-family:'IBM Plex Mono',monospace; color:#fff; font-weight:600; }
+  .ps-total{ background:linear-gradient(135deg,#1D9E75,#25C490); border-radius:12px; padding:12px 14px; margin-top:12px; }
+  .ps-total .k{ font-size:10px; color:rgba(255,255,255,0.85); text-transform:uppercase; letter-spacing:0.05em; }
+  .ps-total .v{ font-family:'IBM Plex Mono',monospace; font-size:22px; font-weight:700; color:#fff; }
+  .ps-export{ display:flex; gap:6px; margin-top:12px; }
+  .ps-export span{ flex:1; text-align:center; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.10); border-radius:8px; padding:7px 0; font-size:10px; font-weight:600; color:rgba(255,255,255,0.8); }
+  .ps-btn{ background:#25C490; color:#06110c; border-radius:9px; text-align:center; padding:9px 0; font-weight:700; font-size:11.5px; margin-top:12px; }
+  /* phone screens — fieles al app real */
+  .ps-tabs{ display:flex; gap:9px; font-size:9px; color:rgba(255,255,255,0.42); border-bottom:1px solid rgba(255,255,255,0.09); padding-bottom:9px; margin-bottom:13px; }
+  .ps-tabs .t{ white-space:nowrap; }
+  .ps-tabs .t.on{ color:#5fe0ac; font-weight:700; }
+  .ps-empty{ text-align:center; padding:16px 6px 6px; }
+  .ps-empty .emo{ font-size:30px; }
+  .ps-empty .eh{ color:#fff; font-weight:700; font-size:13px; margin:9px 0 5px; }
+  .ps-empty .es{ font-size:9.5px; color:rgba(255,255,255,0.5); margin-bottom:14px; line-height:1.45; }
+  .ps-empty .eb{ display:inline-block; border:1px solid rgba(255,255,255,0.2); border-radius:9px; padding:8px 14px; font-size:11px; font-weight:600; color:#fff; }
+  .ps-grid9{ display:grid; grid-template-columns:repeat(3,1fr); gap:5px; margin:10px 0 12px; }
+  .ps-cell{ border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:8px 2px 6px; text-align:center; }
+  .ps-cell .n{ font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:15px; line-height:1; }
+  .ps-cell .l{ font-size:6.5px; color:rgba(255,255,255,0.45); letter-spacing:0.03em; margin-top:3px; }
+  .ps-cell.sel{ border-color:#25C490; background:rgba(37,196,144,0.14); }
+  .ps-bar{ height:8px; border-radius:99px; background:linear-gradient(90deg,#e0533f,#e2b23c,#3ecb8f); position:relative; margin:8px 0 12px; }
+  .ps-bar::after{ content:""; position:absolute; top:50%; left:62%; transform:translate(-50%,-50%); width:15px; height:15px; border-radius:50%; background:#fff; border:2.5px solid #25C490; }
+  .ps-desc{ background:rgba(255,255,255,0.05); border-radius:9px; padding:9px 11px; font-size:10px; color:rgba(255,255,255,0.62); line-height:1.5; }
+  .ps-desc b{ color:#5fe0ac; display:block; margin-bottom:3px; font-size:11px; }
+  .ps-caps{ color:#5fe0ac; font-size:9.5px; font-weight:700; letter-spacing:0.06em; margin-bottom:9px; }
+  .ps-meal{ background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:9px 11px; margin-bottom:8px; }
+  .ps-meal .mh{ color:#5fe0ac; font-size:9px; font-weight:700; letter-spacing:0.07em; margin-bottom:6px; }
+  .ps-meal .mr{ display:flex; justify-content:space-between; font-size:10.5px; padding:2px 0; }
+  .ps-meal .mr .k{ color:rgba(255,255,255,0.75); }
+  .ps-meal .mr .v{ font-family:'IBM Plex Mono',monospace; color:#fff; }
 
   /* ===== PLANS ===== */
   .plans{ background:var(--bg-alt); }
-  .plan-grid{ display:grid; grid-template-columns:1fr; gap:16px; }
-  @media (min-width:760px){ .plan-grid{ grid-template-columns:repeat(3,1fr); } }
-  .plan{
-    background:#fff; border:1.5px solid var(--line);
-    border-radius:16px; padding:26px 22px;
-    display:flex; flex-direction:column;
-  }
-  .plan.featured{ border-color:var(--sage-deep); position:relative; }
+  .plan-grid{ display:grid; grid-template-columns:1fr; gap:18px; }
+  @media (min-width:760px){ .plan-grid{ grid-template-columns:repeat(3,1fr); align-items:start; } }
+  .plan{ background:#fff; border:1.5px solid var(--line); border-radius:18px; padding:28px 24px; display:flex; flex-direction:column; transition:transform .18s ease, box-shadow .18s ease; }
+  .plan:hover{ transform:translateY(-4px); box-shadow:var(--shadow-soft); }
+  .plan.featured{ border-color:var(--sage-deep); box-shadow:0 20px 44px rgba(29,158,117,0.16); position:relative; }
+  @media (min-width:760px){ .plan.featured{ transform:scale(1.03); } .plan.featured:hover{ transform:scale(1.03) translateY(-4px); } }
   .plan.featured::before{
-    content:"Recomendado"; position:absolute; top:-13px; left:22px;
-    background:var(--sage-deep); color:#fff;
-    font-size:11.5px; font-weight:600; padding:5px 12px; border-radius:99px;
+    content:"Recomendado"; position:absolute; top:-13px; left:50%; transform:translateX(-50%);
+    background:var(--sage-deep); color:#fff; font-size:11.5px; font-weight:700; padding:5px 14px; border-radius:99px; white-space:nowrap;
   }
-  .plan h3{ font-size:18px; margin-bottom:6px; }
-  .plan .price{ font-family:'IBM Plex Mono',monospace; font-size:28px; font-weight:600; margin:12px 0 4px; color:var(--ink); }
+  .plan h3{ font-size:19px; margin-bottom:4px; font-weight:700; }
+  .plan .price{ font-family:'IBM Plex Mono',monospace; font-size:30px; font-weight:600; margin:12px 0 4px; color:var(--ink); }
   .plan .price small{ font-size:13px; font-weight:400; color:var(--ink-soft); }
-  .plan .sub{ font-size:12.5px; color:var(--ink-soft); margin-bottom:18px; }
-  .plan ul{ list-style:none; margin-bottom:22px; flex-grow:1; }
-  .plan li{ font-size:14px; padding:7px 0; border-top:1px solid var(--line); color:var(--ink-soft); }
+  .plan .sub{ font-size:12.5px; color:var(--ink-soft); margin-bottom:20px; }
+  .plan ul{ list-style:none; margin-bottom:24px; flex-grow:1; }
+  .plan li{ font-size:14px; padding:9px 0 9px 26px; border-top:1px solid var(--line); color:var(--ink-soft); position:relative; }
   .plan li:first-child{ border-top:none; }
-  .plan .plan-cta{
-    text-align:center; padding:12px; border-radius:var(--radius);
-    font-weight:600; font-size:14px; text-decoration:none;
-    border:1.5px solid var(--ink); color:var(--ink);
-  }
-  .plan.featured .plan-cta{ background:linear-gradient(135deg, var(--sage-deep), var(--sage)); border-color:var(--sage-deep); color:#fff; }
+  .plan li::before{ content:""; position:absolute; left:2px; top:14px; width:14px; height:8px; border-left:2px solid var(--sage-deep); border-bottom:2px solid var(--sage-deep); transform:rotate(-45deg); }
+  .plan .plan-cta{ text-align:center; padding:13px; border-radius:var(--radius); font-weight:700; font-size:14px; text-decoration:none; border:1.5px solid var(--ink); color:var(--ink); transition:background .15s, color .15s, transform .15s; display:inline-flex; align-items:center; justify-content:center; gap:8px; }
+  .plan .plan-cta:hover{ transform:translateY(-2px); }
+  .plan .plan-cta.solid{ background:linear-gradient(135deg, var(--sage-deep), var(--sage)); border-color:var(--sage-deep); color:#fff; }
+  .plan .plan-cta.wa{ background:linear-gradient(135deg, var(--wa-deep), var(--wa)); border-color:var(--wa-deep); color:#fff; }
 
-  /* ===== SERVICIO EXPERTO ===== */
+  /* ===== SERVICIO EN TERRENO ===== */
   .full-service{ background:var(--bg); }
-  .fs-grid{ display:grid; grid-template-columns:1fr; gap:32px; }
-  @media (min-width:900px){ .fs-grid{ grid-template-columns:0.85fr 1.15fr; gap:56px; align-items:start; } }
-  .fs-card{
-    background:#fff; border:1.5px solid var(--sage-deep); border-radius:16px; padding:26px;
-  }
-  .fs-card .badge{ font-size:12.5px; font-weight:600; color:var(--sage-deep); margin-bottom:8px; display:block; }
-  .fs-card h3{ font-size:19px; margin-bottom:10px; }
-  .fs-card p{ font-size:14px; color:var(--ink-soft); margin-bottom:18px; }
-  .fs-card .btn-primary{ width:100%; }
-  .fs-steps{ display:grid; gap:16px; }
+  .fs-steps{ display:grid; gap:16px; margin-top:8px; }
   @media (min-width:560px){ .fs-steps{ grid-template-columns:1fr 1fr; } }
-  .fs-step{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px; }
-  .fs-step h4{ font-family:'Bitter',serif; font-size:16px; margin-bottom:4px; }
+  .fs-step{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:20px; }
+  .fs-step h4{ font-size:15.5px; margin-bottom:5px; font-weight:700; }
   .fs-step p{ font-size:13.5px; color:var(--ink-soft); }
-  .fs-extra{
-    margin-top:16px; background:var(--sage-tint); border:1px dashed rgba(113,144,106,0.4);
-    border-radius:14px; padding:18px;
-  }
-  .fs-extra .badge{ color:var(--sage-deep); font-size:12.5px; font-weight:600; display:block; margin-bottom:6px; }
-  .fs-extra h4{ font-family:'Bitter',serif; font-size:16px; margin-bottom:4px; }
+  .fs-extra{ margin-top:16px; background:var(--sage-tint); border:1px dashed rgba(29,158,117,0.4); border-radius:14px; padding:18px 20px; }
+  .fs-extra .badge{ color:var(--sage-deep); font-size:12px; font-weight:700; display:block; margin-bottom:5px; text-transform:uppercase; letter-spacing:0.04em; }
+  .fs-extra h4{ font-size:15.5px; margin-bottom:4px; font-weight:700; }
   .fs-extra p{ font-size:13.5px; color:var(--ink-soft); }
+  .fs-note{ font-size:13px; color:var(--ink-soft); margin:18px 0 0; }
+  .fs-cta{ margin-top:22px; }
+
+  /* ===== FAQ ===== */
+  .faq{ background:var(--bg-alt); }
+  .faq-list{ max-width:820px; margin:0 auto; }
+  .faq-item{ background:#fff; border:1px solid var(--line); border-radius:14px; margin-bottom:12px; overflow:hidden; transition:box-shadow .2s ease; }
+  .faq-item[open]{ box-shadow:var(--shadow-soft); }
+  .faq-item summary{
+    list-style:none; cursor:pointer; padding:20px 22px; font-weight:700; font-size:16px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px; color:var(--ink);
+  }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary .plus{ flex-shrink:0; width:22px; height:22px; position:relative; transition:transform .25s ease; }
+  .faq-item summary .plus::before, .faq-item summary .plus::after{ content:""; position:absolute; background:var(--sage-deep); border-radius:2px; }
+  .faq-item summary .plus::before{ top:50%; left:0; right:0; height:2.5px; transform:translateY(-50%); }
+  .faq-item summary .plus::after{ left:50%; top:0; bottom:0; width:2.5px; transform:translateX(-50%); transition:opacity .25s ease; }
+  .faq-item[open] summary .plus::after{ opacity:0; }
+  .faq-item[open] summary .plus{ transform:rotate(180deg); }
+  .faq-body{ padding:0 22px 22px; color:var(--ink-soft); font-size:15px; line-height:1.7; }
+  .faq-body p{ margin-bottom:10px; }
+  .faq-body p:last-child{ margin-bottom:0; }
+  .faq-body strong{ color:var(--ink); }
+  .faq-item.about summary{ color:var(--sage-deep); }
+  .faq-founder{ display:flex; gap:14px; align-items:center; margin-bottom:14px; }
+  .faq-founder .avatar{ width:52px; height:52px; border-radius:50%; background:linear-gradient(135deg,var(--sage-deep),var(--sage)); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:20px; flex-shrink:0; }
+  .faq-founder .who b{ display:block; color:var(--ink); font-size:15px; }
+  .faq-founder .who span{ font-size:13px; color:var(--ink-soft); }
 
   /* ===== CTA FINAL ===== */
-  .cta-final{ background:var(--sage-tint); text-align:center; }
-  .cta-final h2{ font-size:clamp(24px,5vw,34px); margin-bottom:12px; }
-  .cta-final p{ font-size:15.5px; color:var(--ink-soft); max-width:50ch; margin:0 auto 26px; }
+  .cta-final{ position:relative; text-align:center; overflow:hidden; background:var(--dark); }
+  .cta-final .cta-bg{ position:absolute; inset:0; z-index:0; background:url('images/cta-caballo.jpg') center 35%/cover no-repeat; }
+  .cta-final::after{ content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(90deg, rgba(16,26,21,0.88), rgba(16,26,21,0.66)); }
+  .cta-final .wrap{ position:relative; z-index:2; }
+  .cta-final h2{ color:#fff; font-size:clamp(26px,5vw,38px); margin-bottom:14px; }
+  .cta-final p{ font-size:16.5px; color:rgba(255,255,255,0.9); max-width:52ch; margin:0 auto 30px; }
 
-  footer{ padding:28px 0; background:var(--bg-alt); color:var(--ink-soft); border-top:1px solid var(--line); }
-  footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; font-size:13px; }
-  footer .brand{ color:var(--ink); font-size:14.5px; }
+  footer{ padding:32px 0; background:var(--bg-alt); color:var(--ink-soft); border-top:1px solid var(--line); }
+  footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; font-size:13px; }
+  footer .brand{ color:var(--ink); font-size:15px; }
   .footer-social{ display:flex; gap:14px; align-items:center; }
   .footer-social a{ color:var(--ink-soft); opacity:0.8; transition:opacity .15s, color .15s; display:flex; }
   .footer-social a:hover{ opacity:1; color:var(--sage-deep); }
-  .footer-social svg{ width:18px; height:18px; }
-
-  .reveal{ opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease; }
-  .reveal.in{ opacity:1; transform:none; }
+  .footer-social svg{ width:19px; height:19px; }
 </style>
 
 <!-- Google Analytics 4 -->
@@ -381,6 +432,7 @@
   "name": "EquiNutrición",
   "url": "https://equinutricion.cl/",
   "logo": "https://equinutricion.cl/app-logo.png",
+  "founder": { "@type": "Person", "name": "Luis Aguirre" },
   "sameAs": [
     "https://www.facebook.com/equinutricion.cl",
     "https://www.instagram.com/equinutricion.cl"
@@ -402,26 +454,11 @@
   "applicationCategory": "HealthApplication",
   "operatingSystem": "Web, Android, iOS",
   "url": "https://equinutricion.cl/",
-  "description": "App instalable que calcula la ración diaria de tu caballo según peso, trabajo y condición corporal.",
+  "description": "App instalable que calcula la ración diaria de tu caballo chileno según peso, trabajo y condición corporal, para su salud y rendimiento.",
   "offers": [
-    {
-      "@type": "Offer",
-      "name": "Plan Gratis",
-      "price": "0",
-      "priceCurrency": "CLP"
-    },
-    {
-      "@type": "Offer",
-      "name": "Premium mensual",
-      "price": "4000",
-      "priceCurrency": "CLP"
-    },
-    {
-      "@type": "Offer",
-      "name": "Premium anual",
-      "price": "35000",
-      "priceCurrency": "CLP"
-    }
+    { "@type": "Offer", "name": "Plan Gratis", "price": "0", "priceCurrency": "CLP" },
+    { "@type": "Offer", "name": "Premium mensual", "price": "4000", "priceCurrency": "CLP" },
+    { "@type": "Offer", "name": "Premium anual", "price": "35000", "priceCurrency": "CLP" }
   ]
 }
 </script>
@@ -432,12 +469,12 @@
   <div class="wrap">
     <div class="brand"><span class="brand-mark"><img src="app-logo.png" alt="EquiNutrición"></span>EquiNutrición</div>
     <div class="navlinks">
-      <a href="#peso">Calculadora de peso</a>
-      <a href="#tutorial">Tutorial</a>
-      <a href="#motor">Cómo funciona</a>
+      <a href="#calculadora">Calculadora</a>
+      <a href="#app">La app</a>
+      <a href="#tutorial">Cómo se usa</a>
       <a href="#planes">Planes</a>
-      <a href="#servicio">Servicio experto</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#servicio">Servicio en terreno</a>
+      <a href="#faq">Preguntas</a>
     </div>
     <div class="nav-actions">
       <a class="nav-cta" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="nav">Abrir la app</a>
@@ -447,73 +484,41 @@
     </div>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#peso">Calculadora de peso</a>
-    <a href="#tutorial">Tutorial</a>
-    <a href="#motor">Cómo funciona</a>
+    <a href="#calculadora">Calculadora de peso</a>
+    <a href="#app">La app</a>
+    <a href="#tutorial">Cómo se usa</a>
     <a href="#planes">Planes</a>
-    <a href="#servicio">Servicio experto</a>
-    <a href="#contacto">Contacto</a>
+    <a href="#servicio">Servicio en terreno</a>
+    <a href="#faq">Preguntas frecuentes</a>
     <a href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="mobile_menu">Abrir la app</a>
   </div>
 </nav>
 
 <header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="tagline">Nutrición del Caballo Chileno</span>
-      <h1>Sabe exactamente <em>cuánto</em> darle de comer a tu caballo.</h1>
-      <p class="lede">Le cuentas el peso, cuánto trabaja y cómo se ve tu caballo — la app te arma la ración del día, sin cálculos a ojo ni reglas heredadas.</p>
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-content">
+      <span class="tagline">Nutrición del caballo de raza chilena</span>
+      <h1>Tú pones el objetivo. <em>La nutrición la ponemos nosotros.</em></h1>
+      <p class="lede">La salud y el rendimiento de tu caballo empiezan por lo que come. Dinos a dónde quieres llegar —más condición, mejor recuperación, un caballo listo para el rodeo— y la app calcula la ración diaria exacta para lograrlo. Con base técnica, no a ojo ni por costumbre.</p>
       <div class="hero-ctas">
         <a class="btn-primary" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="hero">Abrir la app gratis</a>
-        <a class="btn-secondary" href="#planes" data-track="ver_planes" data-track-loc="hero">Ver planes</a>
+        <a class="btn-secondary" href="#calculadora" data-track="ver_calculadora" data-track-loc="hero">Calcular el peso gratis</a>
       </div>
-      <div class="hero-note">Sin registro, sin tarjeta ni App Store. Instala directo desde tu navegador.</div>
-    </div>
-
-    <div class="cc-demo">
-      <h3>Arma la ración de tu caballo</h3>
-      <p>Ingresa sus datos y mira cómo cambia la ración estimada, en vivo.</p>
-
-      <div class="cc-field">
-        <label for="ccWeight">Peso <span id="ccWeightVal">400 kg</span></label>
-        <input type="range" min="250" max="600" step="10" value="400" id="ccWeight" aria-label="Peso del caballo en kilos">
+      <div class="hero-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        Sin registro, sin tarjeta y sin App Store. Se instala directo desde el navegador.
       </div>
-      <div class="cc-field">
-        <label for="ccWork">Días de trabajo por semana <span id="ccWorkVal">3</span></label>
-        <input type="range" min="0" max="7" step="1" value="3" id="ccWork" aria-label="Días de trabajo a la semana">
-      </div>
-
-      <div class="mockup">
-        <div class="mockup-header"><span></span><span></span><span></span></div>
-        <div class="mockup-title">Resumen de ración</div>
-        <div class="mockup-item"><span>Heno de alfalfa</span><strong id="mHeno">4.2 kg</strong></div>
-        <div class="mockup-item"><span>Avena</span><strong id="mAvena">1.0 kg</strong></div>
-        <div class="mockup-item"><span>Suplemento</span><strong>120 g</strong></div>
-        <div class="mockup-footer"><span id="mComidas">2 comidas</span> · ajuste dinámico</div>
-      </div>
-      <div class="cc-readout">
-        <span class="num" id="ccPct">+0%</span>
-        <span class="label">sobre<br><b id="ccLabelBig">su ración normal</b></span>
-      </div>
-      <div class="cc-field">
-        <label for="ccSlider">Condición corporal</label>
-        <input type="range" min="1" max="9" value="5" id="ccSlider" aria-label="Qué tan delgado o pasado de peso está el caballo, de 1 a 9">
-      </div>
-      <div class="cc-scale"><span>flaco</span><span></span><span></span><span></span><span>ideal</span><span></span><span></span><span></span><span>pasado</span></div>
-      <span class="cc-tag" id="ccTag">En su peso — ración normal</span>
-      <p style="font-size:11.5px; color:var(--ink-soft); opacity:0.75; margin-top:12px; margin-bottom:0;">Estimación referencial. La app calcula el detalle completo con más factores.</p>
     </div>
   </div>
 </header>
 
-<section class="weight-calc" id="peso">
+<section class="calc-section" id="calculadora">
   <div class="wrap">
-    <div class="section-head">
-      <span class="tagline">Gratis, sin instalar nada</span>
+    <div class="wc-card reveal">
+      <span class="wc-badge">Herramienta gratis · sin instalar nada</span>
       <h2>Calcula el peso de tu caballo con una huincha</h2>
-      <p>Sin balanza ni báscula de camión. Con dos medidas y 30 segundos tienes una estimación confiable — la misma fórmula que usan las cintas de peso ("weight tapes") de uso veterinario.</p>
-    </div>
-    <div class="wc-card">
+      <p class="wc-intro">Sin balanza ni báscula de camión. Con dos medidas y 30 segundos tienes una estimación confiable — la misma fórmula que usan las cintas de peso ("weight tapes") de uso veterinario.</p>
       <div class="wc-warning">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 16.5h.01"/><path d="M10.3 3.9L2.7 17a1.8 1.8 0 001.55 2.7h15.5A1.8 1.8 0 0021.3 17L13.7 3.9a1.8 1.8 0 00-3.4 0z"/></svg>
         <div>
@@ -521,43 +526,78 @@
           <p>El caballo debe estar parado derecho sobre terreno plano, con las cuatro patas apoyadas parejo y la cabeza relajada — no levantada.</p>
         </div>
       </div>
-
-      <div class="wc-field">
-        <label for="wcGirth">Perímetro torácico (cm)</label>
-        <p class="wc-help">Rodea el tórax con la huincha justo detrás de la cruz y las patas delanteras. Ajustada pero sin apretar, con el caballo respirando normal.</p>
-        <input type="number" inputmode="decimal" min="80" max="260" step="1" value="180" id="wcGirth" aria-label="Perímetro torácico en centímetros">
+      <div class="wc-fields">
+        <div class="wc-field">
+          <label for="wcGirth">Perímetro torácico (cm)</label>
+          <p class="wc-help">Rodea el tórax con la huincha justo detrás de la cruz y las patas delanteras. Ajustada pero sin apretar, con el caballo respirando normal.</p>
+          <input type="number" inputmode="decimal" min="80" max="260" step="1" value="180" id="wcGirth" aria-label="Perímetro torácico en centímetros">
+        </div>
+        <div class="wc-field">
+          <label for="wcLength">Largo corporal (cm)</label>
+          <p class="wc-help">En línea recta, desde la punta del hombro (articulación escápulo-humeral) hasta la punta del anca (isquion).</p>
+          <input type="number" inputmode="decimal" min="60" max="220" step="1" value="150" id="wcLength" aria-label="Largo corporal en centímetros">
+        </div>
       </div>
-      <div class="wc-field">
-        <label for="wcLength">Largo corporal (cm)</label>
-        <p class="wc-help">En línea recta, desde la punta del hombro (articulación escápulo-humeral) hasta la punta del anca (isquion).</p>
-        <input type="number" inputmode="decimal" min="60" max="220" step="1" value="150" id="wcLength" aria-label="Largo corporal en centímetros">
-      </div>
-
       <div class="wc-result" id="wcResult">
         <span class="wc-result-label">Peso estimado</span>
         <span class="wc-result-num" id="wcWeight">408 kg</span>
         <span class="wc-result-note">±10% de margen — no reemplaza una pesa real</span>
       </div>
-
-      <a class="btn-primary" style="width:100%;" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="calculadora_peso">Usar este peso en la app</a>
+      <a class="btn-primary btn-block" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="calculadora_peso">Usar este peso en la app</a>
     </div>
   </div>
 </section>
 
-<section class="features">
+<section class="features" id="app">
   <div class="wrap">
     <div class="section-head">
       <span class="tagline">La app</span>
-      <h2>Todo lo que necesitas, en un solo lugar.</h2>
-      <p>Un caballo o toda la caballeriza — instalable en tu celular, funciona aunque no tengas internet una vez cargada.</p>
+      <h2>De un objetivo a la ración del día, sin adivinar.</h2>
+      <p>No es una calculadora genérica: junta el peso, el trabajo y la condición corporal de tu caballo para decirte exactamente qué darle hoy — y lo deja listo para compartir con quien alimenta.</p>
     </div>
+
+    <div class="split app-intro">
+      <div class="split-media media kb reveal">
+        <img src="images/nutricion-heno.jpg" width="1200" height="900" loading="lazy" alt="Caballos comiendo heno en el comedero de una caballeriza">
+      </div>
+      <div class="split-copy">
+        <p class="lead">La ración deja de ser una herencia y pasa a ser una decisión con fundamento.</p>
+        <p>La app calcula <strong>cuánto heno, concentrado y suplemento</strong> necesita tu caballo según su peso, cuánto trabaja y si está preñada o en lactancia. Después mira su condición corporal y <strong>ajusta la ración hasta un 20%</strong> sola: si está flaco le sube, si está pasado le baja y le restringe el concentrado.</p>
+        <p>Y cuando ya está lista, <strong>la exportas como PDF o como imagen (PNG)</strong> y se la mandas por WhatsApp al petiso o al cuidador. Así todos alimentan igual, aunque tú no estés.</p>
+      </div>
+    </div>
+
     <div class="feat-grid">
-      <div class="feat"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 21l1.3-6.2c-1.4-1-2.3-2.7-2.3-4.6a5.5 5.5 0 0111 0c0 1.9-.9 3.6-2.3 4.6L16.5 21"/><circle cx="7.8" cy="19.2" r=".9" fill="currentColor" stroke="none"/><circle cx="16.2" cy="19.2" r=".9" fill="currentColor" stroke="none"/></svg></div><h3>Caballos</h3><p>Registro con foto de cada ejemplar y el estado de su ración al día.</p></div>
-      <div class="feat"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11h14l-1.2 6.3A3 3 0 0114.9 20H9.1a3 3 0 01-2.9-2.7L5 11z"/><ellipse cx="12" cy="11" rx="7" ry="2"/><circle cx="9.2" cy="6.8" r=".7" fill="currentColor" stroke="none"/><circle cx="12.5" cy="5.8" r=".7" fill="currentColor" stroke="none"/><circle cx="15" cy="7.2" r=".7" fill="currentColor" stroke="none"/></svg></div><h3>Ración</h3><p>Plan diario dividido en 2, 3 o 4 comidas, como tú lo manejes.</p></div>
-      <div class="feat"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16a8 8 0 1116 0"/><path d="M12 16l3.5-3.5"/><circle cx="12" cy="16" r="1.1" fill="currentColor" stroke="none"/></svg></div><h3>Condición corporal</h3><p>Escala simple para saber si está flaco, ideal o pasado de peso, con historial.</p></div>
-      <div class="feat"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 20.2L3.8 13.7a4.6 4.6 0 116.5-6.5l6.5 6.5a4.6 4.6 0 01-6.5 6.5z"/><line x1="8" y1="8.3" x2="15.7" y2="16"/></svg></div><h3>Suplementos</h3><p>Nombre, marca, dosis y cuándo dárselos — todo anotado en un solo lugar.</p></div>
-      <div class="feat"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9.5" width="4" height="5" rx="1.2"/><rect x="18" y="9.5" width="4" height="5" rx="1.2"/><path d="M6 12h2M16 12h2"/><rect x="8" y="10.5" width="8" height="3" rx="1"/></svg></div><h3>Peso</h3><p>Historial con gráfico, medición con huincha y recordatorio cada 30 días.</p></div>
-      <div class="feat"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V4.5"/><path d="M12 6.5l-3-2M12 6.5l3-2M12 9.5l-3-2M12 9.5l3-2M12 12.5l-3-2M12 12.5l3-2M12 15.5l-3-2M12 15.5l3-2"/></svg></div><h3>Alimentos</h3><p>Lista editable de alimentos — agrega los tuyos si no están.</p></div>
+      <div class="feat reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11h14l-1.2 6.3A3 3 0 0114.9 20H9.1a3 3 0 01-2.9-2.7L5 11z"/><ellipse cx="12" cy="11" rx="7" ry="2"/><circle cx="9.2" cy="6.8" r=".7" fill="currentColor" stroke="none"/><circle cx="12.5" cy="5.8" r=".7" fill="currentColor" stroke="none"/><circle cx="15" cy="7.2" r=".7" fill="currentColor" stroke="none"/></svg></div>
+        <h3>Ración diaria exacta</h3>
+        <p>Cuánto heno, concentrado y suplemento darle, dividido en 2, 3 o 4 comidas. Kilos y gramos concretos, no "un poco más o menos".</p>
+      </div>
+      <div class="feat highlight reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16a8 8 0 1116 0"/><path d="M12 16l3.5-3.5"/><circle cx="12" cy="16" r="1.1" fill="currentColor" stroke="none"/></svg></div>
+        <h3>Se ajusta a su condición</h3>
+        <p>Marcas si está flaco, ideal o pasado de peso (escala 1 a 9) y la ración sube o baja hasta un 20% sola. La nutrición sigue al caballo, no al revés.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l3.5 4.5V20a1 1 0 01-1 1H5.5a1 1 0 01-1-1V7.5L8 3z"/><path d="M9 12h6M9 16h4"/></svg></div>
+        <h3>Informe en PDF y en imagen</h3>
+        <p>Exporta la ración completa como PDF o como PNG y compártela por WhatsApp con el cuidador. Nada se da de más ni se olvida.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9.5" width="4" height="5" rx="1.2"/><rect x="18" y="9.5" width="4" height="5" rx="1.2"/><path d="M6 12h2M16 12h2"/><rect x="8" y="10.5" width="8" height="3" rx="1"/></svg></div>
+        <h3>Peso con huincha e historial</h3>
+        <p>Registra el peso con dos medidas, guarda el historial con gráfico y te recuerda volver a medir cada 30 días.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 20.2L3.8 13.7a4.6 4.6 0 116.5-6.5l6.5 6.5a4.6 4.6 0 01-6.5 6.5z"/><line x1="8" y1="8.3" x2="15.7" y2="16"/></svg></div>
+        <h3>Suplementos ordenados</h3>
+        <p>Nombre, marca, dosis y horario de cada suplemento anotados en un solo lugar — con recordatorios claros.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 21l1.3-6.2c-1.4-1-2.3-2.7-2.3-4.6a5.5 5.5 0 0111 0c0 1.9-.9 3.6-2.3 4.6L16.5 21"/><circle cx="7.8" cy="19.2" r=".9" fill="currentColor" stroke="none"/><circle cx="16.2" cy="19.2" r=".9" fill="currentColor" stroke="none"/></svg></div>
+        <h3>Un caballo o el criadero</h3>
+        <p>Gestiona toda la caballeriza con lista de alimentos editable — agrega los tuyos si no están. Funciona offline una vez instalada.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -565,77 +605,90 @@
 <section class="tutorial" id="tutorial">
   <div class="wrap">
     <div class="section-head">
-      <span class="tagline">Tutorial</span>
-      <h2>Así se usa, de principio a fin.</h2>
-      <p>Cuatro pasos y ya tienes la ración de tu caballo lista para hoy.</p>
+      <span class="tagline">Cómo se usa</span>
+      <h2>De principio a fin, en 4 pasos.</h2>
+      <p>Cuatro pantallas y ya tienes la ración de tu caballo lista para hoy.</p>
     </div>
     <div class="tut-grid">
-      <div class="tut-step">
+
+      <div class="tut-step reveal">
+        <div class="phone" aria-hidden="true">
+          <div class="phone-screen">
+            <div class="ps-tabs"><span class="t on">Caballos</span><span class="t">Ración</span><span class="t">C. Corporal</span><span class="t">Peso</span></div>
+            <div class="ps-empty">
+              <div class="emo">🐴</div>
+              <div class="eh">Tu primer caballo</div>
+              <div class="es">Empieza aquí: crea un caballo, revisa su ración y comparte el plan en segundos.</div>
+              <div class="eb">Crear mi primer caballo</div>
+            </div>
+          </div>
+        </div>
         <span class="tut-num">1</span>
-        <h3>Agrega tu caballo</h3>
-        <p>Nombre, foto y datos básicos. Un caballo o toda la caballeriza.</p>
+        <h3>Crea tu caballo</h3>
+        <p>Un toque para empezar. Nombre, foto y datos básicos — un caballo o toda la caballeriza.</p>
       </div>
-      <div class="tut-step">
+
+      <div class="tut-step reveal">
+        <div class="phone" aria-hidden="true">
+          <div class="phone-screen">
+            <div class="ps-tabs"><span class="t on">Datos</span><span class="t">Ración</span><span class="t">C. Corporal</span><span class="t">Peso</span></div>
+            <div class="ps-inpt"><span class="lbl">Peso vivo</span><span class="val">405 kg</span></div>
+            <div class="ps-inpt"><span class="lbl">Días de trabajo / semana</span><span class="val">4 días</span></div>
+            <div class="ps-inpt"><span class="lbl">Edad</span><span class="val">8 años</span></div>
+            <div class="ps-sub" style="margin:12px 0 8px;">Dieta disponible</div>
+            <div class="ps-inpt"><span class="lbl">Forraje</span><span class="val">🌿 Alfalfa</span></div>
+            <div class="ps-inpt"><span class="lbl">Concentrado</span><span class="val">🌾 Avena</span></div>
+            <div class="ps-inpt"><span class="lbl">Raciones/día</span><span class="val">3</span></div>
+          </div>
+        </div>
         <span class="tut-num">2</span>
-        <h3>Ingresa peso y trabajo</h3>
-        <p>Cuánto pesa y cuántos días a la semana lo ensillas.</p>
+        <h3>Ingresa peso, trabajo y dieta</h3>
+        <p>Cuánto pesa, cuántos días lo ensillas por semana y qué alimentos tienes disponibles.</p>
       </div>
-      <div class="tut-step">
+
+      <div class="tut-step reveal">
+        <div class="phone" aria-hidden="true">
+          <div class="phone-screen">
+            <div class="ps-tabs"><span class="t">Caballos</span><span class="t">Ración</span><span class="t on">C. Corporal</span><span class="t">Peso</span></div>
+            <div class="ps-bar"></div>
+            <div class="ps-grid9">
+              <div class="ps-cell"><div class="n" style="color:#e0533f">1</div><div class="l">EMACIADO</div></div>
+              <div class="ps-cell"><div class="n" style="color:#e0533f">2</div><div class="l">MUY FLACO</div></div>
+              <div class="ps-cell"><div class="n" style="color:#e2b23c">3</div><div class="l">FLACO</div></div>
+              <div class="ps-cell"><div class="n" style="color:#e2b23c">4</div><div class="l">LEV. BAJO</div></div>
+              <div class="ps-cell"><div class="n" style="color:#3ecb8f">5</div><div class="l">IDEAL</div></div>
+              <div class="ps-cell sel"><div class="n" style="color:#3ecb8f">6</div><div class="l">IDEAL+</div></div>
+              <div class="ps-cell"><div class="n" style="color:#e2b23c">7</div><div class="l">GORDO</div></div>
+              <div class="ps-cell"><div class="n" style="color:#e0533f">8</div><div class="l">OBESO</div></div>
+              <div class="ps-cell"><div class="n" style="color:#e0533f">9</div><div class="l">OBESIDAD</div></div>
+            </div>
+            <div class="ps-desc"><b>6 — Ideal+</b>Costillas bien cubiertas, lomo levemente redondeado. Buena condición para competencia.</div>
+          </div>
+        </div>
         <span class="tut-num">3</span>
         <h3>Marca su condición corporal</h3>
-        <p>Flaco, ideal o pasado de peso — con la escala visual de 1 a 9.</p>
+        <p>Escala de 1 a 9 con guía visual: la app te explica qué mirar y ajusta la ración según el puntaje.</p>
       </div>
-      <div class="tut-step">
+
+      <div class="tut-step reveal">
+        <div class="phone" aria-hidden="true">
+          <div class="phone-screen">
+            <div class="ps-tabs"><span class="t">Caballos</span><span class="t on">Ración</span><span class="t">C. Corporal</span><span class="t">Peso</span></div>
+            <div class="ps-caps">PLAN DE ALIMENTACIÓN</div>
+            <div class="ps-meal"><div class="mh">MAÑANA</div><div class="mr"><span class="k">Heno de alfalfa</span><span class="v">3.067 kg</span></div><div class="mr"><span class="k">Avena en grano</span><span class="v">147 g</span></div></div>
+            <div class="ps-meal"><div class="mh">MEDIODÍA</div><div class="mr"><span class="k">Heno de alfalfa</span><span class="v">3.067 kg</span></div><div class="mr"><span class="k">Agua fresca</span><span class="v">ad libitum</span></div></div>
+            <div class="ps-meal"><div class="mh">TARDE</div><div class="mr"><span class="k">Heno de alfalfa</span><span class="v">3.067 kg</span></div><div class="mr"><span class="k">Avena en grano</span><span class="v">147 g</span></div></div>
+            <div class="ps-export"><span>Exportar PDF</span><span>Imagen</span></div>
+          </div>
+        </div>
         <span class="tut-num">4</span>
         <h3>Recibe la ración del día</h3>
-        <p>Heno, concentrado y suplementos, ya divididos en las comidas que configures.</p>
+        <p>Dividida en mañana, mediodía y tarde, con kilos y gramos exactos — lista para exportar y compartir.</p>
       </div>
+
     </div>
     <div class="tut-cta">
       <a class="btn-primary" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="tutorial">Probar los 4 pasos ahora</a>
-    </div>
-  </div>
-</section>
-
-<section class="trust">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="tagline">Confianza</span>
-      <h2>Sin ataduras. Sin sorpresas. Listo para el campo.</h2>
-      <p>EquiNutrición funciona como una app, pero sin tienda: instalas el sitio, lo abres rápido y lo usas aun sin señal. El Premium se activa por código humano, no por cobros automáticos.</p>
-    </div>
-    <div class="trust-grid">
-      <div class="trust-card">
-        <h4>Funciona offline</h4>
-        <p>Una vez instalada, la app sigue disponible aunque no tengas señal en la hípica o la feria.</p>
-      </div>
-      <div class="trust-card">
-        <h4>Instalación directa</h4>
-        <p>Instálala desde el navegador como una app normal, sin pasar por tiendas ni permisos extras.</p>
-      </div>
-      <div class="trust-card">
-        <h4>Pago tranquilo</h4>
-        <p>Premium se activa por WhatsApp con un código, sin tarjetas guardadas ni suscripciones automáticas.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="engine" id="motor">
-  <div class="wrap">
-    <div class="engine-copy">
-      <span class="tagline">Cómo funciona</span>
-      <h2 style="margin-bottom:18px;">No es una calculadora genérica.</h2>
-      <p>La app junta tres cosas para armar la ración: <strong>cuánto pesa</strong> tu caballo, <strong>cuánto trabaja</strong> (días ensillado por semana) y si está <strong>preñada o en lactancia</strong>, si corresponde.</p>
-      <p>Después mira cómo está de condición corporal y ajusta solo: si está flaco, le sube la ración hasta un 20%; si está pasado de peso, se la baja hasta un 20% y le restringe el concentrado a la mitad. Todo automático, cada vez que le tomas el peso.</p>
-      <a class="btn-secondary" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="motor">Probar con tu caballo</a>
-    </div>
-    <div class="ledger reveal">
-      <div class="ledger-head">Ejemplo — caballo de 420 kg, trabaja 3 días a la semana</div>
-      <div class="ledger-row"><span class="k">Forraje mínimo al día</span><span class="v">6.3 kg</span></div>
-      <div class="ledger-row"><span class="k">Ajuste por trabajo</span><span class="v">un poco más</span></div>
-      <div class="ledger-row"><span class="k">Condición corporal</span><span class="v">en su peso</span></div>
-      <div class="ledger-row"><span class="k">Comidas configuradas</span><span class="v">3 al día</span></div>
     </div>
   </div>
 </section>
@@ -648,7 +701,7 @@
       <p>La activación premium es manual por WhatsApp: sin pagos automáticos, sin suscripciones ocultas y con códigos fáciles.</p>
     </div>
     <div class="plan-grid">
-      <div class="plan">
+      <div class="plan reveal">
         <h3>Gratis</h3>
         <div class="price">$0</div>
         <div class="sub">Para siempre</div>
@@ -659,9 +712,9 @@
           <li>Suplementos y exportación PDF/PNG</li>
           <li>Funciona offline después de instalarse</li>
         </ul>
-        <a class="plan-cta" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="plan_gratis">Empezar gratis</a>
+        <a class="plan-cta solid" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="plan_gratis">Empezar gratis</a>
       </div>
-      <div class="plan">
+      <div class="plan reveal">
         <h3>Premium mensual</h3>
         <div class="price">$4.000<small>/mes</small></div>
         <div class="sub">Sin renovación automática</div>
@@ -671,9 +724,9 @@
           <li>Activación por código vía WhatsApp</li>
           <li>Soporte directo y rápido</li>
         </ul>
-        <a class="plan-cta" href="https://wa.me/56932673835?text=Hola%2C%20quiero%20activar%20Premium%20mensual%20en%20EquiNutrici%C3%B3n" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="plan_mensual">Activar por WhatsApp</a>
+        <a class="plan-cta wa" href="https://wa.me/56932673835?text=Hola%2C%20quiero%20activar%20Premium%20mensual%20en%20EquiNutrici%C3%B3n" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="plan_mensual"><svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.66.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.35-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 01-1.44-5.01c0-5.2 4.24-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.76a9.36 9.36 0 012.76 6.68c0 5.2-4.24 9.43-9.44 9.43zm8.04-17.49A11.35 11.35 0 0012.04.5C5.79.5.72 5.57.72 11.81c0 2.01.53 3.97 1.53 5.7L.62 23.5l6.14-1.61a11.3 11.3 0 005.28 1.35h.01c6.24 0 11.32-5.07 11.32-11.31 0-3.02-1.18-5.86-3.32-8z"/></svg>Activar por WhatsApp</a>
       </div>
-      <div class="plan featured">
+      <div class="plan featured reveal">
         <h3>Premium anual</h3>
         <div class="price">$35.000<small>/año</small></div>
         <div class="sub">Primer mes gratis</div>
@@ -683,48 +736,118 @@
           <li>Activación por código vía WhatsApp</li>
           <li>Mejor costo por caballo</li>
         </ul>
-        <a class="plan-cta" href="https://wa.me/56932673835?text=Hola%2C%20quiero%20activar%20Premium%20anual%20en%20EquiNutrici%C3%B3n" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="plan_anual">Activar por WhatsApp</a>
+        <a class="plan-cta wa" href="https://wa.me/56932673835?text=Hola%2C%20quiero%20activar%20Premium%20anual%20en%20EquiNutrici%C3%B3n" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="plan_anual"><svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.66.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.35-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 01-1.44-5.01c0-5.2 4.24-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.76a9.36 9.36 0 012.76 6.68c0 5.2-4.24 9.43-9.44 9.43zm8.04-17.49A11.35 11.35 0 0012.04.5C5.79.5.72 5.57.72 11.81c0 2.01.53 3.97 1.53 5.7L.62 23.5l6.14-1.61a11.3 11.3 0 005.28 1.35h.01c6.24 0 11.32-5.07 11.32-11.31 0-3.02-1.18-5.86-3.32-8z"/></svg>Activar por WhatsApp</a>
       </div>
     </div>
   </div>
 </section>
 
 <section class="full-service" id="servicio">
-  <div class="wrap fs-grid">
-    <div class="fs-card">
-      <span class="badge">Servicio experto</span>
-      <h3>Si prefieres que lo vea directamente el experto</h3>
-      <p>Mínimo 1 collera. Trabajo contigo directo, no solo a través de la app.</p>
-      <a class="btn-primary" href="https://wa.me/56932673835?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20del%20servicio%20experto" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="servicio_experto">Conversemos por WhatsApp</a>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tagline">Servicio en terreno</span>
+      <h2>Cuando quieres que un experto lo vea en persona.</h2>
+      <p>La app te da autonomía. Pero si prefieres que revise tus caballos yo mismo, en tu campo, también existe esa opción — trabajo directo contigo, no solo a través de la pantalla.</p>
     </div>
-    <div>
-      <div class="fs-steps">
-        <div class="fs-step"><h4>Auditoría presencial</h4><p>Voy a ver a tus caballos en persona, no solo por foto.</p></div>
-        <div class="fs-step"><h4>Plan nutricional a tu medida</h4><p>Hecho y adaptado a tu criadero, no una plantilla genérica.</p></div>
-        <div class="fs-step"><h4>Protocolo para rodeo</h4><p>Especificaciones de qué darle antes y después de correr.</p></div>
-        <div class="fs-step"><h4>Soporte continuo</h4><p>Dudas del día a día resueltas directo conmigo, cuando las tengas.</p></div>
+    <div class="split">
+      <div class="split-media media kb reveal">
+        <img src="images/servicio-terreno.jpg" width="1200" height="800" loading="lazy" alt="Dos caballos en un campo, uno pastando, en una ladera con cultivo">
       </div>
-      <div class="fs-extra">
-        <span class="badge">Extra</span>
-        <h4>Informe de costos</h4>
-        <p>Cuánto gastas por caballo en comida y suplementos, día a día y al mes — con opción de calcularlo para todo el criadero.</p>
+      <div class="split-copy">
+        <div class="fs-steps">
+          <div class="fs-step"><h4>Auditoría en terreno</h4><p>Voy a ver tus caballos donde están: reviso condición corporal, alimentación actual y manejo. En persona, no por foto.</p></div>
+          <div class="fs-step"><h4>Plan a la medida</h4><p>Un plan nutricional hecho para tus caballos, tus alimentos y tu presupuesto. Nada de plantillas genéricas.</p></div>
+          <div class="fs-step"><h4>Protocolo para el rodeo</h4><p>Qué darle antes y después de correr para que rinda y se recupere bien, sin improvisar.</p></div>
+          <div class="fs-step"><h4>Soporte directo</h4><p>Las dudas del día a día las resuelves conmigo, cuando aparecen — no con un formulario.</p></div>
+        </div>
+        <div class="fs-extra">
+          <span class="badge">Extra</span>
+          <h4>Informe de costos</h4>
+          <p>Cuánto gastas por caballo en comida y suplementos, al día y al mes — con opción de calcularlo para todo el criadero.</p>
+        </div>
+        <p class="fs-note">Disponible desde 1 collera en adelante.</p>
+        <div class="fs-cta">
+          <a class="btn-whatsapp" href="https://wa.me/56932673835?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20del%20servicio%20en%20terreno" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="servicio_terreno"><svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.66.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.35-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 01-1.44-5.01c0-5.2 4.24-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.76a9.36 9.36 0 012.76 6.68c0 5.2-4.24 9.43-9.44 9.43zm8.04-17.49A11.35 11.35 0 0012.04.5C5.79.5.72 5.57.72 11.81c0 2.01.53 3.97 1.53 5.7L.62 23.5l6.14-1.61a11.3 11.3 0 005.28 1.35h.01c6.24 0 11.32-5.07 11.32-11.31 0-3.02-1.18-5.86-3.32-8z"/></svg>Conversemos por WhatsApp</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tagline">Preguntas frecuentes</span>
+      <h2>Lo que la gente nos pregunta.</h2>
+      <p>Y si te queda una duda que no está acá, escríbenos por WhatsApp — contestamos nosotros mismos.</p>
+    </div>
+    <div class="faq-list">
+
+      <details class="faq-item about" open>
+        <summary>¿Quiénes somos?<span class="plus"></span></summary>
+        <div class="faq-body">
+          <div class="faq-founder">
+            <span class="avatar">LA</span>
+            <span class="who"><b>Luis Aguirre</b><span>Creador de EquiNutrición · Estudiante de Medicina Veterinaria</span></span>
+          </div>
+          <p>Soy Luis Aguirre, estudiante de Medicina Veterinaria y crecí entre caballos, en la tradición huasa de mi familia. Trabajando en terreno me di cuenta de algo que se repite en todos lados: al caballo se le alimenta <strong>a ojo</strong>. Se copia lo que le funciona al vecino y se compran alimentos más por el marketing de la marca que por lo que realmente aportan.</p>
+          <p>Cuando busqué respuestas serias, me encontré con que sobre el <strong>caballo de raza chilena casi no hay estudios</strong> — muchas veces se le aplican fórmulas pensadas para otras razas o disciplinas, que pueden estar equivocadas.</p>
+          <p>EquiNutrición nació de ahí: para <strong>democratizar el conocimiento de nutrición equina</strong> y ponerlo en la mano de cualquier dueño o criador, enfocado 100% en nuestro caballo chileno. Que decidir qué come tu caballo deje de ser una adivinanza.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Funciona sin internet?<span class="plus"></span></summary>
+        <div class="faq-body"><p>Sí. Una vez que la instalas, la app sigue disponible aunque no tengas señal — en la hípica, la medialuna o el campo. Tus datos quedan guardados en tu teléfono.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Cómo la instalo si no está en la App Store?<span class="plus"></span></summary>
+        <div class="faq-body"><p>La abres desde el navegador y eliges <strong>"Agregar a pantalla de inicio"</strong> (o "Instalar app"). Queda como una app normal, con su ícono, sin pasar por tiendas ni pedir permisos extras. Toma menos de un minuto.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Cómo activo Premium? ¿Hay cobros automáticos?<span class="plus"></span></summary>
+        <div class="faq-body"><p>No hay cobros automáticos ni tarjetas guardadas. El Premium se activa <strong>manualmente por WhatsApp con un código</strong>: nos escribes, pagas una vez y te llega el código para desbloquear. Cuando quieras renovar, lo decides tú.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Sirve solo para caballos de raza chilena?<span class="plus"></span></summary>
+        <div class="faq-body"><p>Está pensada y calibrada <strong>100% para el caballo chileno</strong>, que es donde más falta hacía. Aun así, los cálculos sirven para cualquier caballo: ingresas su peso, trabajo y condición y la app arma su ración igual.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿De dónde salen los cálculos?<span class="plus"></span></summary>
+        <div class="faq-body"><p>La ración se arma a partir de <strong>cuánto pesa</strong> el caballo, <strong>cuánto trabaja</strong> (días ensillado por semana) y su estado fisiológico (preñez o lactancia). Luego se ajusta según la <strong>condición corporal</strong>: si está flaco sube la ración hasta un 20%; si está pasado de peso la baja y restringe el concentrado. Todo automático cada vez que actualizas sus datos.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Reemplaza al veterinario?<span class="plus"></span></summary>
+        <div class="faq-body"><p>No. Es una herramienta para ordenar y fundamentar la alimentación del día a día. Ante enfermedades, dietas especiales o casos complejos, siempre consulta a tu veterinario — o pídenos el <a href="#servicio" style="color:var(--sage-deep);font-weight:600;">servicio en terreno</a>.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Mis datos quedan guardados en algún lado?<span class="plus"></span></summary>
+        <div class="faq-body"><p>Tus caballos y sus datos se guardan <strong>en tu propio teléfono</strong>, no en un servidor. Por eso funciona offline y por eso tu información es tuya.</p></div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
 <section class="cta-final" id="contacto">
+  <div class="cta-bg" aria-hidden="true"></div>
   <div class="wrap">
     <h2>¿Con cuántos caballos partimos?</h2>
-    <p>Escríbeme directo por WhatsApp — activo tu Premium o conversamos del servicio experto el mismo día.</p>
-    <a class="btn-primary" href="https://wa.me/56932673835" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="cta_final">Escribir al +56 9 3267 3835</a>
+    <p>Escríbeme directo por WhatsApp — activo tu Premium o conversamos del servicio en terreno el mismo día.</p>
+    <a class="btn-whatsapp" href="https://wa.me/56932673835" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="cta_final"><svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.66.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.35-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 01-1.44-5.01c0-5.2 4.24-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.76a9.36 9.36 0 012.76 6.68c0 5.2-4.24 9.43-9.44 9.43zm8.04-17.49A11.35 11.35 0 0012.04.5C5.79.5.72 5.57.72 11.81c0 2.01.53 3.97 1.53 5.7L.62 23.5l6.14-1.61a11.3 11.3 0 005.28 1.35h.01c6.24 0 11.32-5.07 11.32-11.31 0-3.02-1.18-5.86-3.32-8z"/></svg>Escribir al +56 9 3267 3835</a>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
     <div class="brand"><span class="brand-mark"><img src="app-logo.png" alt="EquiNutrición"></span>EquiNutrición</div>
-    <span>Nutrición del Caballo Chileno</span>
+    <span>Nutrición del Caballo Chileno · por Luis Aguirre</span>
     <div class="footer-social">
       <a href="https://www.facebook.com/equinutricion.cl" target="_blank" rel="noopener" aria-label="EquiNutrición en Facebook">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M14 8.5h-1.3c-1 0-1.7.6-1.7 1.7V12h3l-.4 3H11v6"/></svg>
@@ -756,57 +879,12 @@
     });
   });
 
-  const slider = document.getElementById('ccSlider');
-  const weightSlider = document.getElementById('ccWeight');
-  const workSlider = document.getElementById('ccWork');
-  const pct = document.getElementById('ccPct');
-  const tag = document.getElementById('ccTag');
-  const big = document.getElementById('ccLabelBig');
-  const mHeno = document.getElementById('mHeno');
-  const mAvena = document.getElementById('mAvena');
-  const mComidas = document.getElementById('mComidas');
-  const weightVal = document.getElementById('ccWeightVal');
-  const workVal = document.getElementById('ccWorkVal');
-
-  function update(){
-    const weight = parseInt(weightSlider.value,10);
-    const workDays = parseInt(workSlider.value,10);
-    const v = parseInt(slider.value,10);
-
-    weightVal.textContent = weight + ' kg';
-    workVal.textContent = workDays;
-
-    let adj = 0, desc = 'En su peso — ración normal';
-    if(v<=3){ adj = 20 - (v-1)*5; desc = 'Flaco — se le sube la ración'; }
-    else if(v>=7){ adj = -(10 + (v-7)*5); desc = 'Pasado de peso — menos concentrado'; }
-    else { adj = 0; desc = 'En su peso — ración normal'; }
-    pct.textContent = (adj>0?'+':'') + adj + '%';
-    pct.style.color = adj === 0 ? 'var(--ink)' : 'var(--sage-deep)';
-    tag.textContent = desc;
-    big.textContent = adj===0 ? 'su ración normal' : (adj>0 ? 'más ración' : 'menos ración');
-
-    const workPct = workDays * 3;
-    const henoBase = weight * 0.015;
-    const avenaBase = weight * 0.0025 + weight * 0.0015 * (workDays / 7);
-
-    const heno = henoBase * (1 + adj/100);
-    const avena = adj < 0 ? avenaBase * 0.5 : avenaBase * (1 + (adj + workPct)/100);
-
-    mHeno.textContent = heno.toFixed(1) + ' kg';
-    mAvena.textContent = avena.toFixed(1) + ' kg';
-    mComidas.textContent = (workDays >= 5 ? 4 : (v <= 3 ? 3 : 2)) + ' comidas';
-  }
-  slider.addEventListener('input', update);
-  weightSlider.addEventListener('input', update);
-  workSlider.addEventListener('input', update);
-  update();
-
+  // Weight calculator
   const wcGirth = document.getElementById('wcGirth');
   const wcLength = document.getElementById('wcLength');
   const wcResult = document.getElementById('wcResult');
   const wcWeight = document.getElementById('wcWeight');
   let wcPulseTimeout;
-
   function updateWeightCalc(){
     const girth = parseFloat(wcGirth.value);
     const length = parseFloat(wcLength.value);
@@ -824,10 +902,21 @@
   wcLength.addEventListener('input', updateWeightCalc);
   updateWeightCalc();
 
+  // Reveal on scroll
   const obs = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
-  }, {threshold:0.15});
+  }, {threshold:0.12});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  // Close other FAQ items when one opens (accordion behavior)
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    item.addEventListener('toggle', () => {
+      if(item.open){
+        faqItems.forEach(other => { if(other !== item) other.open = false; });
+      }
+    });
+  });
 </script>
 
 </body>
