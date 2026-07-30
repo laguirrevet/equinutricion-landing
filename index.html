@@ -22,399 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#FAF7F0;
-    --bg-alt:#F1ECDF;
-    --sage:#25C490;
-    --sage-deep:#1D9E75;
-    --sage-tint:#E6F7F1;
-    --ink:#3C362C;
-    --ink-soft:#736A58;
-    --line: rgba(60,54,44,0.12);
-    --wa:#25D366;
-    --wa-deep:#1EBE5B;
-    --dark:#101A15;
-    --radius: 12px;
-    --shadow-soft: 0 18px 44px rgba(60,70,50,0.10);
-    --shadow-card: 0 24px 60px rgba(40,55,42,0.16);
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--bg);
-    color:var(--ink);
-    font-family:'Montserrat', system-ui, sans-serif;
-    font-size:16px;
-    line-height:1.62;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  h1,h2,h3,h4{ font-family:'Montserrat', sans-serif; font-weight:800; letter-spacing:-0.02em; color:var(--ink); line-height:1.14; }
-  .mono{ font-family:'IBM Plex Mono', monospace; }
-  a{ color:inherit; }
-  img{max-width:100%; display:block;}
-  .wrap{ max-width:1140px; margin:0 auto; padding:0 20px; }
-  @media (min-width:640px){ .wrap{ padding:0 28px; } }
-  ::selection{ background:var(--sage-tint); color:var(--ink); }
-  :focus-visible{ outline:2.5px solid var(--sage-deep); outline-offset:3px; border-radius:4px; }
-  @media (prefers-reduced-motion: reduce){
-    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
-  }
-
-  /* ===== BUTTONS ===== */
-  .btn-primary, .btn-secondary, .btn-whatsapp{
-    display:inline-flex; align-items:center; justify-content:center; gap:9px;
-    font-family:inherit; font-weight:700; font-size:15px; text-decoration:none;
-    padding:15px 26px; border-radius:var(--radius); cursor:pointer;
-    transition:transform .16s ease, box-shadow .16s ease, background .16s ease;
-    line-height:1;
-  }
-  .btn-primary{
-    background:linear-gradient(135deg, var(--sage-deep), var(--sage));
-    color:#fff; border:none;
-    box-shadow:0 10px 24px rgba(29,158,117,0.32);
-  }
-  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 16px 32px rgba(29,158,117,0.40); }
-  .btn-primary:active{ transform:translateY(0); }
-  .btn-secondary{
-    background:rgba(255,255,255,0.06); color:var(--ink);
-    border:1.5px solid var(--ink);
-  }
-  .btn-secondary:hover{ background:var(--ink); color:#fff; transform:translateY(-2px); }
-  .btn-whatsapp{
-    background:linear-gradient(135deg, var(--wa-deep), var(--wa));
-    color:#fff; border:none;
-    box-shadow:0 10px 24px rgba(37,211,102,0.30);
-  }
-  .btn-whatsapp:hover{ transform:translateY(-2px); box-shadow:0 16px 32px rgba(37,211,102,0.42); }
-  .btn-whatsapp:active{ transform:translateY(0); }
-  .wa-ico{ width:19px; height:19px; flex-shrink:0; }
-  .btn-block{ width:100%; }
-
-  /* ===== NAV ===== */
-  nav{
-    position:sticky; top:0; z-index:60;
-    background:rgba(250,247,240,0.90);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
-  }
-  nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:64px; }
-  .brand{ display:flex; align-items:center; gap:9px; font-family:'Montserrat',sans-serif; font-weight:800; font-size:18px; letter-spacing:-0.02em; }
-  .brand-mark{ width:30px; height:30px; border-radius:9px; overflow:hidden; flex-shrink:0; }
-  .brand-mark img{ width:100%; height:100%; object-fit:cover; display:block; }
-  .navlinks{ display:flex; gap:24px; font-size:14px; font-weight:600; }
-  .navlinks a{ text-decoration:none; opacity:0.72; transition:opacity .15s, color .15s; }
-  .navlinks a:hover{ opacity:1; color:var(--sage-deep); }
-  .nav-cta{
-    background:var(--sage-deep); color:#fff;
-    padding:10px 17px; border-radius:10px;
-    font-size:13.5px; font-weight:700; text-decoration:none; white-space:nowrap;
-    transition:background .15s, transform .15s;
-  }
-  .nav-cta:hover{ background:var(--sage); transform:translateY(-1px); }
-  @media (max-width:900px){ .navlinks{display:none;} }
-  @media (max-width:480px){ .nav-actions .nav-cta{display:none;} }
-  .nav-actions{ display:flex; align-items:center; gap:10px; }
-  .nav-toggle{
-    display:none; background:none; border:1.5px solid var(--line); border-radius:9px;
-    width:40px; height:40px; align-items:center; justify-content:center; color:var(--ink); cursor:pointer; padding:0;
-  }
-  .nav-toggle svg{ width:20px; height:20px; }
-  @media (max-width:900px){ .nav-toggle{ display:flex; } }
-  .mobile-menu{ display:none; flex-direction:column; background:var(--bg); border-bottom:1px solid var(--line); }
-  .mobile-menu.open{ display:flex; }
-  .mobile-menu a{
-    padding:15px 22px; text-decoration:none; color:var(--ink); font-size:15px; font-weight:600;
-    border-top:1px solid var(--line);
-  }
-  .mobile-menu a:first-child{ border-top:none; }
-  @media (min-width:901px){ .mobile-menu{ display:none !important; } }
-
-  /* ===== SHARED ===== */
-  section{ padding:64px 0; }
-  @media (min-width:768px){ section{ padding:88px 0; } }
-  .tagline{
-    display:inline-flex; align-items:center; gap:8px;
-    background:var(--sage-tint); color:var(--sage-deep);
-    padding:7px 15px; border-radius:99px;
-    font-size:13px; font-weight:700; letter-spacing:0.01em;
-    margin-bottom:16px;
-  }
-  .section-head{ max-width:640px; margin-bottom:40px; }
-  @media (min-width:768px){ .section-head{ margin-bottom:52px; } }
-  .section-head h2{ font-size:clamp(26px,5vw,38px); }
-  .section-head p{ margin-top:14px; font-size:16px; color:var(--ink-soft); }
-  .eyebrow-num{ font-family:'IBM Plex Mono',monospace; }
-
-  /* image utility + ken burns */
-  .media{ position:relative; border-radius:20px; overflow:hidden; box-shadow:var(--shadow-soft); background:var(--bg-alt); }
-  .media img{ width:100%; height:100%; object-fit:cover; display:block; }
-  .media.kb img{ transform:scale(1.02); transition:transform 8s ease; }
-  .media.kb.in img{ transform:scale(1.1); }
-
-  .split{ display:grid; grid-template-columns:1fr; gap:34px; align-items:center; }
-  @media (min-width:900px){ .split{ grid-template-columns:1fr 1fr; gap:56px; } .split.reverse .split-media{ order:2; } }
-  .split-copy p{ color:var(--ink-soft); font-size:16px; margin-bottom:16px; }
-  .split-copy p strong{ color:var(--ink); }
-  .split .media{ aspect-ratio:4/3; }
-
-  .js .reveal{ opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease; }
-  .js .reveal.in{ opacity:1; transform:none; }
-
-  /* ===== HERO (cinematic) ===== */
-  .hero{ position:relative; padding:0; overflow:hidden; background:var(--dark); }
-  .hero-bg{ position:absolute; inset:0; z-index:0; }
-  .hero-bg::before{
-    content:""; position:absolute; inset:0;
-    background:url('images/hero-caballo.jpg') center 30%/cover no-repeat;
-    transform:scale(1.04);
-    animation:kenburns 26s ease-in-out infinite alternate;
-  }
-  @keyframes kenburns{ from{transform:scale(1.04);} to{transform:scale(1.15);} }
-  .hero-bg::after{
-    content:""; position:absolute; inset:0;
-    background:
-      linear-gradient(90deg, rgba(16,26,21,0.90) 0%, rgba(16,26,21,0.70) 42%, rgba(16,26,21,0.30) 75%, rgba(16,26,21,0.12) 100%),
-      linear-gradient(to bottom, rgba(16,26,21,0.25), rgba(16,26,21,0.55));
-  }
-  .hero-inner{ position:relative; z-index:2; padding:76px 0 150px; }
-  @media (min-width:768px){ .hero-inner{ padding:104px 0 200px; } }
-  .hero-content{ max-width:620px; }
-  .hero .tagline{ background:rgba(37,196,144,0.18); color:#8ff0cd; backdrop-filter:blur(4px); }
-  .hero h1{ color:#fff; font-size:clamp(32px,6.4vw,54px); margin-bottom:18px; }
-  .hero h1 em{ font-style:normal; color:#5fe0ac; }
-  .hero p.lede{ color:rgba(255,255,255,0.90); font-size:clamp(16px,2.2vw,18.5px); max-width:52ch; margin-bottom:30px; font-weight:500; }
-  .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; }
-  .hero .btn-secondary{ color:#fff; border-color:rgba(255,255,255,0.7); }
-  .hero .btn-secondary:hover{ background:#fff; color:var(--ink); border-color:#fff; }
-  .hero-note{ margin-top:18px; font-size:13.5px; color:rgba(255,255,255,0.78); display:flex; align-items:center; gap:8px; }
-  .hero-note svg{ width:16px; height:16px; flex-shrink:0; color:#5fe0ac; }
-
-  /* ===== WEIGHT CALCULATOR (floating, overlaps hero) ===== */
-  .calc-section{ background:var(--bg); position:relative; z-index:5; padding-top:0; }
-  .wc-card{
-    background:#fff; border:1px solid var(--line); border-radius:22px;
-    padding:30px 26px 28px; max-width:660px; margin:-110px auto 0;
-    box-shadow:var(--shadow-card); position:relative;
-  }
-  @media (min-width:768px){ .wc-card{ margin-top:-140px; padding:38px 40px 34px; } }
-  .wc-badge{
-    display:inline-flex; align-items:center; gap:8px;
-    background:var(--sage-tint); color:var(--sage-deep);
-    padding:6px 14px; border-radius:99px; font-size:12.5px; font-weight:700; margin-bottom:14px;
-  }
-  .wc-card h2{ font-size:clamp(21px,3.4vw,27px); margin-bottom:8px; }
-  .wc-intro{ font-size:14.5px; color:var(--ink-soft); margin-bottom:22px; max-width:52ch; }
-  .wc-warning{
-    display:flex; gap:12px; align-items:flex-start;
-    background:var(--bg-alt); border-left:3px solid var(--sage-deep);
-    border-radius:10px; padding:14px 16px; margin-bottom:24px;
-  }
-  .wc-warning svg{ flex-shrink:0; width:20px; height:20px; margin-top:2px; color:var(--sage-deep); }
-  .wc-warning strong{ display:block; font-size:13.5px; margin-bottom:2px; color:var(--ink); }
-  .wc-warning p{ font-size:13px; color:var(--ink-soft); line-height:1.5; }
-  .wc-fields{ display:grid; grid-template-columns:1fr; gap:18px; }
-  @media (min-width:560px){ .wc-fields{ grid-template-columns:1fr 1fr; } }
-  .wc-field label{ display:block; font-size:14px; font-weight:700; color:var(--ink); margin-bottom:4px; }
-  .wc-help{ font-size:12px; color:var(--ink-soft); line-height:1.45; margin-bottom:9px; }
-  .wc-field input[type=number]{
-    width:100%; padding:14px 15px; border:1.5px solid var(--line); border-radius:11px;
-    font-family:'IBM Plex Mono',monospace; font-size:20px; font-weight:600; color:var(--ink);
-    background:#fff; transition:border-color .15s ease, box-shadow .15s ease;
-  }
-  .wc-field input[type=number]:focus{
-    outline:none; border-color:var(--sage-deep); box-shadow:0 0 0 3px rgba(37,196,144,0.15);
-  }
-  .wc-result{
-    background:linear-gradient(135deg, var(--sage-deep), var(--sage));
-    border-radius:16px; padding:22px 20px; text-align:center; color:#fff;
-    margin:22px 0 20px; transition:transform .18s ease; box-shadow:0 12px 28px rgba(29,158,117,0.28);
-  }
-  .wc-result.pulse{ transform:scale(1.03); }
-  .wc-result-label{ display:block; font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; opacity:0.9; margin-bottom:4px; }
-  .wc-result-num{ display:block; font-family:'IBM Plex Mono',monospace; font-size:clamp(40px,7vw,50px); font-weight:700; line-height:1.05; }
-  .wc-result-note{ display:block; font-size:12px; opacity:0.88; margin-top:8px; }
-
-  /* ===== FEATURES / LA APP ===== */
-  .features{ background:var(--bg-alt); }
-  .app-intro{ margin-bottom:48px; }
-  .app-intro .split-copy .lead{ font-size:18px; color:var(--ink); font-weight:600; margin-bottom:14px; letter-spacing:-0.01em; }
-  .feat-grid{ display:grid; grid-template-columns:1fr; gap:16px; }
-  @media (min-width:560px){ .feat-grid{ grid-template-columns:1fr 1fr; } }
-  @media (min-width:920px){ .feat-grid{ grid-template-columns:repeat(3,1fr); } }
-  .feat{ background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px 22px; transition:transform .18s ease, box-shadow .18s ease; }
-  .feat:hover{ transform:translateY(-4px); box-shadow:var(--shadow-soft); }
-  .feat .icon{
-    width:42px; height:42px; border-radius:12px; background:var(--sage-tint);
-    display:flex; align-items:center; justify-content:center; margin-bottom:14px; color:var(--sage-deep);
-  }
-  .feat .icon svg{ width:22px; height:22px; }
-  .feat h3{ font-size:17px; margin-bottom:7px; font-weight:700; }
-  .feat p{ font-size:14px; color:var(--ink-soft); }
-  .feat.highlight{ background:linear-gradient(150deg, var(--sage-deep), var(--sage)); border:none; }
-  .feat.highlight .icon{ background:rgba(255,255,255,0.18); color:#fff; }
-  .feat.highlight h3{ color:#fff; }
-  .feat.highlight p{ color:rgba(255,255,255,0.92); }
-
-  /* ===== TUTORIAL ===== */
-  .tutorial{ background:var(--bg); }
-  .tut-grid{ display:grid; grid-template-columns:1fr; gap:22px; }
-  @media (min-width:560px){ .tut-grid{ grid-template-columns:1fr 1fr; } }
-  @media (min-width:980px){ .tut-grid{ grid-template-columns:repeat(4,1fr); gap:18px; } }
-  .tut-step{ text-align:left; }
-  .tut-num{
-    display:inline-flex; align-items:center; justify-content:center;
-    width:32px; height:32px; border-radius:50%;
-    background:var(--sage-deep); color:#fff;
-    font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:14px; margin-bottom:14px;
-  }
-  .tut-step h3{ font-size:17px; margin-bottom:6px; font-weight:700; }
-  .tut-step p{ font-size:14px; color:var(--ink-soft); }
-  .tut-cta{ text-align:center; margin-top:44px; }
-
-  /* phone mockup (recreation of real app screens, dark theme) */
-  .phone{
-    width:100%; max-width:224px; margin:0 auto 18px;
-    background:#0b120e; border-radius:30px; padding:9px;
-    border:1px solid rgba(255,255,255,0.09);
-    box-shadow:0 24px 50px rgba(30,45,32,0.28);
-  }
-  .phone-screen{
-    background:#0f1a15; border-radius:23px; padding:16px 14px 18px;
-    color:#e8f2ec; min-height:340px; position:relative; overflow:hidden;
-    font-size:12.5px;
-  }
-  .ps-top{ display:flex; align-items:center; justify-content:space-between; font-size:10px; color:rgba(255,255,255,0.55); margin-bottom:14px; }
-  .ps-top .dot{ width:44px; height:5px; border-radius:99px; background:rgba(255,255,255,0.18); }
-  .ps-title{ font-weight:700; font-size:14px; color:#fff; margin-bottom:3px; }
-  .ps-sub{ font-size:10.5px; color:rgba(255,255,255,0.5); margin-bottom:14px; }
-  .ps-photo{ width:52px; height:52px; border-radius:14px; background:linear-gradient(135deg,#25C490,#1D9E75); display:flex; align-items:center; justify-content:center; margin-bottom:12px; }
-  .ps-photo svg{ width:30px; height:30px; color:#fff; }
-  .ps-inpt{ background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.10); border-radius:9px; padding:8px 10px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; }
-  .ps-inpt .lbl{ color:rgba(255,255,255,0.55); font-size:10px; }
-  .ps-inpt .val{ font-family:'IBM Plex Mono',monospace; color:#fff; font-weight:600; font-size:13px; }
-  .ps-chip{ display:inline-block; background:rgba(37,196,144,0.18); color:#5fe0ac; border-radius:8px; padding:5px 9px; font-size:10px; font-weight:600; margin:0 4px 6px 0; }
-  .ps-chip.sel{ background:#25C490; color:#06110c; }
-  .ps-scale{ display:flex; gap:3px; margin:6px 0 4px; }
-  .ps-scale span{ flex:1; height:8px; border-radius:3px; background:rgba(255,255,255,0.12); }
-  .ps-scale span.on{ background:#25C490; }
-  .ps-row{ display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-top:1px solid rgba(255,255,255,0.08); }
-  .ps-row:first-of-type{ border-top:none; }
-  .ps-row .k{ color:rgba(255,255,255,0.7); }
-  .ps-row .v{ font-family:'IBM Plex Mono',monospace; color:#fff; font-weight:600; }
-  .ps-total{ background:linear-gradient(135deg,#1D9E75,#25C490); border-radius:12px; padding:12px 14px; margin-top:12px; }
-  .ps-total .k{ font-size:10px; color:rgba(255,255,255,0.85); text-transform:uppercase; letter-spacing:0.05em; }
-  .ps-total .v{ font-family:'IBM Plex Mono',monospace; font-size:22px; font-weight:700; color:#fff; }
-  .ps-export{ display:flex; gap:6px; margin-top:12px; }
-  .ps-export span{ flex:1; text-align:center; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.10); border-radius:8px; padding:7px 0; font-size:10px; font-weight:600; color:rgba(255,255,255,0.8); }
-  .ps-btn{ background:#25C490; color:#06110c; border-radius:9px; text-align:center; padding:9px 0; font-weight:700; font-size:11.5px; margin-top:12px; }
-  /* phone screens — fieles al app real */
-  .ps-tabs{ display:flex; gap:9px; font-size:9px; color:rgba(255,255,255,0.42); border-bottom:1px solid rgba(255,255,255,0.09); padding-bottom:9px; margin-bottom:13px; }
-  .ps-tabs .t{ white-space:nowrap; }
-  .ps-tabs .t.on{ color:#5fe0ac; font-weight:700; }
-  .ps-empty{ text-align:center; padding:16px 6px 6px; }
-  .ps-empty .emo{ font-size:30px; }
-  .ps-empty .eh{ color:#fff; font-weight:700; font-size:13px; margin:9px 0 5px; }
-  .ps-empty .es{ font-size:9.5px; color:rgba(255,255,255,0.5); margin-bottom:14px; line-height:1.45; }
-  .ps-empty .eb{ display:inline-block; border:1px solid rgba(255,255,255,0.2); border-radius:9px; padding:8px 14px; font-size:11px; font-weight:600; color:#fff; }
-  .ps-grid9{ display:grid; grid-template-columns:repeat(3,1fr); gap:5px; margin:10px 0 12px; }
-  .ps-cell{ border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:8px 2px 6px; text-align:center; }
-  .ps-cell .n{ font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:15px; line-height:1; }
-  .ps-cell .l{ font-size:6.5px; color:rgba(255,255,255,0.45); letter-spacing:0.03em; margin-top:3px; }
-  .ps-cell.sel{ border-color:#25C490; background:rgba(37,196,144,0.14); }
-  .ps-bar{ height:8px; border-radius:99px; background:linear-gradient(90deg,#e0533f,#e2b23c,#3ecb8f); position:relative; margin:8px 0 12px; }
-  .ps-bar::after{ content:""; position:absolute; top:50%; left:62%; transform:translate(-50%,-50%); width:15px; height:15px; border-radius:50%; background:#fff; border:2.5px solid #25C490; }
-  .ps-desc{ background:rgba(255,255,255,0.05); border-radius:9px; padding:9px 11px; font-size:10px; color:rgba(255,255,255,0.62); line-height:1.5; }
-  .ps-desc b{ color:#5fe0ac; display:block; margin-bottom:3px; font-size:11px; }
-  .ps-caps{ color:#5fe0ac; font-size:9.5px; font-weight:700; letter-spacing:0.06em; margin-bottom:9px; }
-  .ps-meal{ background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:9px 11px; margin-bottom:8px; }
-  .ps-meal .mh{ color:#5fe0ac; font-size:9px; font-weight:700; letter-spacing:0.07em; margin-bottom:6px; }
-  .ps-meal .mr{ display:flex; justify-content:space-between; font-size:10.5px; padding:2px 0; }
-  .ps-meal .mr .k{ color:rgba(255,255,255,0.75); }
-  .ps-meal .mr .v{ font-family:'IBM Plex Mono',monospace; color:#fff; }
-
-  /* ===== PLANS ===== */
-  .plans{ background:var(--bg-alt); }
-  .plan-grid{ display:grid; grid-template-columns:1fr; gap:18px; }
-  @media (min-width:760px){ .plan-grid{ grid-template-columns:repeat(3,1fr); align-items:start; } }
-  .plan{ background:#fff; border:1.5px solid var(--line); border-radius:18px; padding:28px 24px; display:flex; flex-direction:column; transition:transform .18s ease, box-shadow .18s ease; }
-  .plan:hover{ transform:translateY(-4px); box-shadow:var(--shadow-soft); }
-  .plan.featured{ border-color:var(--sage-deep); box-shadow:0 20px 44px rgba(29,158,117,0.16); position:relative; }
-  @media (min-width:760px){ .plan.featured{ transform:scale(1.03); } .plan.featured:hover{ transform:scale(1.03) translateY(-4px); } }
-  .plan.featured::before{
-    content:"Recomendado"; position:absolute; top:-13px; left:50%; transform:translateX(-50%);
-    background:var(--sage-deep); color:#fff; font-size:11.5px; font-weight:700; padding:5px 14px; border-radius:99px; white-space:nowrap;
-  }
-  .plan h3{ font-size:19px; margin-bottom:4px; font-weight:700; }
-  .plan .price{ font-family:'IBM Plex Mono',monospace; font-size:30px; font-weight:600; margin:12px 0 4px; color:var(--ink); }
-  .plan .price small{ font-size:13px; font-weight:400; color:var(--ink-soft); }
-  .plan .sub{ font-size:12.5px; color:var(--ink-soft); margin-bottom:20px; }
-  .plan ul{ list-style:none; margin-bottom:24px; flex-grow:1; }
-  .plan li{ font-size:14px; padding:9px 0 9px 26px; border-top:1px solid var(--line); color:var(--ink-soft); position:relative; }
-  .plan li:first-child{ border-top:none; }
-  .plan li::before{ content:""; position:absolute; left:2px; top:14px; width:14px; height:8px; border-left:2px solid var(--sage-deep); border-bottom:2px solid var(--sage-deep); transform:rotate(-45deg); }
-  .plan .plan-cta{ text-align:center; padding:13px; border-radius:var(--radius); font-weight:700; font-size:14px; text-decoration:none; border:1.5px solid var(--ink); color:var(--ink); transition:background .15s, color .15s, transform .15s; display:inline-flex; align-items:center; justify-content:center; gap:8px; }
-  .plan .plan-cta:hover{ transform:translateY(-2px); }
-  .plan .plan-cta.solid{ background:linear-gradient(135deg, var(--sage-deep), var(--sage)); border-color:var(--sage-deep); color:#fff; }
-  .plan .plan-cta.wa{ background:linear-gradient(135deg, var(--wa-deep), var(--wa)); border-color:var(--wa-deep); color:#fff; }
-
-  /* ===== SERVICIO EN TERRENO ===== */
-  .full-service{ background:var(--bg); }
-  .fs-steps{ display:grid; gap:16px; margin-top:8px; }
-  @media (min-width:560px){ .fs-steps{ grid-template-columns:1fr 1fr; } }
-  .fs-step{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:20px; }
-  .fs-step h4{ font-size:15.5px; margin-bottom:5px; font-weight:700; }
-  .fs-step p{ font-size:13.5px; color:var(--ink-soft); }
-  .fs-extra{ margin-top:16px; background:var(--sage-tint); border:1px dashed rgba(29,158,117,0.4); border-radius:14px; padding:18px 20px; }
-  .fs-extra .badge{ color:var(--sage-deep); font-size:12px; font-weight:700; display:block; margin-bottom:5px; text-transform:uppercase; letter-spacing:0.04em; }
-  .fs-extra h4{ font-size:15.5px; margin-bottom:4px; font-weight:700; }
-  .fs-extra p{ font-size:13.5px; color:var(--ink-soft); }
-  .fs-note{ font-size:13px; color:var(--ink-soft); margin:18px 0 0; }
-  .fs-cta{ margin-top:22px; }
-
-  /* ===== FAQ ===== */
-  .faq{ background:var(--bg-alt); }
-  .faq-list{ max-width:820px; margin:0 auto; }
-  .faq-item{ background:#fff; border:1px solid var(--line); border-radius:14px; margin-bottom:12px; overflow:hidden; transition:box-shadow .2s ease; }
-  .faq-item[open]{ box-shadow:var(--shadow-soft); }
-  .faq-item summary{
-    list-style:none; cursor:pointer; padding:20px 22px; font-weight:700; font-size:16px;
-    display:flex; align-items:center; justify-content:space-between; gap:16px; color:var(--ink);
-  }
-  .faq-item summary::-webkit-details-marker{ display:none; }
-  .faq-item summary .plus{ flex-shrink:0; width:22px; height:22px; position:relative; transition:transform .25s ease; }
-  .faq-item summary .plus::before, .faq-item summary .plus::after{ content:""; position:absolute; background:var(--sage-deep); border-radius:2px; }
-  .faq-item summary .plus::before{ top:50%; left:0; right:0; height:2.5px; transform:translateY(-50%); }
-  .faq-item summary .plus::after{ left:50%; top:0; bottom:0; width:2.5px; transform:translateX(-50%); transition:opacity .25s ease; }
-  .faq-item[open] summary .plus::after{ opacity:0; }
-  .faq-item[open] summary .plus{ transform:rotate(180deg); }
-  .faq-body{ padding:0 22px 22px; color:var(--ink-soft); font-size:15px; line-height:1.7; }
-  .faq-body p{ margin-bottom:10px; }
-  .faq-body p:last-child{ margin-bottom:0; }
-  .faq-body strong{ color:var(--ink); }
-  .faq-item.about summary{ color:var(--sage-deep); }
-  .faq-founder{ display:flex; gap:14px; align-items:center; margin-bottom:14px; }
-  .faq-founder .avatar{ width:52px; height:52px; border-radius:50%; background:linear-gradient(135deg,var(--sage-deep),var(--sage)); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:20px; flex-shrink:0; }
-  .faq-founder .who b{ display:block; color:var(--ink); font-size:15px; }
-  .faq-founder .who span{ font-size:13px; color:var(--ink-soft); }
-
-  /* ===== CTA FINAL ===== */
-  .cta-final{ position:relative; text-align:center; overflow:hidden; background:var(--dark); }
-  .cta-final .cta-bg{ position:absolute; inset:0; z-index:0; background:url('images/cta-caballo.jpg') center 35%/cover no-repeat; }
-  .cta-final::after{ content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(90deg, rgba(16,26,21,0.88), rgba(16,26,21,0.66)); }
-  .cta-final .wrap{ position:relative; z-index:2; }
-  .cta-final h2{ color:#fff; font-size:clamp(26px,5vw,38px); margin-bottom:14px; }
-  .cta-final p{ font-size:16.5px; color:rgba(255,255,255,0.9); max-width:52ch; margin:0 auto 30px; }
-
-  footer{ padding:32px 0; background:var(--bg-alt); color:var(--ink-soft); border-top:1px solid var(--line); }
-  footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; font-size:13px; }
-  footer .brand{ color:var(--ink); font-size:15px; }
-  .footer-social{ display:flex; gap:14px; align-items:center; }
-  .footer-social a{ color:var(--ink-soft); opacity:0.8; transition:opacity .15s, color .15s; display:flex; }
-  .footer-social a:hover{ opacity:1; color:var(--sage-deep); }
-  .footer-social svg{ width:19px; height:19px; }
-</style>
+<link rel="stylesheet" href="assets/styles.css">
 
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNEW99D2ND"></script>
@@ -467,14 +75,27 @@
 
 <nav>
   <div class="wrap">
-    <div class="brand"><span class="brand-mark"><img src="app-logo.png" alt="EquiNutrición"></span>EquiNutrición</div>
+    <a class="brand" href="index.html"><span class="brand-mark"><img src="app-logo.png" alt="EquiNutrición"></span>EquiNutrición</a>
     <div class="navlinks">
-      <a href="#calculadora">Calculadora</a>
-      <a href="#app">La app</a>
-      <a href="#tutorial">Cómo se usa</a>
-      <a href="#planes">Planes</a>
-      <a href="#servicio">Servicio en terreno</a>
-      <a href="#faq">Preguntas</a>
+      <a href="index.html" class="active">Inicio</a>
+      <div class="nav-item">
+        <button class="nav-dd-btn" aria-haspopup="true">Guías
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dd">
+          <div class="nav-dd-panel">
+            <a href="manejo.html"><b>Manejo</b><span>Rutina y cuidado diario</span></a>
+            <a href="alimentos.html"><b>Alimentos</b><span>Qué y cómo alimentar</span></a>
+            <a href="suplementacion.html"><b>Suplementación</b><span>Cuándo sí y cuándo no</span></a>
+            <a href="entrenamiento.html"><b>Entrenamiento</b><span>Acondicionamiento y rodeo</span></a>
+            <a href="salud-preventiva.html"><b>Salud preventiva</b><span>Vacunas, dientes, parásitos</span></a>
+            <a href="condicion-corporal.html"><b>Condición corporal</b><span>La escala 1 a 9</span></a>
+            <a href="reproduccion-y-crianza.html"><b>Reproducción</b><span>Yeguas y potrillos</span></a>
+          </div>
+        </div>
+      </div>
+      <a href="index.html#app">La app</a>
+      <a href="index.html#servicio">Servicio en terreno</a>
     </div>
     <div class="nav-actions">
       <a class="nav-cta" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="nav">Abrir la app</a>
@@ -484,12 +105,17 @@
     </div>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#calculadora">Calculadora de peso</a>
-    <a href="#app">La app</a>
-    <a href="#tutorial">Cómo se usa</a>
-    <a href="#planes">Planes</a>
-    <a href="#servicio">Servicio en terreno</a>
-    <a href="#faq">Preguntas frecuentes</a>
+    <a href="index.html">Inicio</a>
+    <div class="mm-label">Guías</div>
+    <a class="sub" href="manejo.html">Manejo</a>
+    <a class="sub" href="alimentos.html">Alimentos</a>
+    <a class="sub" href="suplementacion.html">Suplementación</a>
+    <a class="sub" href="entrenamiento.html">Entrenamiento</a>
+    <a class="sub" href="salud-preventiva.html">Salud preventiva</a>
+    <a class="sub" href="condicion-corporal.html">Condición corporal</a>
+    <a class="sub" href="reproduccion-y-crianza.html">Reproducción y crianza</a>
+    <a href="index.html#app">La app</a>
+    <a href="index.html#servicio">Servicio en terreno</a>
     <a href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="mobile_menu">Abrir la app</a>
   </div>
 </nav>
@@ -598,6 +224,60 @@
         <h3>Un caballo o el criadero</h3>
         <p>Gestiona toda la caballeriza con lista de alimentos editable — agrega los tuyos si no están. Funciona offline una vez instalada.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="guides" id="guias">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tagline">Aprende</span>
+      <h2>Guías para el dueño del caballo chileno.</h2>
+      <p>Información clara y con base técnica sobre cómo alimentar, manejar y cuidar a tu caballo — sin tecnicismos y pensada para el campo y el rodeo.</p>
+    </div>
+    <div class="topic-grid">
+      <a class="topic-card reveal" href="manejo.html" data-track="ver_guia" data-track-loc="manejo">
+        <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 21l1.3-6.2c-1.4-1-2.3-2.7-2.3-4.6a5.5 5.5 0 0111 0c0 1.9-.9 3.6-2.3 4.6L16.5 21"/><circle cx="7.8" cy="19.2" r=".9" fill="currentColor" stroke="none"/><circle cx="16.2" cy="19.2" r=".9" fill="currentColor" stroke="none"/></svg></span>
+        <h3>Manejo</h3>
+        <p>Rutina diaria, agua, pesebrera o potrero, transporte y descanso — la base de un caballo sano.</p>
+        <span class="t-more">Leer guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="topic-card reveal" href="alimentos.html" data-track="ver_guia" data-track-loc="alimentos">
+        <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V4.5"/><path d="M12 6.5l-3-2M12 6.5l3-2M12 9.5l-3-2M12 9.5l3-2M12 12.5l-3-2M12 12.5l3-2M12 15.5l-3-2M12 15.5l3-2"/></svg></span>
+        <h3>Alimentos</h3>
+        <p>Forrajes y concentrados: qué aporta cada uno, cómo elegir calidad y cuáles son de riesgo.</p>
+        <span class="t-more">Leer guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="topic-card reveal" href="suplementacion.html" data-track="ver_guia" data-track-loc="suplementacion">
+        <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 20.2L3.8 13.7a4.6 4.6 0 116.5-6.5l6.5 6.5a4.6 4.6 0 01-6.5 6.5z"/><line x1="8" y1="8.3" x2="15.7" y2="16"/></svg></span>
+        <h3>Suplementación</h3>
+        <p>Cuándo un suplemento suma de verdad y cuándo es solo marketing. Minerales, electrolitos y más.</p>
+        <span class="t-more">Leer guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="topic-card reveal" href="entrenamiento.html" data-track="ver_guia" data-track-loc="entrenamiento">
+        <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l2-5 4 10 2-5h4"/><path d="M18 9l3 3-3 3"/></svg></span>
+        <h3>Entrenamiento</h3>
+        <p>Acondicionamiento progresivo, nutrición antes y después del rodeo, y descanso para rendir sin lesiones.</p>
+        <span class="t-more">Leer guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="topic-card reveal" href="salud-preventiva.html" data-track="ver_guia" data-track-loc="salud_preventiva">
+        <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 9.5-4-1.2-7-5-7-9.5V6l7-3z"/><path d="M12 9v5M9.5 11.5h5"/></svg></span>
+        <h3>Salud preventiva</h3>
+        <p>Vacunas, desparasitación, dientes y primeros auxilios: cuándo actuar y cuándo llamar al veterinario.</p>
+        <span class="t-more">Leer guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="topic-card reveal" href="condicion-corporal.html" data-track="ver_guia" data-track-loc="condicion_corporal">
+        <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16a8 8 0 1116 0"/><path d="M12 16l3.5-3.5"/><circle cx="12" cy="16" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+        <h3>Condición corporal</h3>
+        <p>Aprende a "leer" el cuerpo de tu caballo con la escala 1 a 9 y a saber si está flaco, ideal o pasado.</p>
+        <span class="t-more">Leer guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="topic-card reveal" href="reproduccion-y-crianza.html" data-track="ver_guia" data-track-loc="reproduccion">
+        <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-7-9.2A3.8 3.8 0 0112 8a3.8 3.8 0 017 2.8C19 15.7 12 20 12 20z"/></svg></span>
+        <h3>Reproducción y crianza</h3>
+        <p>Nutrición de la yegua gestante y en lactancia, el potrillo y el destete — las etapas que más exigen.</p>
+        <span class="t-more">Leer guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
     </div>
   </div>
 </section>
@@ -823,7 +503,7 @@
 
       <details class="faq-item">
         <summary>¿Reemplaza al veterinario?<span class="plus"></span></summary>
-        <div class="faq-body"><p>No. Es una herramienta para ordenar y fundamentar la alimentación del día a día. Ante enfermedades, dietas especiales o casos complejos, siempre consulta a tu veterinario — o pídenos el <a href="#servicio" style="color:var(--sage-deep);font-weight:600;">servicio en terreno</a>.</p></div>
+        <div class="faq-body"><p>No. Es una herramienta para ordenar y fundamentar la alimentación del día a día. Ante enfermedades, dietas especiales o casos complejos, siempre consulta a tu veterinario — o pídenos el <a href="index.html#servicio" style="color:var(--sage-deep);font-weight:600;">servicio en terreno</a>.</p></div>
       </details>
 
       <details class="faq-item">
@@ -844,80 +524,49 @@
   </div>
 </section>
 
-<footer>
+<footer class="site-footer">
   <div class="wrap">
-    <div class="brand"><span class="brand-mark"><img src="app-logo.png" alt="EquiNutrición"></span>EquiNutrición</div>
-    <span>Nutrición del Caballo Chileno · por Luis Aguirre</span>
-    <div class="footer-social">
-      <a href="https://www.facebook.com/equinutricion.cl" target="_blank" rel="noopener" aria-label="EquiNutrición en Facebook">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M14 8.5h-1.3c-1 0-1.7.6-1.7 1.7V12h3l-.4 3H11v6"/></svg>
-      </a>
-      <a href="https://www.instagram.com/equinutricion.cl" target="_blank" rel="noopener" aria-label="EquiNutrición en Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none"/></svg>
-      </a>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html"><span class="brand-mark"><img src="app-logo.png" alt="EquiNutrición"></span>EquiNutrición</a>
+        <p>Nutrición con base técnica para el caballo de raza chilena. Creado por Luis Aguirre.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/equinutricion.cl" target="_blank" rel="noopener" aria-label="EquiNutrición en Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M14 8.5h-1.3c-1 0-1.7.6-1.7 1.7V12h3l-.4 3H11v6"/></svg>
+          </a>
+          <a href="https://www.instagram.com/equinutricion.cl" target="_blank" rel="noopener" aria-label="EquiNutrición en Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Guías</h5>
+        <a href="manejo.html">Manejo</a>
+        <a href="alimentos.html">Alimentos</a>
+        <a href="suplementacion.html">Suplementación</a>
+        <a href="entrenamiento.html">Entrenamiento</a>
+        <a href="salud-preventiva.html">Salud preventiva</a>
+        <a href="condicion-corporal.html">Condición corporal</a>
+        <a href="reproduccion-y-crianza.html">Reproducción y crianza</a>
+      </div>
+      <div class="footer-col">
+        <h5>EquiNutrición</h5>
+        <a href="index.html">Inicio</a>
+        <a href="index.html#app">La app</a>
+        <a href="index.html#planes">Planes</a>
+        <a href="index.html#servicio">Servicio en terreno</a>
+        <a href="index.html#faq">Preguntas frecuentes</a>
+        <a href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="footer">Abrir la app</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 EquiNutrición · Nutrición del Caballo Chileno</span>
+      <span>equinutricion.cl</span>
     </div>
   </div>
 </footer>
 
-<script>
-  const navToggle = document.getElementById('navToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  navToggle.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', isOpen);
-  });
-  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-  }));
-
-  document.querySelectorAll('[data-track]').forEach(el => {
-    el.addEventListener('click', () => {
-      if (typeof gtag === 'function') {
-        gtag('event', el.dataset.track, { event_category: 'cta', event_label: el.dataset.trackLoc || '' });
-      }
-    });
-  });
-
-  // Weight calculator
-  const wcGirth = document.getElementById('wcGirth');
-  const wcLength = document.getElementById('wcLength');
-  const wcResult = document.getElementById('wcResult');
-  const wcWeight = document.getElementById('wcWeight');
-  let wcPulseTimeout;
-  function updateWeightCalc(){
-    const girth = parseFloat(wcGirth.value);
-    const length = parseFloat(wcLength.value);
-    if(!girth || !length || girth <= 0 || length <= 0){
-      wcWeight.textContent = '— kg';
-      return;
-    }
-    const weight = (girth * girth * length) / 11900;
-    wcWeight.textContent = Math.round(weight) + ' kg';
-    wcResult.classList.add('pulse');
-    clearTimeout(wcPulseTimeout);
-    wcPulseTimeout = setTimeout(() => wcResult.classList.remove('pulse'), 180);
-  }
-  wcGirth.addEventListener('input', updateWeightCalc);
-  wcLength.addEventListener('input', updateWeightCalc);
-  updateWeightCalc();
-
-  // Reveal on scroll
-  const obs = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
-  }, {threshold:0.12});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-
-  // Close other FAQ items when one opens (accordion behavior)
-  const faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach(item => {
-    item.addEventListener('toggle', () => {
-      if(item.open){
-        faqItems.forEach(other => { if(other !== item) other.open = false; });
-      }
-    });
-  });
-</script>
+<script src="assets/site.js"></script>
 
 </body>
 </html>
