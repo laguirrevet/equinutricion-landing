@@ -1,0 +1,48 @@
+PLANILLA DE ATENCIÓN — EquiNutrición,,,,,,,
+"Registra los datos y calcula el costo. La ración la defines tú en la app.",,,,,,,
+,,,,,,,
+1. CABALLOS,,,,,,,
+Caballo,Edad,Uso / trabajo,PT (cm),Largo (cm),Peso (kg),CC (1-9),Fecha
+Relámpago,7,Rodeo,178,152,=D6^2*E6/11900,4,05-08-2026
+,,,,,=D7^2*E7/11900,,
+,,,,,=D8^2*E8/11900,,
+,,,,,=D9^2*E9/11900,,
+,,,,,=D10^2*E10/11900,,
+,,,,,=D11^2*E11/11900,,
+,,,,,=D12^2*E12/11900,,
+,,,,,=D13^2*E13/11900,,
+,,,,,=D14^2*E14/11900,,
+,,,,,=D15^2*E15/11900,,
+,,,,,=D16^2*E16/11900,,
+,,,,,=D17^2*E17/11900,,
+,,,,,"Peso = (PT² × largo) ÷ 11900. Si ya lo tienes de la app, escríbelo encima.",,
+,,,,,,,
+2. ALIMENTOS Y COSTOS,,,,,,,
+Alimento,Unidad,Costo por unidad,,,,,
+Heno de pradera,kg,180,,,,,
+Concentrado,kg,650,,,,,
+Suplemento,ml,8,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,"Si el alimento es líquido usa ml (o la unidad que manejes) y pon el costo en esa misma unidad.",,,,,
+,,,,,,,
+3. CONSUMO DIARIO POR CABALLO,,,,,,,
+"Anota cuánto come cada caballo al día, en la unidad de cada alimento.",,,,,,,
+Caballo,=A22,=A23,=A24,=A25,=A26,=A27,Costo diario
+Unidad,=B22,=B23,=B24,=B25,=B26,=B27,
+=A6,6,3,50,,,,=B34*$C$22+C34*$C$23+D34*$C$24+E34*$C$25+F34*$C$26+G34*$C$27
+=A7,,,,,,,=B35*$C$22+C35*$C$23+D35*$C$24+E35*$C$25+F35*$C$26+G35*$C$27
+=A8,,,,,,,=B36*$C$22+C36*$C$23+D36*$C$24+E36*$C$25+F36*$C$26+G36*$C$27
+=A9,,,,,,,=B37*$C$22+C37*$C$23+D37*$C$24+E37*$C$25+F37*$C$26+G37*$C$27
+=A10,,,,,,,=B38*$C$22+C38*$C$23+D38*$C$24+E38*$C$25+F38*$C$26+G38*$C$27
+=A11,,,,,,,=B39*$C$22+C39*$C$23+D39*$C$24+E39*$C$25+F39*$C$26+G39*$C$27
+=A12,,,,,,,=B40*$C$22+C40*$C$23+D40*$C$24+E40*$C$25+F40*$C$26+G40*$C$27
+=A13,,,,,,,=B41*$C$22+C41*$C$23+D41*$C$24+E41*$C$25+F41*$C$26+G41*$C$27
+=A14,,,,,,,=B42*$C$22+C42*$C$23+D42*$C$24+E42*$C$25+F42*$C$26+G42*$C$27
+=A15,,,,,,,=B43*$C$22+C43*$C$23+D43*$C$24+E43*$C$25+F43*$C$26+G43*$C$27
+=A16,,,,,,,=B44*$C$22+C44*$C$23+D44*$C$24+E44*$C$25+F44*$C$26+G44*$C$27
+=A17,,,,,,,=B45*$C$22+C45*$C$23+D45*$C$24+E45*$C$25+F45*$C$26+G45*$C$27
+TOTAL DE TODOS LOS CABALLOS,,,,,,,=SUM(H34:H45)
+Costo de todos por mes (30 días),,,,,,,=H46*30
+Costo de todos por año,,,,,,,=H46*365
