@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Informe de revisión de dieta — EquiNutrición</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="informe.css">
+</head>
+<body>
+
+<div class="instrucciones">
+  <b>Cómo usar esta plantilla.</b> Duplica el archivo con el nombre del caballo (por ejemplo <code>2026-08-05-relampago.html</code>), reemplaza todo lo que esté <span style="background:#FFF3B0;color:#6B5600;padding:1px 5px;border-radius:3px;">resaltado en amarillo</span> y borra las filas o secciones que no apliquen. Cuando esté listo: <code>Ctrl+P</code> → Guardar como PDF. Esta barra no sale impresa. Si queda algún resaltado sin llenar, se va a ver amarillo en el PDF — es a propósito, para que lo pilles antes de mandarlo.
+</div>
+
+<div class="hoja">
+
+  <header class="doc-head">
+    <div class="marca">
+      <img src="../app-logo.png" alt="">
+      <div>
+        <b>EquiNutrición</b>
+        <span>Nutrición del caballo chileno</span>
+      </div>
+    </div>
+    <div class="meta">
+      Informe N° <b class="x">2026-001</b><br>
+      Fecha de entrega: <b class="x">5 de agosto de 2026</b><br>
+      Revisión de dieta a distancia
+    </div>
+  </header>
+
+  <h1>Revisión de dieta<br><span class="x">Relámpago</span></h1>
+  <p class="subtitulo">Informe preparado para <span class="x">nombre del dueño</span>, a partir de la información y las fotografías que me enviaste.</p>
+
+  <dl class="ficha">
+    <div><dt>Caballo</dt><dd class="x">Relámpago</dd></div>
+    <div><dt>Edad</dt><dd class="x">7 años</dd></div>
+    <div><dt>Sexo / categoría</dt><dd class="x">Macho castrado</dd></div>
+    <div><dt>Raza</dt><dd class="x">Caballo chileno</dd></div>
+    <div><dt>Uso / trabajo</dt><dd class="x">Rodeo, 4 sesiones por semana</dd></div>
+    <div><dt>Ubicación</dt><dd class="x">Comuna, Región</dd></div>
+  </dl>
+
+  <h2>1. Lo que recibí</h2>
+  <p>Esta revisión se hizo con la información que me enviaste. Su precisión depende de que esos datos estén bien tomados.</p>
+  <ul>
+    <li>Fotografías: <span class="x">de perfil, de atrás y de arriba, tomadas el 2 de agosto</span></li>
+    <li>Medidas de huincha: <span class="x">perímetro torácico 178 cm · largo del cuerpo 152 cm</span></li>
+    <li>Dieta actual declarada: <span class="x">detalle que entregó el dueño</span></li>
+    <li>Antecedentes relevantes: <span class="x">sin antecedentes / lo que haya informado</span></li>
+  </ul>
+
+  <h2>2. Lo que observé</h2>
+
+  <h3>Peso estimado</h3>
+  <p>Calculado con la fórmula de huincha que usa la app de EquiNutrición:</p>
+  <div class="destacado">
+    <p style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:10pt;">
+      (perímetro torácico² × largo) ÷ 11.900<br>
+      (<span class="x">178</span>² × <span class="x">152</span>) ÷ 11.900 = <b class="x">405 kg</b>
+    </p>
+  </div>
+  <p class="nota">Es una estimación, no una pesada. El margen habitual de este método es de ±5%. Lo importante no es el número exacto sino cómo se mueve en el tiempo.</p>
+
+  <h3>Condición corporal</h3>
+  <p>Evaluada en escala de 1 a 9 sobre las fotografías:</p>
+  <div class="destacado">
+    <h3>Condición corporal: <span class="x">4 / 9 — algo por debajo del ideal</span></h3>
+    <p style="margin:0;" class="x">Qué se ve: costillas apenas visibles, poca cobertura sobre la grupa, cuello sin depósito graso. Descripción de lo que sustenta el puntaje.</p>
+  </div>
+
+  <h3>Otras observaciones</h3>
+  <ul>
+    <li class="x">Aplomos, estado del pelaje, cascos, o lo que se alcance a ver en las fotos.</li>
+    <li class="x">Agrega o borra según corresponda.</li>
+  </ul>
+
+  <h2>3. Cómo está comiendo hoy</h2>
+  <table>
+    <thead>
+      <tr><th>Alimento</th><th>Marca / tipo</th><th>Cantidad al día</th><th>Veces al día</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="x">Heno de alfalfa</td><td class="x">Fardo local</td><td class="num x">6 kg</td><td class="num x">2</td></tr>
+      <tr><td class="x">Concentrado</td><td class="x">Marca, línea</td><td class="num x">2 kg</td><td class="num x">2</td></tr>
+      <tr><td class="x">Suplemento</td><td class="x">Marca</td><td class="num x">50 g</td><td class="num x">1</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Qué está bien</h3>
+  <ul>
+    <li class="x">Nombra lo que ya está bien hecho. Siempre hay algo, y ayuda a que el resto se escuche.</li>
+  </ul>
+
+  <h3>Qué encontré que corregir</h3>
+  <ul>
+    <li class="x">Hallazgo 1 — por ejemplo: el aporte de forraje queda bajo el 1,5% del peso vivo.</li>
+    <li class="x">Hallazgo 2 — por ejemplo: el concentrado se entrega en una sola toma de más de 2 kg.</li>
+  </ul>
+
+  <h2>4. La ración que propongo</h2>
+  <p>Para un caballo de <span class="x">405 kg</span> con <span class="x">trabajo moderado</span>, buscando <span class="x">subir la condición corporal a 5/9</span>:</p>
+  <table>
+    <thead>
+      <tr><th>Alimento</th><th>Mañana</th><th>Mediodía</th><th>Tarde</th><th>Total día</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="x">Heno de pradera</td><td class="num x">3,0 kg</td><td class="num x">—</td><td class="num x">3,5 kg</td><td class="num"><b class="x">6,5 kg</b></td></tr>
+      <tr><td class="x">Concentrado</td><td class="num x">1,0 kg</td><td class="num x">1,0 kg</td><td class="num x">1,0 kg</td><td class="num"><b class="x">3,0 kg</b></td></tr>
+      <tr><td class="x">Suplemento</td><td class="num x">50 g</td><td class="num x">—</td><td class="num x">—</td><td class="num"><b class="x">50 g</b></td></tr>
+    </tbody>
+    <tfoot>
+      <tr><td>Total materia seca</td><td class="num x">—</td><td class="num x">—</td><td class="num x">—</td><td class="num x">9,5 kg</td></tr>
+    </tfoot>
+  </table>
+  <p class="nota">Agua limpia y a libre disposición siempre, y sal mineral disponible de forma permanente.</p>
+
+  <h2>5. Por qué cada cambio</h2>
+  <table>
+    <thead>
+      <tr><th style="width:32%;">Cambio</th><th>Por qué</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="x">Subir el forraje de 6 a 6,5 kg</td>
+        <td class="x">Razón, con el respaldo correspondiente. Cita la fuente cuando exista: NRC (2007), Gandarillas (2021), etc.</td>
+      </tr>
+      <tr>
+        <td class="x">Repartir el concentrado en tres tomas</td>
+        <td class="x">Razón. Explica el porqué fisiológico en palabras del dueño, no en jerga.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>6. Cómo hacer el cambio</h2>
+  <p>Los cambios de dieta se hacen de a poco: el intestino del caballo necesita tiempo para adaptarse.</p>
+  <table>
+    <thead>
+      <tr><th>Días</th><th>Qué hacer</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="x">1 a 4</td><td class="x">25% de la ración nueva, 75% de la actual.</td></tr>
+      <tr><td class="x">5 a 8</td><td class="x">50% y 50%.</td></tr>
+      <tr><td class="x">9 a 12</td><td class="x">75% de la nueva.</td></tr>
+      <tr><td class="x">13 en adelante</td><td class="x">Ración nueva completa.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>7. Qué vigilar</h2>
+  <ul>
+    <li><b>Vuelve a medirlo con huincha en 30 días</b> y registra el peso en la app. Si sube o baja más de lo esperado, ajustamos.</li>
+    <li class="x">Señal concreta a observar según el caso.</li>
+    <li>Suspende el cambio y consulta a tu veterinario si aparece cólico, diarrea, decaimiento o rechazo del alimento.</li>
+  </ul>
+
+  <div class="aviso">
+    <b>Alcance de este informe.</b> Es una revisión de <b>alimentación</b> hecha a distancia, sobre la información y las fotografías que me enviaste. No es un examen clínico ni un diagnóstico, y no reemplaza a tu veterinario tratante. Ante enfermedad, cólicos a repetición, baja de peso sin causa clara, laminitis o cualquier cuadro agudo, el caballo debe ser visto de forma presencial por un médico veterinario. Si quieres que yo mismo lo revise en terreno, conversémoslo.
+  </div>
+
+  <h2>Referencias</h2>
+  <ol class="referencias">
+    <li class="x">National Research Council. Nutrient Requirements of Horses. 6ª ed. rev. Washington DC: National Academies Press; 2007.</li>
+    <li class="x">Agrega solo las que usaste de verdad en este informe.</li>
+  </ol>
+
+  <div class="firma">
+    <div class="linea"></div>
+    <b>Luis Aguirre</b>
+    <span>Creador de EquiNutrición · Estudiante de Medicina Veterinaria<br>
+    equinutricion.cl · +56 9 3267 3835</span>
+  </div>
+
+</div>
+</body>
+</html>
