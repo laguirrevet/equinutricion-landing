@@ -70,6 +70,40 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Revisión de dieta a distancia",
+  "serviceType": "Revisión de alimentación equina a distancia",
+  "url": "https://equinutricion.cl/#revision",
+  "description": "Revisión de la alimentación de un caballo a distancia: envías fotos, medidas de huincha y qué come hoy, y recibes un informe en PDF con la ración corregida, el porqué de cada cambio y cómo hacer la transición. No es un diagnóstico clínico.",
+  "provider": {
+    "@type": "Organization",
+    "name": "EquiNutrición",
+    "url": "https://equinutricion.cl/"
+  },
+  "areaServed": { "@type": "Country", "name": "Chile" },
+  "audience": { "@type": "Audience", "audienceType": "Dueños y criadores de caballos" },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://equinutricion.cl/#revision",
+    "price": "10000",
+    "priceCurrency": "CLP",
+    "availability": "https://schema.org/LimitedAvailability",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "10000",
+      "priceCurrency": "CLP",
+      "referenceQuantity": {
+        "@type": "QuantitativeValue",
+        "value": "1",
+        "unitText": "caballo"
+      }
+    }
+  }
+}
+</script>
 </head>
 <body>
 
@@ -445,7 +479,7 @@
     <div class="section-head">
       <span class="tagline">Servicio en terreno</span>
       <h2>Cuando quieres que un experto lo vea en persona.</h2>
-      <p>La app te da autonomía. Pero si prefieres que revise tus caballos yo mismo, en tu campo, también existe esa opción — trabajo directo contigo, no solo a través de la pantalla.</p>
+      <p>La app te da autonomía. Pero si prefieres que revise tus caballos yo mismo, en tu campo, también existe esa opción — trabajo directo contigo, no solo a través de la pantalla. Y si una visita todavía no se justifica, podemos partir por la dieta, a distancia.</p>
     </div>
     <div class="split">
       <div class="split-media media kb reveal">
@@ -463,11 +497,32 @@
           <h4>Informe de costos</h4>
           <p>Cuánto gastas por caballo en comida y suplementos, al día y al mes — con opción de calcularlo para todo el criadero.</p>
         </div>
-        <p class="fs-note">Disponible desde 1 collera en adelante.</p>
+        <p class="fs-note">Disponible desde 1 collera en adelante — y es la vía para criaderos y planteles completos.</p>
         <div class="fs-cta">
           <a class="btn-whatsapp" href="https://wa.me/56932673835?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20del%20servicio%20en%20terreno" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="servicio_terreno"><svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.66.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.35-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 01-1.44-5.01c0-5.2 4.24-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.76a9.36 9.36 0 012.76 6.68c0 5.2-4.24 9.43-9.44 9.43zm8.04-17.49A11.35 11.35 0 0012.04.5C5.79.5.72 5.57.72 11.81c0 2.01.53 3.97 1.53 5.7L.62 23.5l6.14-1.61a11.3 11.3 0 005.28 1.35h.01c6.24 0 11.32-5.07 11.32-11.31 0-3.02-1.18-5.86-3.32-8z"/></svg>Conversemos por WhatsApp</a>
         </div>
       </div>
+    </div>
+
+    <div class="fs-remote reveal" id="revision">
+      <div class="fs-remote-main">
+        <span class="badge">A distancia</span>
+        <h3>¿Todavía no da para una visita? Partamos por la dieta.</h3>
+        <p>Me mandas fotos de tu caballo, sus medidas de huincha y qué está comiendo hoy. Te devuelvo un informe en PDF con la ración corregida, el porqué de cada cambio y cómo hacer la transición sin apurarla.</p>
+        <ul class="fs-remote-list">
+          <li>Fotos de perfil, de atrás y de arriba</li>
+          <li>Medidas de huincha: perímetro torácico y largo del cuerpo</li>
+          <li>Qué come hoy — alimento, marca y cantidades</li>
+          <li>Cuánto trabaja por semana, su edad, y si está preñada o en lactancia</li>
+        </ul>
+        <p class="fs-remote-note">Entrega en 5 días hábiles. Es una revisión de <strong>alimentación</strong>, no un diagnóstico clínico: si tu caballo está enfermo, con cólicos a repetición o bajando de peso sin causa clara, eso lo ve tu veterinario primero.</p>
+      </div>
+      <aside class="fs-remote-buy">
+        <div class="price">$10.000<small>por caballo</small></div>
+        <p class="fs-remote-sub">Pago por transferencia, antes de empezar.</p>
+        <a class="btn-whatsapp btn-block" href="https://wa.me/56932673835?text=Hola%20Luis%2C%20quiero%20una%20revisi%C3%B3n%20de%20dieta%20a%20distancia%20para%20mi%20caballo.%20%C2%BFQu%C3%A9%20datos%20necesitas%3F" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="revision_remota"><svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.66.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.35-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 01-1.44-5.01c0-5.2 4.24-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.76a9.36 9.36 0 012.76 6.68c0 5.2-4.24 9.43-9.44 9.43zm8.04-17.49A11.35 11.35 0 0012.04.5C5.79.5.72 5.57.72 11.81c0 2.01.53 3.97 1.53 5.7L.62 23.5l6.14-1.61a11.3 11.3 0 005.28 1.35h.01c6.24 0 11.32-5.07 11.32-11.31 0-3.02-1.18-5.86-3.32-8z"/></svg>Pedir mi revisión</a>
+        <p class="fs-remote-cupos">Tomo pocas revisiones por semana para hacerlas bien. Si el cupo está lleno, te aviso al tiro.</p>
+      </aside>
     </div>
   </div>
 </section>
@@ -522,6 +577,11 @@
       <details class="faq-item">
         <summary>¿Reemplaza al veterinario?<span class="plus"></span></summary>
         <div class="faq-body"><p>No. Es una herramienta para ordenar y fundamentar la alimentación del día a día. Ante enfermedades, dietas especiales o casos complejos, siempre consulta a tu veterinario — o pídenos el <a href="index.html#servicio" style="color:var(--sage-deep);font-weight:600;">servicio en terreno</a>.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Qué incluye la revisión de dieta a distancia?<span class="plus"></span></summary>
+        <div class="faq-body"><p>Reviso la alimentación de <strong>un caballo</strong> con lo que me mandes — fotos, medidas de huincha y qué come hoy — y te devuelvo un informe en PDF con la ración corregida, el porqué de cada cambio y cómo hacer la transición. Son $10.000 por caballo, se paga por transferencia antes de empezar y llega en 5 días hábiles. No incluye visita ni diagnóstico clínico: si el caballo está enfermo o bajando de peso sin causa clara, eso lo ve tu veterinario. Si prefieres que vaya a verlo, ahí conversamos el <a href="index.html#servicio" style="color:var(--sage-deep);font-weight:600;">servicio en terreno</a>.</p></div>
       </details>
 
       <details class="faq-item">

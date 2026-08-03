@@ -408,6 +408,23 @@ section{ padding:64px 0; }
 .fs-extra p{ font-size:13.5px; color:var(--ink-soft); }
 .fs-note{ font-size:13px; color:var(--ink-soft); margin:18px 0 0; }
 .fs-cta{ margin-top:22px; }
+.fs-remote{ margin-top:44px; background:#fff; border:1.5px solid var(--line); border-radius:18px; padding:28px 24px; display:grid; gap:26px; }
+@media (min-width:860px){ .fs-remote{ grid-template-columns:1.55fr 1fr; gap:44px; align-items:center; padding:36px; } }
+.fs-remote .badge{ color:var(--sage-deep); font-size:12px; font-weight:700; display:block; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.04em; }
+.fs-remote h3{ font-size:22px; font-weight:700; letter-spacing:-0.015em; margin-bottom:10px; }
+@media (min-width:860px){ .fs-remote h3{ font-size:25px; } }
+.fs-remote-main > p{ font-size:15px; color:var(--ink-soft); }
+.fs-remote-list{ list-style:none; margin:18px 0 0; }
+.fs-remote-list li{ font-size:14px; padding:9px 0 9px 26px; border-top:1px solid var(--line); color:var(--ink-soft); position:relative; }
+.fs-remote-list li:first-child{ border-top:none; }
+.fs-remote-list li::before{ content:""; position:absolute; left:2px; top:14px; width:14px; height:8px; border-left:2px solid var(--sage-deep); border-bottom:2px solid var(--sage-deep); transform:rotate(-45deg); }
+.fs-remote-note{ margin-top:20px; background:var(--sage-tint); border-radius:12px; padding:14px 16px; font-size:13px; line-height:1.6; color:var(--ink-soft); }
+.fs-remote-note strong{ color:var(--ink); }
+.fs-remote-buy{ background:var(--bg-alt); border:1px solid var(--line); border-radius:14px; padding:26px 22px; text-align:center; }
+.fs-remote-buy .price{ font-family:'IBM Plex Mono',monospace; font-size:34px; font-weight:600; color:var(--ink); letter-spacing:-0.02em; }
+.fs-remote-buy .price small{ display:block; margin-top:5px; font-size:12.5px; font-weight:400; letter-spacing:0; color:var(--ink-soft); }
+.fs-remote-sub{ font-size:12.5px; color:var(--ink-soft); margin:12px 0 18px; }
+.fs-remote-cupos{ font-size:12px; line-height:1.55; color:var(--ink-soft); margin-top:14px; }
 
 /* ===== FAQ (acordeón) ===== */
 .faq{ background:var(--bg-alt); }
