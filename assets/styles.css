@@ -585,6 +585,11 @@ section{ padding:64px 0; }
 .callout.warn h4{ color:#B77A17; }
 .callout.vet{ background:#EDF2FB; border-color:#4E77C7; }
 .callout.vet h4{ color:#3A5EA8; }
+/* Cómo pega el tema de la guía en el rendimiento — cierra la visión del sitio */
+.callout.perf{ background:#fff; border:1px solid var(--line); border-left:4px solid var(--ink); }
+.callout.perf h4{ color:var(--ink); }
+.callout.perf p{ color:var(--ink-soft); }
+.callout.perf p + p{ margin-top:8px; }
 
 /* key facts strip */
 .keyfacts{ display:grid; grid-template-columns:1fr; gap:14px; margin:26px 0; }
