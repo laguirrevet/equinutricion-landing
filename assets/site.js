@@ -1,5 +1,14 @@
 /* EquiNutrición — comportamiento compartido del sitio */
 (function () {
+  // --- Anclas viejas del servicio (quedaron en Instagram, WhatsApp y enlaces compartidos) ---
+  // Vivían en la portada hasta el 2026-08-07; ahora están en otros-servicios.html.
+  var viejas = { '#servicio': '#terreno', '#revision': '#revision' };
+  var destino = viejas[window.location.hash];
+  if (destino && !document.getElementById(window.location.hash.slice(1))) {
+    window.location.replace('otros-servicios.html' + destino);
+    return;
+  }
+
   // --- Menú móvil ---
   var navToggle = document.getElementById('navToggle');
   var mobileMenu = document.getElementById('mobileMenu');

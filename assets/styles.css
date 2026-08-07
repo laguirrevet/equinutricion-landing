@@ -310,6 +310,26 @@ section{ padding:64px 0; }
 .tut-step p{ font-size:14px; color:var(--ink-soft); }
 .tut-cta{ text-align:center; margin-top:44px; }
 
+/* Detalle desplegable de cada paso */
+.tut-more{ margin-top:10px; }
+.tut-more summary{
+  cursor:pointer; list-style:none; display:inline-flex; align-items:center; gap:6px;
+  font-size:13px; font-weight:700; color:var(--sage-deep);
+}
+.tut-more summary::-webkit-details-marker{ display:none; }
+.tut-more summary::after{
+  content:""; width:7px; height:7px; margin-top:-3px;
+  border-right:2px solid currentColor; border-bottom:2px solid currentColor;
+  transform:rotate(45deg); transition:transform .2s ease;
+}
+.tut-more[open] summary::after{ transform:rotate(-135deg); margin-top:2px; }
+.tut-more summary:hover{ text-decoration:underline; text-underline-offset:2px; }
+.tut-more p{
+  margin-top:10px; padding:12px 14px; border-radius:10px;
+  background:var(--bg-alt); font-size:13.5px; line-height:1.65;
+}
+.tut-more p a{ color:var(--sage-deep); font-weight:600; text-decoration:underline; text-underline-offset:2px; }
+
 /* phone mockup (recreation of real app screens, dark theme) */
 .phone{
   width:100%; max-width:224px; margin:0 auto 18px;
@@ -460,6 +480,25 @@ section{ padding:64px 0; }
 .cta-final .wrap{ position:relative; z-index:2; }
 .cta-final h2{ color:#fff; font-size:clamp(26px,5vw,38px); margin-bottom:14px; }
 .cta-final p{ font-size:16.5px; color:rgba(255,255,255,0.9); max-width:52ch; margin:0 auto 30px; }
+.cta-final-ctas{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
+
+/* ===== QUIÉNES SOMOS · MISIÓN Y VISIÓN ===== */
+.about-us{ background:var(--bg-alt); }
+.au-grid{ display:grid; grid-template-columns:1fr; gap:24px; }
+@media (min-width:900px){ .au-grid{ grid-template-columns:1.15fr 1fr; gap:34px; align-items:start; } }
+.au-who p{ font-size:15.5px; color:var(--ink-soft); margin-bottom:12px; }
+.au-who p:last-child{ margin-bottom:0; }
+.au-who strong{ color:var(--ink); }
+.au-mv{ display:grid; gap:16px; }
+.au-card{
+  background:#fff; border:1px solid var(--line); border-left:3px solid var(--sage-deep);
+  border-radius:14px; padding:22px 22px;
+}
+.au-card h3{ font-size:16px; margin-bottom:8px; }
+.au-card p{ font-size:14.5px; color:var(--ink-soft); }
+
+/* ===== OTROS SERVICIOS ===== */
+.full-service.alt{ background:var(--bg-alt); }
 
 /* ==========================================================================
    MULTIPÁGINA — componentes de contenido

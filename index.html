@@ -70,40 +70,6 @@
   ]
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Revisión de dieta a distancia",
-  "serviceType": "Revisión de alimentación equina a distancia",
-  "url": "https://equinutricion.cl/#revision",
-  "description": "Revisión de la alimentación de un caballo a distancia: envías fotos, medidas de huincha y qué come hoy, y recibes un informe en PDF con la ración corregida, el porqué de cada cambio y cómo hacer la transición. No es un diagnóstico clínico.",
-  "provider": {
-    "@type": "Organization",
-    "name": "EquiNutrición",
-    "url": "https://equinutricion.cl/"
-  },
-  "areaServed": { "@type": "Country", "name": "Chile" },
-  "audience": { "@type": "Audience", "audienceType": "Dueños y criadores de caballos" },
-  "offers": {
-    "@type": "Offer",
-    "url": "https://equinutricion.cl/#revision",
-    "price": "10000",
-    "priceCurrency": "CLP",
-    "availability": "https://schema.org/LimitedAvailability",
-    "priceSpecification": {
-      "@type": "UnitPriceSpecification",
-      "price": "10000",
-      "priceCurrency": "CLP",
-      "referenceQuantity": {
-        "@type": "QuantitativeValue",
-        "value": "1",
-        "unitText": "caballo"
-      }
-    }
-  }
-}
-</script>
 </head>
 <body>
 
@@ -129,7 +95,7 @@
         </div>
       </div>
       <a href="index.html#app">La app</a>
-      <a href="index.html#servicio">Servicio en terreno</a>
+      <a href="otros-servicios.html">Otros servicios</a>
     </div>
     <div class="nav-actions">
       <a class="nav-cta" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="nav">Abrir la app</a>
@@ -149,7 +115,7 @@
     <a class="sub" href="condicion-corporal.html">Condición corporal</a>
     <a class="sub" href="reproduccion-y-crianza.html">Reproducción y crianza</a>
     <a href="index.html#app">La app</a>
-    <a href="index.html#servicio">Servicio en terreno</a>
+    <a href="otros-servicios.html">Otros servicios</a>
     <a href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="mobile_menu">Abrir la app</a>
   </div>
 </nav>
@@ -160,7 +126,7 @@
     <div class="hero-content">
       <span class="tagline">Nutrición del caballo de raza chilena</span>
       <h1>Tú pones el objetivo. <em>La nutrición la ponemos nosotros.</em></h1>
-      <p class="lede">La salud y el rendimiento de tu caballo empiezan por lo que come. Dinos a dónde quieres llegar —más condición, mejor recuperación, un caballo listo para el rodeo— y la app calcula la ración diaria exacta para lograrlo. Con base técnica, no a ojo ni por costumbre.</p>
+      <p class="lede">Dinos cuánto pesa tu caballo y cuánto trabaja. La app calcula su ración diaria exacta — con base técnica, no a ojo.</p>
       <div class="hero-ctas">
         <a class="btn-primary" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="hero">Abrir la app gratis</a>
         <a class="btn-secondary" href="#calculadora" data-track="ver_calculadora" data-track-loc="hero">Calcular el peso gratis</a>
@@ -176,164 +142,12 @@
   </div>
 </header>
 
-<section class="calc-section" id="calculadora">
-  <div class="wrap">
-    <div class="wc-card reveal">
-      <span class="wc-badge">Herramienta gratis · sin instalar nada</span>
-      <h2>Calcula el peso de tu caballo con una huincha</h2>
-      <p class="wc-intro">Sin balanza ni báscula de camión. Con dos medidas y 30 segundos tienes una estimación confiable — la misma fórmula que usan las cintas de peso ("weight tapes") de uso veterinario.</p>
-      <div class="wc-warning">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 16.5h.01"/><path d="M10.3 3.9L2.7 17a1.8 1.8 0 001.55 2.7h15.5A1.8 1.8 0 0021.3 17L13.7 3.9a1.8 1.8 0 00-3.4 0z"/></svg>
-        <div>
-          <strong>Antes de medir</strong>
-          <p>El caballo debe estar parado derecho sobre terreno plano, con las cuatro patas apoyadas parejo y la cabeza relajada — no levantada.</p>
-        </div>
-      </div>
-      <div class="wc-fields">
-        <div class="wc-field">
-          <label for="wcGirth">Perímetro torácico (cm)</label>
-          <p class="wc-help">Rodea el tórax con la huincha justo detrás de la cruz y las patas delanteras. Ajustada pero sin apretar, con el caballo respirando normal.</p>
-          <input type="number" inputmode="decimal" min="80" max="260" step="1" value="180" id="wcGirth" aria-label="Perímetro torácico en centímetros">
-        </div>
-        <div class="wc-field">
-          <label for="wcLength">Largo corporal (cm)</label>
-          <p class="wc-help">En línea recta, desde la punta del hombro (articulación escápulo-humeral) hasta la punta del anca (isquion).</p>
-          <input type="number" inputmode="decimal" min="60" max="220" step="1" value="150" id="wcLength" aria-label="Largo corporal en centímetros">
-        </div>
-      </div>
-      <div class="wc-result" id="wcResult">
-        <span class="wc-result-label">Peso estimado</span>
-        <span class="wc-result-num" id="wcWeight">408 kg</span>
-        <span class="wc-result-note">±10% de margen — no reemplaza una pesa real</span>
-      </div>
-      <a class="btn-primary btn-block" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="calculadora_peso">Usar este peso en la app</a>
-    </div>
-    <div class="wa-ask reveal">
-      <a class="wa-link" href="https://wa.me/56932673835?text=Hola%2C%20tengo%20una%20duda%20midiendo%20el%20peso%20de%20mi%20caballo" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="ask_calculadora"><svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.66.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.35-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 01-1.44-5.01c0-5.2 4.24-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.76a9.36 9.36 0 012.76 6.68c0 5.2-4.24 9.43-9.44 9.43zm8.04-17.49A11.35 11.35 0 0012.04.5C5.79.5.72 5.57.72 11.81c0 2.01.53 3.97 1.53 5.7L.62 23.5l6.14-1.61a11.3 11.3 0 005.28 1.35h.01c6.24 0 11.32-5.07 11.32-11.31 0-3.02-1.18-5.86-3.32-8z"/></svg>¿Dudas al medir? Consúltame por WhatsApp</a>
-    </div>
-  </div>
-</section>
-
-<section class="features" id="app">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="tagline">La app</span>
-      <h2>De un objetivo a la ración del día, sin adivinar.</h2>
-      <p>No es una calculadora genérica: junta el peso, el trabajo y la condición corporal de tu caballo para decirte exactamente qué darle hoy — y lo deja listo para compartir con quien alimenta.</p>
-    </div>
-
-    <div class="split app-intro">
-      <div class="split-media media kb reveal">
-        <img src="images/nutricion-heno.jpg" width="1200" height="900" loading="lazy" alt="Caballos comiendo heno en el comedero de una caballeriza">
-      </div>
-      <div class="split-copy">
-        <p class="lead">La ración deja de ser una herencia y pasa a ser una decisión con fundamento.</p>
-        <p>La app calcula <strong>cuánto heno, concentrado y suplemento</strong> necesita tu caballo según su peso, cuánto trabaja y si está preñada o en lactancia. Después mira su condición corporal y <strong>ajusta la ración hasta un 20%</strong> sola: si está flaco le sube, si está pasado le baja y le restringe el concentrado.</p>
-        <p>Y cuando ya está lista, <strong>la exportas como PDF o como imagen (PNG)</strong> y se la mandas por WhatsApp al petiso o al cuidador. Así todos alimentan igual, aunque tú no estés.</p>
-      </div>
-    </div>
-
-    <div class="feat-grid">
-      <div class="feat reveal">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11h14l-1.2 6.3A3 3 0 0114.9 20H9.1a3 3 0 01-2.9-2.7L5 11z"/><ellipse cx="12" cy="11" rx="7" ry="2"/><circle cx="9.2" cy="6.8" r=".7" fill="currentColor" stroke="none"/><circle cx="12.5" cy="5.8" r=".7" fill="currentColor" stroke="none"/><circle cx="15" cy="7.2" r=".7" fill="currentColor" stroke="none"/></svg></div>
-        <h3>Ración diaria exacta</h3>
-        <p>Cuánto heno, concentrado y suplemento darle, dividido en 2, 3 o 4 comidas. Kilos y gramos concretos, no "un poco más o menos".</p>
-      </div>
-      <div class="feat highlight reveal">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16a8 8 0 1116 0"/><path d="M12 16l3.5-3.5"/><circle cx="12" cy="16" r="1.1" fill="currentColor" stroke="none"/></svg></div>
-        <h3>Se ajusta a su condición</h3>
-        <p>Marcas si está flaco, ideal o pasado de peso (escala 1 a 9) y la ración sube o baja hasta un 20% sola. La nutrición sigue al caballo, no al revés.</p>
-      </div>
-      <div class="feat reveal">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l3.5 4.5V20a1 1 0 01-1 1H5.5a1 1 0 01-1-1V7.5L8 3z"/><path d="M9 12h6M9 16h4"/></svg></div>
-        <h3>Informe en PDF y en imagen</h3>
-        <p>Exporta la ración completa como PDF o como PNG y compártela por WhatsApp con el cuidador. Nada se da de más ni se olvida.</p>
-      </div>
-      <div class="feat reveal">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9.5" width="4" height="5" rx="1.2"/><rect x="18" y="9.5" width="4" height="5" rx="1.2"/><path d="M6 12h2M16 12h2"/><rect x="8" y="10.5" width="8" height="3" rx="1"/></svg></div>
-        <h3>Peso con huincha e historial</h3>
-        <p>Registra el peso con dos medidas, guarda el historial con gráfico y te recuerda volver a medir cada 30 días.</p>
-      </div>
-      <div class="feat reveal">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 20.2L3.8 13.7a4.6 4.6 0 116.5-6.5l6.5 6.5a4.6 4.6 0 01-6.5 6.5z"/><line x1="8" y1="8.3" x2="15.7" y2="16"/></svg></div>
-        <h3>Suplementos ordenados</h3>
-        <p>Nombre, marca, dosis y horario de cada suplemento anotados en un solo lugar — con recordatorios claros.</p>
-      </div>
-      <div class="feat reveal">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 21l1.3-6.2c-1.4-1-2.3-2.7-2.3-4.6a5.5 5.5 0 0111 0c0 1.9-.9 3.6-2.3 4.6L16.5 21"/><circle cx="7.8" cy="19.2" r=".9" fill="currentColor" stroke="none"/><circle cx="16.2" cy="19.2" r=".9" fill="currentColor" stroke="none"/></svg></div>
-        <h3>Un caballo o el criadero</h3>
-        <p>Gestiona toda la caballeriza con lista de alimentos editable — agrega los tuyos si no están. Funciona offline una vez instalada.</p>
-      </div>
-    </div>
-    <div class="wa-ask reveal">
-      <a class="wa-link" href="https://wa.me/56932673835?text=Hola%2C%20tengo%20una%20duda%20sobre%20la%20app%20EquiNutrici%C3%B3n" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="ask_app"><svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.66.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.35-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 01-1.44-5.01c0-5.2 4.24-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.76a9.36 9.36 0 012.76 6.68c0 5.2-4.24 9.43-9.44 9.43zm8.04-17.49A11.35 11.35 0 0012.04.5C5.79.5.72 5.57.72 11.81c0 2.01.53 3.97 1.53 5.7L.62 23.5l6.14-1.61a11.3 11.3 0 005.28 1.35h.01c6.24 0 11.32-5.07 11.32-11.31 0-3.02-1.18-5.86-3.32-8z"/></svg>¿Una duda antes de empezar? Escríbeme por WhatsApp</a>
-    </div>
-  </div>
-</section>
-
-<section class="guides" id="guias">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="tagline">Aprende</span>
-      <h2>Guías para el dueño del caballo chileno.</h2>
-      <p>Información clara y con base técnica sobre cómo alimentar, manejar y cuidar a tu caballo — sin tecnicismos y pensada para el campo y el rodeo.</p>
-    </div>
-    <div class="topic-grid">
-      <a class="topic-card reveal" href="manejo.html" data-track="ver_guia" data-track-loc="manejo">
-        <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 21l1.3-6.2c-1.4-1-2.3-2.7-2.3-4.6a5.5 5.5 0 0111 0c0 1.9-.9 3.6-2.3 4.6L16.5 21"/><circle cx="7.8" cy="19.2" r=".9" fill="currentColor" stroke="none"/><circle cx="16.2" cy="19.2" r=".9" fill="currentColor" stroke="none"/></svg></span>
-        <h3>Manejo</h3>
-        <p>Rutina diaria, agua, pesebrera o potrero, transporte y descanso — la base de un caballo sano.</p>
-        <span class="t-more">Leer guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="topic-card reveal" href="alimentos.html" data-track="ver_guia" data-track-loc="alimentos">
-        <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V4.5"/><path d="M12 6.5l-3-2M12 6.5l3-2M12 9.5l-3-2M12 9.5l3-2M12 12.5l-3-2M12 12.5l3-2M12 15.5l-3-2M12 15.5l3-2"/></svg></span>
-        <h3>Alimentos</h3>
-        <p>Forrajes y concentrados: qué aporta cada uno, cómo elegir calidad y cuáles son de riesgo.</p>
-        <span class="t-more">Leer guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="topic-card reveal" href="suplementacion.html" data-track="ver_guia" data-track-loc="suplementacion">
-        <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 20.2L3.8 13.7a4.6 4.6 0 116.5-6.5l6.5 6.5a4.6 4.6 0 01-6.5 6.5z"/><line x1="8" y1="8.3" x2="15.7" y2="16"/></svg></span>
-        <h3>Suplementación</h3>
-        <p>Cuándo un suplemento suma de verdad y cuándo es solo marketing. Minerales, electrolitos y más.</p>
-        <span class="t-more">Leer guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="topic-card reveal" href="entrenamiento.html" data-track="ver_guia" data-track-loc="entrenamiento">
-        <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l2-5 4 10 2-5h4"/><path d="M18 9l3 3-3 3"/></svg></span>
-        <h3>Entrenamiento</h3>
-        <p>Acondicionamiento progresivo, nutrición antes y después del rodeo, y descanso para rendir sin lesiones.</p>
-        <span class="t-more">Leer guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="topic-card reveal" href="salud-preventiva.html" data-track="ver_guia" data-track-loc="salud_preventiva">
-        <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 9.5-4-1.2-7-5-7-9.5V6l7-3z"/><path d="M12 9v5M9.5 11.5h5"/></svg></span>
-        <h3>Salud preventiva</h3>
-        <p>Vacunas, desparasitación, dientes y primeros auxilios: cuándo actuar y cuándo llamar al veterinario.</p>
-        <span class="t-more">Leer guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="topic-card reveal" href="condicion-corporal.html" data-track="ver_guia" data-track-loc="condicion_corporal">
-        <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16a8 8 0 1116 0"/><path d="M12 16l3.5-3.5"/><circle cx="12" cy="16" r="1.1" fill="currentColor" stroke="none"/></svg></span>
-        <h3>Condición corporal</h3>
-        <p>Aprende a "leer" el cuerpo de tu caballo con la escala 1 a 9 y a saber si está flaco, ideal o pasado.</p>
-        <span class="t-more">Leer guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="topic-card reveal" href="reproduccion-y-crianza.html" data-track="ver_guia" data-track-loc="reproduccion">
-        <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-7-9.2A3.8 3.8 0 0112 8a3.8 3.8 0 017 2.8C19 15.7 12 20 12 20z"/></svg></span>
-        <h3>Reproducción y crianza</h3>
-        <p>Nutrición de la yegua gestante y en lactancia, el potrillo y el destete — las etapas que más exigen.</p>
-        <span class="t-more">Leer guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-    </div>
-    <div class="wa-ask reveal">
-      <a class="wa-link" href="https://wa.me/56932673835?text=Hola%2C%20tengo%20una%20consulta%20que%20no%20est%C3%A1%20en%20las%20gu%C3%ADas" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="ask_guias"><svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.66.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.35-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 01-1.44-5.01c0-5.2 4.24-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.76a9.36 9.36 0 012.76 6.68c0 5.2-4.24 9.43-9.44 9.43zm8.04-17.49A11.35 11.35 0 0012.04.5C5.79.5.72 5.57.72 11.81c0 2.01.53 3.97 1.53 5.7L.62 23.5l6.14-1.61a11.3 11.3 0 005.28 1.35h.01c6.24 0 11.32-5.07 11.32-11.31 0-3.02-1.18-5.86-3.32-8z"/></svg>¿Tu duda no está en las guías? Pregúntame por WhatsApp</a>
-    </div>
-  </div>
-</section>
-
 <section class="tutorial" id="tutorial">
   <div class="wrap">
     <div class="section-head">
       <span class="tagline">Cómo se usa</span>
-      <h2>De principio a fin, en 4 pasos.</h2>
-      <p>Cuatro pantallas y ya tienes la ración de tu caballo lista para hoy.</p>
+      <h2>Cuatro pasos y tienes su ración de hoy.</h2>
+      <p>Cada paso toma menos de un minuto. Si quieres el detalle de alguno, lo despliegas.</p>
     </div>
     <div class="tut-grid">
 
@@ -351,7 +165,11 @@
         </div>
         <span class="tut-num">1</span>
         <h3>Crea tu caballo</h3>
-        <p>Un toque para empezar. Nombre, foto y datos básicos — un caballo o toda la caballeriza.</p>
+        <p>Le pones nombre y, si quieres, una foto.</p>
+        <details class="tut-more">
+          <summary>Ver el detalle</summary>
+          <p>Esto se hace una sola vez. Cada caballo guarda su propia ficha: su peso, su condición y su ración. Con el plan gratis tienes un caballo; con Premium, todos los que quieras.</p>
+        </details>
       </div>
 
       <div class="tut-step reveal">
@@ -368,8 +186,12 @@
           </div>
         </div>
         <span class="tut-num">2</span>
-        <h3>Ingresa peso, trabajo y dieta</h3>
-        <p>Cuánto pesa, cuántos días lo ensillas por semana y qué alimentos tienes disponibles.</p>
+        <h3>Dime cuánto pesa y cuánto trabaja</h3>
+        <p>El peso, los días que lo ensillas y qué come.</p>
+        <details class="tut-more">
+          <summary>Ver el detalle</summary>
+          <p>Si no sabes el peso, <a href="#calculadora">la calculadora de esta página</a> te lo estima con una huincha y dos medidas. "Cuánto trabaja" es simplemente cuántos días por semana lo ensillas. Y en la dieta eliges el forraje y el concentrado que tienes de verdad en tu campo — si falta alguno, lo agregas tú.</p>
+        </details>
       </div>
 
       <div class="tut-step reveal">
@@ -392,8 +214,12 @@
           </div>
         </div>
         <span class="tut-num">3</span>
-        <h3>Marca su condición corporal</h3>
-        <p>Escala de 1 a 9 con guía visual: la app te explica qué mirar y ajusta la ración según el puntaje.</p>
+        <h3>Marca cómo lo ves hoy</h3>
+        <p>Del 1 al 9: flaco, ideal o pasado de peso.</p>
+        <details class="tut-more">
+          <summary>Ver el detalle</summary>
+          <p>La app te muestra qué mirar en las costillas, el lomo y la grupa, con una descripción para cada número. Si lo marcas flaco, le sube la ración hasta un 20%; si lo marcas pasado de peso, se la baja y le restringe el concentrado. Es el paso que hace que la ración sea de <em>tu</em> caballo y no de un caballo promedio.</p>
+        </details>
       </div>
 
       <div class="tut-step reveal">
@@ -408,8 +234,12 @@
           </div>
         </div>
         <span class="tut-num">4</span>
-        <h3>Recibe la ración del día</h3>
-        <p>Dividida en mañana, mediodía y tarde, con kilos y gramos exactos — lista para exportar y compartir.</p>
+        <h3>Listo: qué darle en cada comida</h3>
+        <p>Mañana, mediodía y tarde, con kilos y gramos.</p>
+        <details class="tut-more">
+          <summary>Ver el detalle</summary>
+          <p>Lo exportas en PDF o como imagen y se lo mandas por WhatsApp a quien alimenta, para que todos den lo mismo aunque tú no estés. Cuando cambie su peso o su condición, actualizas el dato y la ración se recalcula sola.</p>
+        </details>
       </div>
 
     </div>
@@ -474,55 +304,154 @@
   </div>
 </section>
 
-<section class="full-service" id="servicio">
+<section class="features" id="app">
   <div class="wrap">
     <div class="section-head">
-      <span class="tagline">Servicio en terreno</span>
-      <h2>Cuando quieres que un experto lo vea en persona.</h2>
-      <p>La app te da autonomía. Pero si prefieres que revise tus caballos yo mismo, en tu campo, también existe esa opción — trabajo directo contigo, no solo a través de la pantalla. Y si una visita todavía no se justifica, podemos partir por la dieta, a distancia.</p>
+      <span class="tagline">La app</span>
+      <h2>De un objetivo a la ración del día, sin adivinar.</h2>
+      <p>No es una calculadora genérica: junta el peso, el trabajo y la condición corporal de tu caballo para decirte exactamente qué darle hoy — y lo deja listo para compartir con quien alimenta.</p>
     </div>
-    <div class="split">
+
+    <div class="split app-intro">
       <div class="split-media media kb reveal">
-        <img src="images/servicio-terreno.jpg" width="1200" height="800" loading="lazy" alt="Dos caballos en un campo, uno pastando, en una ladera con cultivo">
+        <img src="images/nutricion-heno.jpg" width="1200" height="900" loading="lazy" alt="Caballos comiendo heno en el comedero de una caballeriza">
       </div>
       <div class="split-copy">
-        <div class="fs-steps">
-          <div class="fs-step"><h4>Auditoría en terreno</h4><p>Voy a ver tus caballos donde están: reviso condición corporal, alimentación actual y manejo. En persona, no por foto.</p></div>
-          <div class="fs-step"><h4>Plan a la medida</h4><p>Un plan nutricional hecho para tus caballos, tus alimentos y tu presupuesto. Nada de plantillas genéricas.</p></div>
-          <div class="fs-step"><h4>Protocolo para el rodeo</h4><p>Qué darle antes y después de correr para que rinda y se recupere bien, sin improvisar.</p></div>
-          <div class="fs-step"><h4>Soporte directo</h4><p>Las dudas del día a día las resuelves conmigo, cuando aparecen — no con un formulario.</p></div>
-        </div>
-        <div class="fs-extra">
-          <span class="badge">Extra</span>
-          <h4>Informe de costos</h4>
-          <p>Cuánto gastas por caballo en comida y suplementos, al día y al mes — con opción de calcularlo para todo el criadero.</p>
-        </div>
-        <p class="fs-note">Disponible desde 1 collera en adelante — y es la vía para criaderos y planteles completos.</p>
-        <div class="fs-cta">
-          <a class="btn-whatsapp" href="https://wa.me/56932673835?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20del%20servicio%20en%20terreno" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="servicio_terreno"><svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.66.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.35-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 01-1.44-5.01c0-5.2 4.24-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.76a9.36 9.36 0 012.76 6.68c0 5.2-4.24 9.43-9.44 9.43zm8.04-17.49A11.35 11.35 0 0012.04.5C5.79.5.72 5.57.72 11.81c0 2.01.53 3.97 1.53 5.7L.62 23.5l6.14-1.61a11.3 11.3 0 005.28 1.35h.01c6.24 0 11.32-5.07 11.32-11.31 0-3.02-1.18-5.86-3.32-8z"/></svg>Conversemos por WhatsApp</a>
-        </div>
+        <p class="lead">La ración deja de ser una herencia y pasa a ser una decisión con fundamento.</p>
+        <p>La app calcula <strong>cuánto heno, concentrado y suplemento</strong> necesita tu caballo según su peso, cuánto trabaja y si está preñada o en lactancia. Después mira su condición corporal y <strong>ajusta la ración hasta un 20%</strong> sola: si está flaco le sube, si está pasado le baja y le restringe el concentrado.</p>
+        <p>Y cuando ya está lista, <strong>la exportas como PDF o como imagen (PNG)</strong> y se la mandas por WhatsApp al petiso o al cuidador. Así todos alimentan igual, aunque tú no estés.</p>
       </div>
     </div>
 
-    <div class="fs-remote reveal" id="revision">
-      <div class="fs-remote-main">
-        <span class="badge">A distancia</span>
-        <h3>¿Todavía no da para una visita? Partamos por la dieta.</h3>
-        <p>Me mandas fotos de tu caballo, sus medidas de huincha y qué está comiendo hoy. Te devuelvo un informe en PDF con la ración corregida, el porqué de cada cambio y cómo hacer la transición sin apurarla.</p>
-        <ul class="fs-remote-list">
-          <li>Fotos de perfil, de atrás y de arriba</li>
-          <li>Medidas de huincha: perímetro torácico y largo del cuerpo</li>
-          <li>Qué come hoy — alimento, marca y cantidades</li>
-          <li>Cuánto trabaja por semana, su edad, y si está preñada o en lactancia</li>
-        </ul>
-        <p class="fs-remote-note">Entrega en 5 días hábiles. Es una revisión de <strong>alimentación</strong>, no un diagnóstico clínico: si tu caballo está enfermo, con cólicos a repetición o bajando de peso sin causa clara, eso lo ve tu veterinario primero.</p>
+    <div class="feat-grid">
+      <div class="feat reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11h14l-1.2 6.3A3 3 0 0114.9 20H9.1a3 3 0 01-2.9-2.7L5 11z"/><ellipse cx="12" cy="11" rx="7" ry="2"/><circle cx="9.2" cy="6.8" r=".7" fill="currentColor" stroke="none"/><circle cx="12.5" cy="5.8" r=".7" fill="currentColor" stroke="none"/><circle cx="15" cy="7.2" r=".7" fill="currentColor" stroke="none"/></svg></div>
+        <h3>Ración diaria exacta</h3>
+        <p>Cuánto heno, concentrado y suplemento darle, dividido en 2, 3 o 4 comidas. Kilos y gramos concretos, no "un poco más o menos".</p>
       </div>
-      <aside class="fs-remote-buy">
-        <div class="price">$10.000<small>por caballo</small></div>
-        <p class="fs-remote-sub">Pago por transferencia, antes de empezar.</p>
-        <a class="btn-whatsapp btn-block" href="https://wa.me/56932673835?text=Hola%20Luis%2C%20quiero%20una%20revisi%C3%B3n%20de%20dieta%20a%20distancia%20para%20mi%20caballo.%20%C2%BFQu%C3%A9%20datos%20necesitas%3F" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="revision_remota"><svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.66.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.35-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 01-1.44-5.01c0-5.2 4.24-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.76a9.36 9.36 0 012.76 6.68c0 5.2-4.24 9.43-9.44 9.43zm8.04-17.49A11.35 11.35 0 0012.04.5C5.79.5.72 5.57.72 11.81c0 2.01.53 3.97 1.53 5.7L.62 23.5l6.14-1.61a11.3 11.3 0 005.28 1.35h.01c6.24 0 11.32-5.07 11.32-11.31 0-3.02-1.18-5.86-3.32-8z"/></svg>Pedir mi revisión</a>
-        <p class="fs-remote-cupos">Tomo pocas revisiones por semana para hacerlas bien. Si el cupo está lleno, te aviso al tiro.</p>
-      </aside>
+      <div class="feat highlight reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16a8 8 0 1116 0"/><path d="M12 16l3.5-3.5"/><circle cx="12" cy="16" r="1.1" fill="currentColor" stroke="none"/></svg></div>
+        <h3>Se ajusta a su condición</h3>
+        <p>Marcas si está flaco, ideal o pasado de peso (escala 1 a 9) y la ración sube o baja hasta un 20% sola. La nutrición sigue al caballo, no al revés.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l3.5 4.5V20a1 1 0 01-1 1H5.5a1 1 0 01-1-1V7.5L8 3z"/><path d="M9 12h6M9 16h4"/></svg></div>
+        <h3>Informe en PDF y en imagen</h3>
+        <p>Exporta la ración completa como PDF o como PNG y compártela por WhatsApp con el cuidador. Nada se da de más ni se olvida.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9.5" width="4" height="5" rx="1.2"/><rect x="18" y="9.5" width="4" height="5" rx="1.2"/><path d="M6 12h2M16 12h2"/><rect x="8" y="10.5" width="8" height="3" rx="1"/></svg></div>
+        <h3>Peso con huincha e historial</h3>
+        <p>Registra el peso con dos medidas, guarda el historial con gráfico y te recuerda volver a medir cada 30 días.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 20.2L3.8 13.7a4.6 4.6 0 116.5-6.5l6.5 6.5a4.6 4.6 0 01-6.5 6.5z"/><line x1="8" y1="8.3" x2="15.7" y2="16"/></svg></div>
+        <h3>Suplementos ordenados</h3>
+        <p>Nombre, marca, dosis y horario de cada suplemento anotados en un solo lugar — con recordatorios claros.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 21l1.3-6.2c-1.4-1-2.3-2.7-2.3-4.6a5.5 5.5 0 0111 0c0 1.9-.9 3.6-2.3 4.6L16.5 21"/><circle cx="7.8" cy="19.2" r=".9" fill="currentColor" stroke="none"/><circle cx="16.2" cy="19.2" r=".9" fill="currentColor" stroke="none"/></svg></div>
+        <h3>Un caballo o el criadero</h3>
+        <p>Gestiona toda la caballeriza con lista de alimentos editable — agrega los tuyos si no están. Funciona offline una vez instalada.</p>
+      </div>
+    </div>
+    <div class="wa-ask reveal">
+      <a class="wa-link" href="https://wa.me/56932673835?text=Hola%2C%20tengo%20una%20duda%20sobre%20la%20app%20EquiNutrici%C3%B3n" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="ask_app"><svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.66.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.35-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 01-1.44-5.01c0-5.2 4.24-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.76a9.36 9.36 0 012.76 6.68c0 5.2-4.24 9.43-9.44 9.43zm8.04-17.49A11.35 11.35 0 0012.04.5C5.79.5.72 5.57.72 11.81c0 2.01.53 3.97 1.53 5.7L.62 23.5l6.14-1.61a11.3 11.3 0 005.28 1.35h.01c6.24 0 11.32-5.07 11.32-11.31 0-3.02-1.18-5.86-3.32-8z"/></svg>¿Una duda antes de empezar? Escríbeme por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="calc-section" id="calculadora">
+  <div class="wrap">
+    <div class="wc-card reveal">
+      <span class="wc-badge">Herramienta gratis · sin instalar nada</span>
+      <h2>Calcula el peso de tu caballo con una huincha</h2>
+      <p class="wc-intro">Sin balanza ni báscula de camión. Con dos medidas y 30 segundos tienes una estimación confiable — la misma fórmula que usan las cintas de peso ("weight tapes") de uso veterinario.</p>
+      <div class="wc-warning">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 16.5h.01"/><path d="M10.3 3.9L2.7 17a1.8 1.8 0 001.55 2.7h15.5A1.8 1.8 0 0021.3 17L13.7 3.9a1.8 1.8 0 00-3.4 0z"/></svg>
+        <div>
+          <strong>Antes de medir</strong>
+          <p>El caballo debe estar parado derecho sobre terreno plano, con las cuatro patas apoyadas parejo y la cabeza relajada — no levantada.</p>
+        </div>
+      </div>
+      <div class="wc-fields">
+        <div class="wc-field">
+          <label for="wcGirth">Perímetro torácico (cm)</label>
+          <p class="wc-help">Rodea el tórax con la huincha justo detrás de la cruz y las patas delanteras. Ajustada pero sin apretar, con el caballo respirando normal.</p>
+          <input type="number" inputmode="decimal" min="80" max="260" step="1" value="180" id="wcGirth" aria-label="Perímetro torácico en centímetros">
+        </div>
+        <div class="wc-field">
+          <label for="wcLength">Largo corporal (cm)</label>
+          <p class="wc-help">En línea recta, desde la punta del hombro (articulación escápulo-humeral) hasta la punta del anca (isquion).</p>
+          <input type="number" inputmode="decimal" min="60" max="220" step="1" value="150" id="wcLength" aria-label="Largo corporal en centímetros">
+        </div>
+      </div>
+      <div class="wc-result" id="wcResult">
+        <span class="wc-result-label">Peso estimado</span>
+        <span class="wc-result-num" id="wcWeight">408 kg</span>
+        <span class="wc-result-note">±10% de margen — no reemplaza una pesa real</span>
+      </div>
+      <a class="btn-primary btn-block" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="calculadora_peso">Usar este peso en la app</a>
+    </div>
+    <div class="wa-ask reveal">
+      <a class="wa-link" href="https://wa.me/56932673835?text=Hola%2C%20tengo%20una%20duda%20midiendo%20el%20peso%20de%20mi%20caballo" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="ask_calculadora"><svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.66.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.35-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 01-1.44-5.01c0-5.2 4.24-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.76a9.36 9.36 0 012.76 6.68c0 5.2-4.24 9.43-9.44 9.43zm8.04-17.49A11.35 11.35 0 0012.04.5C5.79.5.72 5.57.72 11.81c0 2.01.53 3.97 1.53 5.7L.62 23.5l6.14-1.61a11.3 11.3 0 005.28 1.35h.01c6.24 0 11.32-5.07 11.32-11.31 0-3.02-1.18-5.86-3.32-8z"/></svg>¿Dudas al medir? Consúltame por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="guides" id="guias">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tagline">Aprende</span>
+      <h2>Guías para el dueño del caballo chileno.</h2>
+      <p>Información clara y con base técnica sobre cómo alimentar, manejar y cuidar a tu caballo — sin tecnicismos y pensada para el campo y el rodeo.</p>
+    </div>
+    <div class="topic-grid">
+      <a class="topic-card reveal" href="manejo.html" data-track="ver_guia" data-track-loc="manejo">
+        <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 21l1.3-6.2c-1.4-1-2.3-2.7-2.3-4.6a5.5 5.5 0 0111 0c0 1.9-.9 3.6-2.3 4.6L16.5 21"/><circle cx="7.8" cy="19.2" r=".9" fill="currentColor" stroke="none"/><circle cx="16.2" cy="19.2" r=".9" fill="currentColor" stroke="none"/></svg></span>
+        <h3>Manejo</h3>
+        <p>Rutina diaria, agua, pesebrera o potrero, transporte y descanso — la base de un caballo sano.</p>
+        <span class="t-more">Leer guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="topic-card reveal" href="alimentos.html" data-track="ver_guia" data-track-loc="alimentos">
+        <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V4.5"/><path d="M12 6.5l-3-2M12 6.5l3-2M12 9.5l-3-2M12 9.5l3-2M12 12.5l-3-2M12 12.5l3-2M12 15.5l-3-2M12 15.5l3-2"/></svg></span>
+        <h3>Alimentos</h3>
+        <p>Forrajes y concentrados: qué aporta cada uno, cómo elegir calidad y cuáles son de riesgo.</p>
+        <span class="t-more">Leer guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="topic-card reveal" href="suplementacion.html" data-track="ver_guia" data-track-loc="suplementacion">
+        <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 20.2L3.8 13.7a4.6 4.6 0 116.5-6.5l6.5 6.5a4.6 4.6 0 01-6.5 6.5z"/><line x1="8" y1="8.3" x2="15.7" y2="16"/></svg></span>
+        <h3>Suplementación</h3>
+        <p>Cuándo un suplemento suma de verdad y cuándo es solo marketing. Minerales, electrolitos y más.</p>
+        <span class="t-more">Leer guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="topic-card reveal" href="entrenamiento.html" data-track="ver_guia" data-track-loc="entrenamiento">
+        <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l2-5 4 10 2-5h4"/><path d="M18 9l3 3-3 3"/></svg></span>
+        <h3>Entrenamiento</h3>
+        <p>Acondicionamiento progresivo, nutrición antes y después del rodeo, y descanso para rendir sin lesiones.</p>
+        <span class="t-more">Leer guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="topic-card reveal" href="salud-preventiva.html" data-track="ver_guia" data-track-loc="salud_preventiva">
+        <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 9.5-4-1.2-7-5-7-9.5V6l7-3z"/><path d="M12 9v5M9.5 11.5h5"/></svg></span>
+        <h3>Salud preventiva</h3>
+        <p>Vacunas, desparasitación, dientes y primeros auxilios: cuándo actuar y cuándo llamar al veterinario.</p>
+        <span class="t-more">Leer guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="topic-card reveal" href="condicion-corporal.html" data-track="ver_guia" data-track-loc="condicion_corporal">
+        <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16a8 8 0 1116 0"/><path d="M12 16l3.5-3.5"/><circle cx="12" cy="16" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+        <h3>Condición corporal</h3>
+        <p>Aprende a "leer" el cuerpo de tu caballo con la escala 1 a 9 y a saber si está flaco, ideal o pasado.</p>
+        <span class="t-more">Leer guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="topic-card reveal" href="reproduccion-y-crianza.html" data-track="ver_guia" data-track-loc="reproduccion">
+        <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-7-9.2A3.8 3.8 0 0112 8a3.8 3.8 0 017 2.8C19 15.7 12 20 12 20z"/></svg></span>
+        <h3>Reproducción y crianza</h3>
+        <p>Nutrición de la yegua gestante y en lactancia, el potrillo y el destete — las etapas que más exigen.</p>
+        <span class="t-more">Leer guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+    <div class="wa-ask reveal">
+      <a class="wa-link" href="https://wa.me/56932673835?text=Hola%2C%20tengo%20una%20consulta%20que%20no%20est%C3%A1%20en%20las%20gu%C3%ADas" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="ask_guias"><svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.66.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.35-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 01-1.44-5.01c0-5.2 4.24-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.76a9.36 9.36 0 012.76 6.68c0 5.2-4.24 9.43-9.44 9.43zm8.04-17.49A11.35 11.35 0 0012.04.5C5.79.5.72 5.57.72 11.81c0 2.01.53 3.97 1.53 5.7L.62 23.5l6.14-1.61a11.3 11.3 0 005.28 1.35h.01c6.24 0 11.32-5.07 11.32-11.31 0-3.02-1.18-5.86-3.32-8z"/></svg>¿Tu duda no está en las guías? Pregúntame por WhatsApp</a>
     </div>
   </div>
 </section>
@@ -531,25 +460,11 @@
   <div class="wrap">
     <div class="section-head">
       <span class="tagline">Preguntas frecuentes</span>
-      <h2>Lo que la gente nos pregunta.</h2>
-      <p>Y si te queda una duda que no está acá, escríbenos por WhatsApp — contestamos nosotros mismos.</p>
+      <h2>Lo que más nos preguntan de la app.</h2>
     </div>
     <div class="faq-list">
 
-      <details class="faq-item about" open>
-        <summary>¿Quiénes somos?<span class="plus"></span></summary>
-        <div class="faq-body">
-          <div class="faq-founder">
-            <span class="avatar">LA</span>
-            <span class="who"><b>Luis Aguirre</b><span>Creador de EquiNutrición · Estudiante de Medicina Veterinaria</span></span>
-          </div>
-          <p>Soy Luis Aguirre, estudiante de Medicina Veterinaria y crecí entre caballos, en la tradición huasa de mi familia. Trabajando en terreno me di cuenta de algo que se repite en todos lados: al caballo se le alimenta <strong>a ojo</strong>. Se copia lo que le funciona al vecino y se compran alimentos más por el marketing de la marca que por lo que realmente aportan.</p>
-          <p>Cuando busqué respuestas serias, me encontré con que sobre el <strong>caballo de raza chilena casi no hay estudios</strong> — muchas veces se le aplican fórmulas pensadas para otras razas o disciplinas, que pueden estar equivocadas.</p>
-          <p>EquiNutrición nació de ahí: para <strong>democratizar el conocimiento de nutrición equina</strong> y ponerlo en la mano de cualquier dueño o criador, enfocado 100% en nuestro caballo chileno. Que decidir qué come tu caballo deje de ser una adivinanza.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
+      <details class="faq-item" open>
         <summary>¿Funciona sin internet?<span class="plus"></span></summary>
         <div class="faq-body"><p>Sí. Una vez que la instalas, la app sigue disponible aunque no tengas señal — en la hípica, la medialuna o el campo. Tus datos quedan guardados en tu teléfono.</p></div>
       </details>
@@ -577,12 +492,7 @@
 
       <details class="faq-item">
         <summary>¿Reemplaza al veterinario?<span class="plus"></span></summary>
-        <div class="faq-body"><p>No. Es una herramienta para ordenar y fundamentar la alimentación del día a día. Ante enfermedades, dietas especiales o casos complejos, siempre consulta a tu veterinario — o pídenos el <a href="index.html#servicio" style="color:var(--sage-deep);font-weight:600;">servicio en terreno</a>.</p></div>
-      </details>
-
-      <details class="faq-item">
-        <summary>¿Qué incluye la revisión de dieta a distancia?<span class="plus"></span></summary>
-        <div class="faq-body"><p>Reviso la alimentación de <strong>un caballo</strong> con lo que me mandes — fotos, medidas de huincha y qué come hoy — y te devuelvo un informe en PDF con la ración corregida, el porqué de cada cambio y cómo hacer la transición. Son $10.000 por caballo, se paga por transferencia antes de empezar y llega en 5 días hábiles. No incluye visita ni diagnóstico clínico: si el caballo está enfermo o bajando de peso sin causa clara, eso lo ve tu veterinario. Si prefieres que vaya a verlo, ahí conversamos el <a href="index.html#servicio" style="color:var(--sage-deep);font-weight:600;">servicio en terreno</a>.</p></div>
+        <div class="faq-body"><p>No. Es una herramienta para ordenar y fundamentar la alimentación del día a día. Ante enfermedades, dietas especiales o casos complejos, siempre consulta a tu veterinario. Y si quieres que revise la dieta contigo, están los <a class="faq-link" href="otros-servicios.html">otros servicios</a>.</p></div>
       </details>
 
       <details class="faq-item">
@@ -594,8 +504,37 @@
 
     <div class="faq-ask reveal">
       <h3>¿Te quedó una duda que no está acá?</h3>
-      <p>Escríbeme por WhatsApp y te respondo yo mismo — sobre nutrición, manejo o el servicio en terreno.</p>
+      <p>Escríbeme por WhatsApp y te respondo yo mismo — sobre la app, nutrición o manejo.</p>
       <a class="btn-whatsapp" href="https://wa.me/56932673835?text=Hola%20Luis%2C%20tengo%20una%20consulta" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="faq"><svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.66.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.35-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 01-1.44-5.01c0-5.2 4.24-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.76a9.36 9.36 0 012.76 6.68c0 5.2-4.24 9.43-9.44 9.43zm8.04-17.49A11.35 11.35 0 0012.04.5C5.79.5.72 5.57.72 11.81c0 2.01.53 3.97 1.53 5.7L.62 23.5l6.14-1.61a11.3 11.3 0 005.28 1.35h.01c6.24 0 11.32-5.07 11.32-11.31 0-3.02-1.18-5.86-3.32-8z"/></svg>Hacer una consulta</a>
+    </div>
+  </div>
+</section>
+
+<section class="about-us" id="nosotros">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tagline">Quiénes somos</span>
+      <h2>Detrás de la app hay una persona, no una empresa.</h2>
+    </div>
+    <div class="au-grid">
+      <div class="au-who reveal">
+        <div class="faq-founder">
+          <span class="avatar">LA</span>
+          <span class="who"><b>Luis Aguirre</b><span>Creador de EquiNutrición · Estudiante de Medicina Veterinaria</span></span>
+        </div>
+        <p>Crecí entre caballos, en la tradición huasa de mi familia. Trabajando en terreno vi algo que se repite en todos lados: al caballo se le alimenta <strong>a ojo</strong>. Se copia lo que le funciona al vecino y se compran alimentos más por el marketing de la marca que por lo que aportan.</p>
+        <p>Cuando busqué respuestas serias me encontré con que sobre el <strong>caballo de raza chilena casi no hay estudios</strong> — muchas veces se le aplican fórmulas pensadas para otras razas o disciplinas, que pueden estar equivocadas. EquiNutrición nació de ahí.</p>
+      </div>
+      <div class="au-mv">
+        <div class="au-card reveal">
+          <h3>Nuestra misión</h3>
+          <p>Poner el conocimiento de nutrición equina en la mano de cualquier dueño o criador, en lenguaje simple y con base técnica, para que decidir qué come su caballo deje de ser una adivinanza.</p>
+        </div>
+        <div class="au-card reveal">
+          <h3>Nuestra visión</h3>
+          <p>Que el caballo de raza chilena deje de alimentarse por costumbre, y que exista sobre él la información que hoy no existe — generada acá, con nuestros caballos y nuestros alimentos.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -604,8 +543,10 @@
   <div class="cta-bg" aria-hidden="true"></div>
   <div class="wrap">
     <h2>¿Con cuántos caballos partimos?</h2>
-    <p>Escríbeme directo por WhatsApp — resolvemos tus dudas o conversamos del servicio en terreno el mismo día. El Premium ahora lo activas tú mismo dentro de la app.</p>
+    <p>La app es gratis, no pide tarjeta y calcula la ración de tu caballo en cuatro pasos. Si tienes una duda antes de empezar, escríbeme por WhatsApp y te respondo yo mismo.</p>
+    <div class="cta-final-ctas"><a class="btn-primary" href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="cta_final">Abrir la app gratis</a>
     <a class="btn-whatsapp" href="https://wa.me/56932673835" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-loc="cta_final"><svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.66.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.35-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 01-1.44-5.01c0-5.2 4.24-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.76a9.36 9.36 0 012.76 6.68c0 5.2-4.24 9.43-9.44 9.43zm8.04-17.49A11.35 11.35 0 0012.04.5C5.79.5.72 5.57.72 11.81c0 2.01.53 3.97 1.53 5.7L.62 23.5l6.14-1.61a11.3 11.3 0 005.28 1.35h.01c6.24 0 11.32-5.07 11.32-11.31 0-3.02-1.18-5.86-3.32-8z"/></svg>Escribir al +56 9 3267 3835</a>
+    </div>
   </div>
 </section>
 
@@ -637,10 +578,11 @@
       <div class="footer-col">
         <h5>EquiNutrición</h5>
         <a href="index.html">Inicio</a>
-        <a href="index.html#app">La app</a>
+        <a href="index.html#tutorial">Cómo se usa</a>
         <a href="index.html#planes">Planes</a>
-        <a href="index.html#servicio">Servicio en terreno</a>
         <a href="index.html#faq">Preguntas frecuentes</a>
+        <a href="index.html#nosotros">Quiénes somos</a>
+        <a href="otros-servicios.html">Otros servicios</a>
         <a href="https://laguirrevet.github.io/equinutricion/" target="_blank" rel="noopener" data-track="abrir_app" data-track-loc="footer">Abrir la app</a>
       </div>
     </div>
