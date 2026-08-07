@@ -446,6 +446,7 @@ section{ padding:64px 0; }
 .faq-body p{ margin-bottom:10px; }
 .faq-body p:last-child{ margin-bottom:0; }
 .faq-body strong{ color:var(--ink); }
+.faq-link{ color:var(--sage-deep); font-weight:700; text-decoration:underline; text-underline-offset:2px; }
 .faq-item.about summary{ color:var(--sage-deep); }
 .faq-founder{ display:flex; gap:14px; align-items:center; margin-bottom:14px; }
 .faq-founder .avatar{ width:52px; height:52px; border-radius:50%; background:linear-gradient(135deg,var(--sage-deep),var(--sage)); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:20px; flex-shrink:0; }
