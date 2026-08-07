@@ -496,6 +496,8 @@ section{ padding:64px 0; }
 }
 .au-card h3{ font-size:16px; margin-bottom:8px; }
 .au-card p{ font-size:14.5px; color:var(--ink-soft); }
+.au-invite{ font-size:13.5px; color:var(--ink-soft); line-height:1.6; }
+.au-invite a{ color:var(--sage-deep); font-weight:700; text-decoration:underline; text-underline-offset:2px; }
 
 /* ===== OTROS SERVICIOS ===== */
 .full-service.alt{ background:var(--bg-alt); }
