@@ -228,14 +228,16 @@ section{ padding:64px 0; }
 .hero-note{ margin-top:18px; font-size:13.5px; color:rgba(255,255,255,0.78); display:flex; align-items:center; gap:8px; }
 .hero-note svg{ width:16px; height:16px; flex-shrink:0; color:#5fe0ac; }
 
-/* ===== WEIGHT CALCULATOR (floating, overlaps hero) ===== */
-.calc-section{ background:var(--bg); position:relative; z-index:5; padding-top:0; }
+/* ===== WEIGHT CALCULATOR ===== */
+/* Vivía pegada al hero con margen negativo. Desde el 2026-09-01 va entre el
+   servicio en terreno y la app, así que la tarjeta se apoya en el flujo normal. */
+.calc-section{ background:var(--bg); position:relative; z-index:5; padding-top:16px; }
 .wc-card{
   background:#fff; border:1px solid var(--line); border-radius:22px;
-  padding:30px 26px 28px; max-width:660px; margin:-110px auto 0;
+  padding:30px 26px 28px; max-width:660px; margin:0 auto;
   box-shadow:var(--shadow-card); position:relative;
 }
-@media (min-width:768px){ .wc-card{ margin-top:-140px; padding:38px 40px 34px; } }
+@media (min-width:768px){ .wc-card{ padding:38px 40px 34px; } }
 .wc-badge{
   display:inline-flex; align-items:center; gap:8px;
   background:var(--sage-tint); color:var(--sage-deep);
@@ -370,6 +372,24 @@ section{ padding:64px 0; }
 .plan .plan-cta.wa{ background:linear-gradient(135deg, var(--wa-deep), var(--wa)); border-color:var(--wa-deep); color:#fff; }
 
 /* ===== SERVICIO EN TERRENO ===== */
+/* ===== SERVICIO EN TERRENO (portada) ===== */
+.terreno{ background:var(--bg); padding-bottom:44px; }
+.terreno .section-head{ max-width:660px; margin:0 auto 34px; text-align:center; }
+.tr-grid{ display:grid; grid-template-columns:1fr; gap:14px; }
+@media (min-width:600px){ .tr-grid{ grid-template-columns:1fr 1fr; } }
+@media (min-width:980px){ .tr-grid{ grid-template-columns:repeat(4,1fr); gap:16px; } }
+.tr-item{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:20px 18px; }
+.tr-num{ display:block; font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:600; color:var(--sage-deep); margin-bottom:8px; }
+.tr-item h3{ font-size:15.5px; font-weight:700; margin-bottom:5px; }
+.tr-item p{ font-size:13.5px; color:var(--ink-soft); line-height:1.55; }
+.tr-foot{ margin-top:26px; display:flex; flex-direction:column; align-items:center; gap:16px; text-align:center; }
+.tr-extra{ font-size:14px; color:var(--ink-soft); max-width:62ch; }
+.tr-extra strong{ color:var(--ink); }
+.tr-ctas{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
+.tr-note{ font-size:12.5px; line-height:1.6; color:var(--ink-soft); max-width:60ch; }
+.tr-note strong{ color:var(--ink); }
+@media (max-width:520px){ .tr-ctas .btn-whatsapp, .tr-ctas .btn-secondary{ width:100%; max-width:340px; } }
+
 .full-service{ background:var(--bg); }
 .fs-steps{ display:grid; gap:16px; margin-top:8px; }
 @media (min-width:560px){ .fs-steps{ grid-template-columns:1fr 1fr; } }
