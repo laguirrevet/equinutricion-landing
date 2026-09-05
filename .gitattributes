@@ -1,0 +1,9 @@
+# El sitio se genera con _build/build.js, que escribe siempre LF.
+# Sin esto, un clon en Windows (core.autocrlf=true) entrega CRLF, el build
+# reescribe en LF y cada corrida marca archivos enteros como modificados
+# aunque no cambie una palabra.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.ico binary
